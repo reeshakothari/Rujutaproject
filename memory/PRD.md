@@ -28,8 +28,9 @@ Build a premium, mobile-first Phase 1 campaign microsite for the Rutuja Dignity 
 - Accessibility: semantic headings, labels, focus states, aria on forms/accordion, reduced-motion support.
 - Verified by testing agent: 100% frontend pass, zero console errors, no horizontal overflow at 390px.
 
-## Content status — placeholders pending verification
-- Impact numbers, 2–3 field stories (quote/context/location/audience), Trust credentials (80G/12A/CSR-1/DARPAN/registration/partners/IP), 3 FAQ answers, public contact details, donation mechanism.
+## Content status
+- VERIFIED & LIVE (2026-08-17): Impact — 20+ sessions, 700+ people reached, 6 states/UTs (Delhi, Odisha, Haryana, Uttarakhand, Maharashtra, Karnataka), shown conservatively. Field stories — 3 real reflections (Bengaluru, Dehradun, Rewari) with names withheld (publication permission not yet confirmed). Trust — registered under Mumbai Public Trust Act 1950; 80G, 12A, CSR-1, NITI Aayog DARPAN all confirmed (ID numbers pending).
+- STILL PLACEHOLDER (pending verification): registration ID numbers; verified partner list & logos; ambassador count; dolls distributed; media/awards; patent/IP/design status; public contact details; donation mechanism.
 
 ## Backlog
 - P0: Replace placeholders with verified content once approved; connect donation mechanism.

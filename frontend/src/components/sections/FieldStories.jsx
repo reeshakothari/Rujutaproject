@@ -90,12 +90,16 @@ function StoryWide({ quote, context, location, audience, img, index }) {
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <Reveal delay={0.05}>
-            <blockquote className="font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
+            {quote ? (
+              <blockquote className="font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
+            ) : (
+              <p className="font-serif text-2xl leading-snug text-white/90 md:text-3xl">{context}</p>
+            )}
           </Reveal>
         </div>
         <div className="lg:col-span-4">
           <Reveal delay={0.1}>
-            <p className="text-sm leading-relaxed text-white/70">{context}</p>
+            {quote && <p className="text-sm leading-relaxed text-white/70">{context}</p>}
             <Meta location={location} audience={audience} />
           </Reveal>
         </div>
