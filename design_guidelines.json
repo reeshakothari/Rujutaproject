@@ -1,0 +1,109 @@
+{
+  "theme": "light",
+  "typography": {
+    "headings": {
+      "font_family": "Playfair Display, serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Used for all major section titles, manifesto numbers, quotes, and the primary hero heading. Use tight tracking (tracking-tight) for large sizes."
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Used for all paragraphs, buttons, UI elements, navigation, and small labels. Keep tracking normal, loose line-height (leading-relaxed) for readability."
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-none",
+      "h2": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h3": "text-2xl md:text-3xl lg:text-4xl leading-snug",
+      "h4": "text-xl md:text-2xl",
+      "body": "text-base md:text-lg leading-relaxed text-gray-700",
+      "small": "text-sm text-gray-500 tracking-wide uppercase"
+    }
+  },
+  "colors": {
+    "primary": {
+      "name": "Rutuja Blue",
+      "hex": "#295EAA",
+      "usage": "Trust, structure, navigation, primary call-to-actions, and structural borders."
+    },
+    "secondary": {
+      "name": "Rutuja Pink",
+      "hex": "#C82B62",
+      "usage": "Emotional emphasis, key highlight words in text, secondary CTAs, and storytelling accents. Use sparingly."
+    },
+    "background": {
+      "primary": "#FFFFFF",
+      "secondary": "#F8F8FA",
+      "usage": "70-80% of the UI should be these white/soft neutral colors to let typography and imagery breathe."
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4A52",
+      "muted": "#8A8A93",
+      "usage": "Primary text for headings and strong body content. Secondary for standard body content. Muted for captions."
+    },
+    "borders": {
+      "default": "#E5E5EB",
+      "usage": "Very light neutral grey for subtle dividers and minimal card outlines. Never harsh black borders."
+    }
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Use py-24 or py-32 for section padding. Use gap-12 to gap-24 for grid layouts.",
+    "grids": "Use asymmetric layouts (e.g., col-span-5 for text, col-span-7 for image) to create tension and an editorial feel.",
+    "alignment": "Mix of center alignment for majestic section headers (like 'Meet the Dignity Doll') and left-aligned structured grids for 'How It Works'.",
+    "corners": "Minimal border radius. Use rounded-sm or rounded-none for images and buttons to maintain a premium editorial feel, instead of playful heavy rounded corners."
+  },
+  "motion": {
+    "scroll": "MUST install and use `lenis` or `@studio-freight/react-lenis` for buttery smooth scrolling.",
+    "hero_reveal": "Masked line-by-line reveal using `framer-motion`. Wrap lines in `overflow-hidden` and animate `y` from `100%` to `0%`.",
+    "parallax": "Subtle parallax on hero images and large section background images using `framer-motion` useScroll.",
+    "marquee": "Slow, elegant editorial marquee for 'Stories From the Field' or partner logos. Use `react-fast-marquee`.",
+    "micro_interactions": "Subtle hover lifts (`-translate-y-1`), image scale up within `overflow-hidden` containers on hover."
+  },
+  "components": {
+    "navigation": "Sticky nav. Initially transparent (`bg-transparent`), transitions to solid white (`bg-white shadow-sm`) upon scroll. Must include an EN | हिंदी toggle.",
+    "buttons": {
+      "primary": "bg-[#295EAA] text-white hover:bg-[#204985] px-6 py-3 transition-colors",
+      "secondary": "bg-[#C82B62] text-white hover:bg-[#A3234F] px-6 py-3 transition-colors",
+      "outline": "bg-transparent border border-[#295EAA] text-[#295EAA] hover:bg-[#295EAA] hover:text-white px-6 py-3 transition-colors"
+    },
+    "forms": "Use Shadcn UI inputs and textareas for `/request-workshop`, `/donate`, `/partner`, `/contact`. Style them with minimal borders (`border-b` only, or very light full borders) for an elegant look.",
+    "accordion": "Use Shadcn Accordion for the FAQ section. Large typography, thin dividers.",
+    "mobile_bar": "Fixed bottom CTA bar on mobile screens with 'Donate' and 'Request Workshop' buttons."
+  },
+  "image_urls": {
+    "hero_dignity_doll": {
+      "url": "https://images.unsplash.com/photo-1649894160974-777f5d4bbd06?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxoYW5kbWFkZSUyMGNsb3RoJTIwZG9sbCUyMG5ldXRyYWx8ZW58MHx8fHwxNzg2OTUwNjE4fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Placeholder for the Dignity Doll. Neutral, soft, human."
+    },
+    "workshop_1": {
+      "url": "https://images.unsplash.com/photo-1708593337380-6f97a307696f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Indian women sitting in a group discussion, representing the workshop experience."
+    },
+    "workshop_2": {
+      "url": "https://images.unsplash.com/photo-1774504798113-a03e2aa24789?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Group of Indian women in colorful saris, suitable for stories from the field."
+    },
+    "school_girls": {
+      "url": "https://images.unsplash.com/photo-1692269725911-87697c558be1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBnaXJscyUyMHNtaWxpbmclMjBydXJhbCUyMHNjaG9vbHxlbnwwfHx8fDE3ODY5NTA2Mzd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Two young Indian girls sitting at a desk, smiling, representing the 'Who it is for' or impact sections."
+    },
+    "portrait_girl": {
+      "url": "https://images.unsplash.com/photo-1771229376320-1087541dadbd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBnaXJscyUyMHNtaWxpbmclMjBydXJhbCUyMHNjaG9vbHxlbnwwfHx8fDE3ODY5NTA2Mzd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Portrait of a young Indian girl, great for an alternating text/image layout."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install `framer-motion`, `lenis`, `lucide-react`, `react-fast-marquee`.",
+    "Set up Tailwind to include 'Playfair Display' (serif) and 'Manrope' (sans).",
+    "Use standard HTML structure for layout, applying heavy Tailwind paddings (`py-24`, `py-32`) to let the design breathe. Do NOT rely heavily on standard Shadcn `Card` for marketing sections.",
+    "Implement the sticky navbar with background transition based on scroll position.",
+    "Build the 12 specific sections on the homepage: Hero, Why This Matters, Meet the Dignity Doll, How It Works, Stories From the Field, Impact Metrics, Who It Is For, Workshop Experience, Ways to Support, Trust & Credibility, FAQ, Final CTA.",
+    "Create the placeholder routing pages (/request-workshop, /donate, etc.) with functional Shadcn forms.",
+    "Ensure all interactive elements have `data-testid` attributes.",
+    "Add an EN | हिंदी toggle state in the nav. It can just switch dummy content or show a toast indicating language switch for now.",
+    "Respect `prefers-reduced-motion` in Framer Motion variants.",
+    "Ensure the hero has a kinetic line-by-line reveal for the main heading."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": "Do not make generic centered layouts or uniform styling. Use glass-morphism effects with backdrop filters where appropriate (like the sticky nav). Do not apply universal transitions (`transition: all`). Do not center align the App container. Use layered design elements, overlapping images, and generous white space. Never use AI assistant emojis. Use the exact provided Rutuja Blue and Pink."
+}
