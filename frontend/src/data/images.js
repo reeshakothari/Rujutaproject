@@ -25,7 +25,9 @@ export const IMAGES = {
   schoolGirls:
     "https://images.unsplash.com/photo-1573894998033-c0cef4ed722b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzY2hvb2xnaXJscyUyMGNsYXNzcm9vbSUyMHNtaWxpbmd8ZW58MHx8fHwxNzg2OTUwNzAwfDA&ixlib=rb-4.1.0&q=85",
   workshopField:
-    "https://images.unsplash.com/photo-1708593337380-6f97a307696f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/jp6edayc_WhatsApp%20Image%202026-05-27%20at%202.34.49%20PM.jpeg",
+  sessionKids:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/wdapgqo4_WhatsApp%20Image%202026-06-05%20at%2017.29.02.jpeg",
   girlPortrait:
     "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/ps7xca1q_WhatsApp%20Image%202026-05-15%20at%206.47.36%20PM%20%281%29.webp",
   classroom:

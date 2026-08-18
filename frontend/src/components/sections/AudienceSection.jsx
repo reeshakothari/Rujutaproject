@@ -21,7 +21,7 @@ export default function AudienceSection() {
 
         {/* Asymmetric editorial grid */}
         <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-rutuja-line bg-rutuja-line md:grid-cols-6">
-          <Cell g={a.groups[0]} className="md:col-span-4" img={IMAGES.schoolGirls} />
+          <Cell g={a.groups[0]} className="md:col-span-4" img={IMAGES.sessionKids} />
           <Cell g={a.groups[1]} className="md:col-span-2" />
           <Cell g={a.groups[2]} className="md:col-span-2" />
           <Cell g={a.groups[3]} className="md:col-span-2" />
