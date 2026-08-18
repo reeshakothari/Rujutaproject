@@ -43,7 +43,7 @@ export default function Donate() {
           <div className="lg:col-span-5">
             <Reveal delay={0.1}>
               <div className="relative aspect-[4/5] overflow-hidden">
-                <img src={IMAGES.workshopField} alt={t.workshop.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+                <img src={IMAGES.missionEvent} alt={t.workshop.imageAlt} className="h-full w-full object-cover" loading="lazy" />
               </div>
             </Reveal>
           </div>

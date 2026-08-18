@@ -13,7 +13,7 @@ export const IMAGES = {
   dollHero:
     "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/uq0hic1m_WhatsApp%20Image%202026-04-19%20at%208.28.28%20PM.jpeg",
   dollCloseup:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/uq0hic1m_WhatsApp%20Image%202026-04-19%20at%208.28.28%20PM.jpeg",
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/gwqmndoj_WhatsApp%20Image%202026-04-29%20at%204.42.46%20PM%20%281%29.jpeg",
   dollHands:
     "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/a2f627455ca3acc4d07a558086de0f595bb1cc65fcdcb4148c29410da7f137fb.jpeg",
   workshopGroup:
@@ -36,4 +36,26 @@ export const IMAGES = {
     "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/nku2y3pk_WhatsApp%20Image%202026-05-13%20at%207.14.19%20PM%20%281%29.jpeg",
   womenColour:
     "https://images.unsplash.com/photo-1774504798113-a03e2aa24789?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
+  fieldNight:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/iqiyyg90_WhatsApp%20Image%202026-05-13%20at%2014.49.51%20-%20Babita%20Kumari.jpeg",
+  missionEvent:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/79b164ml_WhatsApp%20Image%202026-05-24%20at%209.27.16%20PM.jpeg",
+  fieldComics:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/16ga44r3_WhatsApp%20Image%202026-06-05%20at%2017.29.02%20%282%29.jpeg",
+  fieldExtra:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/kiz2e2pk_WhatsApp%20Image%202026-06-05%20at%2017.29.02%20%281%29%20%281%29.jpeg",
 };
+
+// Every photograph, for the Gallery page.
+export const GALLERY = [
+  { src: IMAGES.dollCloseup, alt: "The Rutuja Dignity Doll" },
+  { src: IMAGES.workshopField, alt: "Hands gathered around the Dignity Doll and menstrual-hygiene kits" },
+  { src: IMAGES.villageGroup, alt: "Community women and girls with the Dignity Doll" },
+  { src: IMAGES.classroom, alt: "A Dignity Doll session in a classroom" },
+  { src: IMAGES.girlPortrait, alt: "A girl holding the Dignity Doll" },
+  { src: IMAGES.fieldNight, alt: "An evening session with adolescent girls" },
+  { src: IMAGES.missionEvent, alt: "A menstrual-hygiene management event" },
+  { src: IMAGES.sessionKids, alt: "Children with Dignity Doll awareness sheets" },
+  { src: IMAGES.fieldComics, alt: "Girls with menstrual-education comics and the Dignity Doll" },
+  { src: IMAGES.fieldExtra, alt: "Participants at a Dignity Doll session" },
+];

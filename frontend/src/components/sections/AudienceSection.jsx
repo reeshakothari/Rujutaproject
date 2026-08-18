@@ -25,7 +25,7 @@ export default function AudienceSection() {
           <Cell g={a.groups[1]} className="md:col-span-2" />
           <Cell g={a.groups[2]} className="md:col-span-2" />
           <Cell g={a.groups[3]} className="md:col-span-2" />
-          <Cell g={a.groups[4]} className="md:col-span-2" img={IMAGES.womenListening} />
+          <Cell g={a.groups[4]} className="md:col-span-2" img={IMAGES.fieldComics} />
         </div>
       </div>
     </section>

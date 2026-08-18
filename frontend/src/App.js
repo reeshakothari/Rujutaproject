@@ -11,6 +11,7 @@ import RequestWorkshop from "@/pages/RequestWorkshop";
 import Donate from "@/pages/Donate";
 import Partner from "@/pages/Partner";
 import Contact from "@/pages/Contact";
+import Gallery from "@/pages/Gallery";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/donate" element={<Donate />} />
               <Route path="/partner" element={<Partner />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/gallery" element={<Gallery />} />
             </Routes>
             <Footer />
             <div className="h-16 lg:hidden" aria-hidden="true" />

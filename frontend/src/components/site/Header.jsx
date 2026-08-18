@@ -78,6 +78,9 @@ export default function Header() {
               {l.label}
             </button>
           ))}
+          <Link to="/gallery" data-testid="nav-gallery" className="text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
+            {t.nav.gallery}
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -127,6 +130,7 @@ export default function Header() {
                   {l.label}
                 </button>
               ))}
+              <MobileLink to="/gallery" label={t.nav.gallery} testid="mobile-nav-gallery" onClick={() => setOpen(false)} />
               <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} />
               <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} />
               <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} />

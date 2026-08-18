@@ -7,7 +7,7 @@ import { Quote } from "lucide-react";
 export default function FieldStories() {
   const { t } = useLang();
   const s = t.stories;
-  const imgs = [IMAGES.villageGroup, IMAGES.womanSpeaking, IMAGES.classroom];
+  const imgs = [IMAGES.villageGroup, IMAGES.fieldNight, IMAGES.classroom];
 
   return (
     <section id="stories" data-testid="stories-section" className="scroll-mt-20 bg-rutuja-ink py-24 text-white md:py-32">
