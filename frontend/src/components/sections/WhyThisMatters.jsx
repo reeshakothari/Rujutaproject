@@ -40,8 +40,8 @@ export default function WhyThisMatters() {
             <Reveal delay={0.1}>
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
-                  src={IMAGES.schoolGirls}
-                  alt=""
+                  src={IMAGES.girlPortrait}
+                  alt="A girl holding the Dignity Doll after a session"
                   className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-105"
                   loading="lazy"
                 />

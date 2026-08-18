@@ -7,7 +7,7 @@ import { Quote } from "lucide-react";
 export default function FieldStories() {
   const { t } = useLang();
   const s = t.stories;
-  const imgs = [IMAGES.workshopGroup, IMAGES.womanSpeaking, IMAGES.womenColour];
+  const imgs = [IMAGES.villageGroup, IMAGES.womanSpeaking, IMAGES.classroom];
 
   return (
     <section id="stories" data-testid="stories-section" className="scroll-mt-20 bg-rutuja-ink py-24 text-white md:py-32">
@@ -60,7 +60,7 @@ function Story({ quote, context, location, audience, img, index, layout }) {
       <div className={`lg:col-span-6 ${imageFirst ? "" : "lg:order-2"}`}>
         <Reveal>
           <div className="relative aspect-[5/4] overflow-hidden">
-            <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" />
+            <img src={img} alt="A Dignity Doll session in the community" className="h-full w-full object-cover" loading="lazy" />
           </div>
         </Reveal>
       </div>
@@ -82,7 +82,7 @@ function StoryWide({ quote, context, location, audience, img, index }) {
     <div>
       <Reveal>
         <div className="relative aspect-[16/9] w-full overflow-hidden">
-          <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" />
+          <img src={img} alt="Participants at a Dignity Doll session" className="h-full w-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-rutuja-ink/70 to-transparent" aria-hidden="true" />
           <span className="absolute left-6 top-6 font-serif text-5xl text-white/40">{index}</span>
         </div>

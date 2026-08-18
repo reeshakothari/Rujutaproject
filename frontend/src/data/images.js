@@ -26,6 +26,12 @@ export const IMAGES = {
     "https://images.unsplash.com/photo-1573894998033-c0cef4ed722b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzY2hvb2xnaXJscyUyMGNsYXNzcm9vbSUyMHNtaWxpbmd8ZW58MHx8fHwxNzg2OTUwNzAwfDA&ixlib=rb-4.1.0&q=85",
   workshopField:
     "https://images.unsplash.com/photo-1708593337380-6f97a307696f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
+  girlPortrait:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/ps7xca1q_WhatsApp%20Image%202026-05-15%20at%206.47.36%20PM%20%281%29.webp",
+  classroom:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/bp73mlxb_1000532672%20%281%29.webp",
+  villageGroup:
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/nku2y3pk_WhatsApp%20Image%202026-05-13%20at%207.14.19%20PM%20%281%29.jpeg",
   womenColour:
     "https://images.unsplash.com/photo-1774504798113-a03e2aa24789?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
 };
