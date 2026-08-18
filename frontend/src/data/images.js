@@ -11,9 +11,9 @@ export const MEDIA = [
 
 export const IMAGES = {
   dollHero:
-    "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/6f378b63dd41d8ab81a1fd42e7a2f86a5bfd26c5c24ff2624d1a93f86c413a5b.jpeg",
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/uq0hic1m_WhatsApp%20Image%202026-04-19%20at%208.28.28%20PM.jpeg",
   dollCloseup:
-    "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/d4aa67ebce6de04b78da4df30aa8510ff11c950d32983cba459c57313ae6819a.jpeg",
+    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/uq0hic1m_WhatsApp%20Image%202026-04-19%20at%208.28.28%20PM.jpeg",
   dollHands:
     "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/a2f627455ca3acc4d07a558086de0f595bb1cc65fcdcb4148c29410da7f137fb.jpeg",
   workshopGroup:

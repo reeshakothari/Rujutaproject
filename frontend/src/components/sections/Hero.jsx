@@ -80,7 +80,7 @@ export default function Hero() {
                 src={IMAGES.dollHero}
                 alt={h.imageAlt}
                 style={{ y, scale }}
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-contain p-6"
                 loading="eager"
               />
             </div>
