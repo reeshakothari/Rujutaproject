@@ -2,6 +2,13 @@
 export const LOGO =
   "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/87cafnit_rujuta%20logo.jpg";
 
+// Real newspaper coverage clippings (May 2026), in display order.
+export const MEDIA = [
+  "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/ur5717jq_WhatsApp%20Image%202026-05-28%20at%207.10.25%20AM.jpeg",
+  "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/754s9g15_WhatsApp%20Image%202026-05-28%20at%207.56.28%20AM.jpeg",
+  "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/75yltibv_WhatsApp%20Image%202026-05-29%20at%207.26.48%20AM.jpeg",
+];
+
 export const IMAGES = {
   dollHero:
     "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/6f378b63dd41d8ab81a1fd42e7a2f86a5bfd26c5c24ff2624d1a93f86c413a5b.jpeg",

@@ -153,14 +153,25 @@ export const CONTENT = {
     trust: {
       eyebrow: "Trust & credibility",
       title: "Built on care, evidence and accountability.",
-      note: "Registration ID numbers will be published here once available. Partner, media and IP details are still being verified before publication.",
+      note: "Registration ID numbers will be published here once available. Partner and IP details are still being verified before publication.",
       items: [
         { t: "Legal registration", d: "Registered under the Mumbai Public Trust Act, 1950." },
         { t: "80G", d: "80G tax-exemption registered." },
         { t: "12A", d: "12A registered." },
         { t: "CSR-1", d: "CSR-1 registered — CSR-ready." },
         { t: "NITI Aayog DARPAN", d: "Registered on the NITI Aayog DARPAN portal." },
-        { t: "Partners, media & IP", d: "Being verified before publication." },
+        { t: "Media coverage", d: "Featured in regional press on World Menstrual Hygiene Day, May 2026." },
+      ],
+    },
+    media: {
+      eyebrow: "In the news",
+      title: "Covered in the regional press.",
+      note: "Published coverage around World Menstrual Hygiene Day, May 2026. Tap a clipping to read it in full.",
+      cta: "Read clipping",
+      items: [
+        { publication: "Sandesh", date: "28 May 2026", headline: "Dahod women's Dignity Doll — a symbol of positive period culture." },
+        { publication: "Divya Bhaskar · City Bhaskar, Surat", date: "28 May 2026", headline: "Dignity Doll spreads menstrual awareness across communities in multiple states." },
+        { publication: "Haribhoomi", date: "29 May 2026", headline: "'Aao Saheli Chuppi Tode' — a village programme sparks new hope." },
       ],
     },
     faq: {
@@ -383,14 +394,25 @@ export const CONTENT = {
     trust: {
       eyebrow: "विश्वास और विश्वसनीयता",
       title: "देखभाल, प्रमाण और जवाबदेही पर आधारित।",
-      note: "पंजीकरण आईडी नंबर उपलब्ध होते ही यहाँ प्रकाशित किए जाएँगे। साझेदार, मीडिया और आईपी विवरण प्रकाशन से पहले सत्यापित किए जा रहे हैं।",
+      note: "पंजीकरण आईडी नंबर उपलब्ध होते ही यहाँ प्रकाशित किए जाएँगे। साझेदार और आईपी विवरण प्रकाशन से पहले सत्यापित किए जा रहे हैं।",
       items: [
         { t: "कानूनी पंजीकरण", d: "मुंबई पब्लिक ट्रस्ट एक्ट, 1950 के तहत पंजीकृत।" },
         { t: "80G", d: "80G कर-छूट पंजीकृत।" },
         { t: "12A", d: "12A पंजीकृत।" },
         { t: "CSR-1", d: "CSR-1 पंजीकृत — सीएसआर के लिए तैयार।" },
         { t: "नीति आयोग दर्पण", d: "नीति आयोग दर्पण पोर्टल पर पंजीकृत।" },
-        { t: "साझेदार, मीडिया और आईपी", d: "प्रकाशन से पहले सत्यापित किए जा रहे हैं।" },
+        { t: "मीडिया कवरेज", d: "विश्व मासिक धर्म स्वच्छता दिवस, मई 2026 पर क्षेत्रीय समाचार पत्रों में प्रकाशित।" },
+      ],
+    },
+    media: {
+      eyebrow: "समाचारों में",
+      title: "क्षेत्रीय प्रेस में प्रकाशित।",
+      note: "विश्व मासिक धर्म स्वच्छता दिवस, मई 2026 के आसपास प्रकाशित कवरेज। पूरा पढ़ने के लिए किसी कतरन पर टैप करें।",
+      cta: "कतरन पढ़ें",
+      items: [
+        { publication: "संदेश", date: "28 मई 2026", headline: "दाहोद की महिलाओं की डिग्निटी डॉल — सकारात्मक पीरियड कल्चर का प्रतीक।" },
+        { publication: "दिव्य भास्कर · सिटी भास्कर, सूरत", date: "28 मई 2026", headline: "डिग्निटी डॉल ने कई राज्यों के समुदायों में मासिक धर्म को लेकर जागरूकता फैलाई।" },
+        { publication: "हरिभूमि", date: "29 मई 2026", headline: "'आओ सहेली चुप्पी तोड़ें' — एक गाँव के कार्यक्रम से जागी नई उम्मीद।" },
       ],
     },
     faq: {

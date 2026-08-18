@@ -11,6 +11,7 @@ import AudienceSection from "@/components/sections/AudienceSection";
 import WorkshopExperience from "@/components/sections/WorkshopExperience";
 import SupportSection from "@/components/sections/SupportSection";
 import TrustSection from "@/components/sections/TrustSection";
+import MediaCoverage from "@/components/sections/MediaCoverage";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -51,6 +52,7 @@ export default function Home() {
       <WorkshopExperience />
       <SupportSection />
       <TrustSection />
+      <MediaCoverage />
       <FAQ />
       <FinalCTA />
     </main>

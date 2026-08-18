@@ -30,7 +30,8 @@ Build a premium, mobile-first Phase 1 campaign microsite for the Rutuja Dignity 
 
 ## Content status
 - VERIFIED & LIVE (2026-08-17): Impact — 20+ sessions, 700+ people reached, 6 states/UTs (Delhi, Odisha, Haryana, Uttarakhand, Maharashtra, Karnataka), shown conservatively. Field stories — 3 real reflections (Bengaluru, Dehradun, Rewari) with names withheld (publication permission not yet confirmed). Trust — registered under Mumbai Public Trust Act 1950; 80G, 12A, CSR-1, NITI Aayog DARPAN all confirmed (ID numbers pending).
-- STILL PLACEHOLDER (pending verification): registration ID numbers; verified partner list & logos; ambassador count; dolls distributed; media/awards; patent/IP/design status; public contact details; donation mechanism.
+- STILL PLACEHOLDER (pending verification): registration ID numbers; verified partner list & logos; ambassador count; dolls distributed; patent/IP/design status; public contact details; donation mechanism.
+- MEDIA (2026-08-18): Added "In the News" section with 3 real published clippings — Sandesh (28 May 2026), Divya Bhaskar/City Bhaskar Surat (28 May 2026), Haribhoomi (29 May 2026); each opens the full clipping. Media coverage marked confirmed in Trust. Note: newspapers' own figures (e.g. "3,000 / 13 areas") appear only inside press quotes; site's own Impact stats stay at the conservative documented 700+/6.
 
 ## Backlog
 - P0: Replace placeholders with verified content once approved; connect donation mechanism.
