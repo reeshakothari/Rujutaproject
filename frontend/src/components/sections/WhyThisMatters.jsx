@@ -6,7 +6,7 @@ export default function WhyThisMatters() {
   const { t } = useLang();
   const w = t.why;
   return (
-    <section data-testid="why-section" className="relative bg-rutuja-soft py-24 md:py-32">
+    <section data-testid="why-section" className="relative bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <Reveal>
           <p className="eyebrow-pink">

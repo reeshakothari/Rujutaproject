@@ -20,14 +20,14 @@ export default function FinalCTA() {
             <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">{c.sub}</p>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Link to="/request-workshop" data-testid="final-workshop-btn" className="btn-primary rounded-sm">
+            <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+              <Link to="/request-workshop" data-testid="final-workshop-btn" className="btn-primary w-full justify-center rounded-sm sm:w-auto">
                 {c.primary} <ArrowUpRight size={18} />
               </Link>
-              <Link to="/donate" data-testid="final-donate-btn" className="btn-secondary rounded-sm">
+              <Link to="/donate" data-testid="final-donate-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
                 {c.secondary}
               </Link>
-              <Link to="/partner" data-testid="final-partner-btn" className="inline-flex items-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-rutuja-ink">
+              <Link to="/partner" data-testid="final-partner-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-rutuja-ink sm:w-auto">
                 {c.tertiary}
               </Link>
             </div>

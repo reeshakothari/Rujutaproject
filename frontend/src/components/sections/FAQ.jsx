@@ -11,7 +11,7 @@ export default function FAQ() {
   const { t } = useLang();
   const f = t.faq;
   return (
-    <section id="faq" data-testid="faq-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
+    <section id="faq" data-testid="faq-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">

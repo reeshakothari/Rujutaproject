@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-rutuja-blue/5 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-rutuja-pink/5 blur-3xl" aria-hidden="true" />
 
-      <div className="container-edge grid min-h-[calc(88vh-72px)] grid-cols-1 items-center gap-10 py-12 lg:grid-cols-12 lg:py-16">
+      <div className="container-edge grid min-h-0 grid-cols-1 items-center gap-10 py-10 lg:min-h-[calc(88vh-72px)] lg:grid-cols-12 lg:py-16">
         <div className="lg:col-span-6 xl:col-span-6">
           <motion.p
             initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ export default function Hero() {
             {h.eyebrow}
           </motion.p>
 
-          <h1 className="mt-6 font-serif text-[2.6rem] font-medium leading-[1.02] tracking-tight text-rutuja-ink sm:text-6xl lg:text-[4.25rem]">
+          <h1 className="mt-6 font-serif text-4xl font-medium leading-[1.06] tracking-tight text-rutuja-ink sm:text-6xl lg:text-[4.25rem]">
             <MaskReveal lines={h.lines} />
           </h1>
 
@@ -52,15 +52,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <Link to="/request-workshop" data-testid="hero-workshop-btn" className="btn-primary rounded-sm">
+            <Link to="/request-workshop" data-testid="hero-workshop-btn" className="btn-primary w-full justify-center rounded-sm sm:w-auto">
               {h.primary} <ArrowUpRight size={18} />
             </Link>
-            <Link to="/donate" data-testid="hero-donate-btn" className="btn-secondary rounded-sm">
+            <Link to="/donate" data-testid="hero-donate-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
               {h.secondary}
             </Link>
-            <a href="#how-it-works" data-testid="hero-learn-btn" className="group inline-flex items-center gap-2 px-2 py-3.5 text-sm font-semibold text-rutuja-ink">
+            <a href="#how-it-works" data-testid="hero-learn-btn" className="group inline-flex items-center justify-center gap-2 px-2 py-3.5 text-sm font-semibold text-rutuja-ink sm:justify-start">
               {h.tertiary}
               <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" />
             </a>

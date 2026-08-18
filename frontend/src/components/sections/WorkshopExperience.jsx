@@ -35,11 +35,11 @@ export default function WorkshopExperience() {
             </ul>
 
             <Reveal delay={0.3}>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Link to="/request-workshop" data-testid="workshop-section-cta" className="btn-secondary rounded-sm">
+              <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
+                <Link to="/request-workshop" data-testid="workshop-section-cta" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
                   {w.primary} <ArrowUpRight size={18} />
                 </Link>
-                <a href="#how-it-works" className="inline-flex items-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-rutuja-blue">
+                <a href="#how-it-works" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-rutuja-blue sm:w-auto">
                   {w.secondary}
                 </a>
               </div>

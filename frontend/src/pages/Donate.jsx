@@ -30,11 +30,11 @@ export default function Donate() {
             </Reveal>
             <Reveal delay={0.08}>
               <p className="mt-8 text-base leading-relaxed text-rutuja-slate">{p.notice}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/contact" data-testid="donate-contact-cta" className="btn-secondary rounded-sm">
+              <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
+                <Link to="/contact" data-testid="donate-contact-cta" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
                   {p.cta} <ArrowUpRight size={18} />
                 </Link>
-                <Link to="/request-workshop" data-testid="donate-workshop-cta" className="btn-outline rounded-sm">
+                <Link to="/request-workshop" data-testid="donate-workshop-cta" className="btn-outline w-full justify-center rounded-sm sm:w-auto">
                   {p.alt}
                 </Link>
               </div>

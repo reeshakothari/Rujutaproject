@@ -28,7 +28,7 @@ export default function Contact() {
   return (
     <main data-testid="contact-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} />
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white py-12 md:py-20">
         <div className="container-edge grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7 lg:order-2">
             {form.status === "success" ? (

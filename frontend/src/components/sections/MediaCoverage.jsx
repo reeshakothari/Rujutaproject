@@ -7,7 +7,7 @@ export default function MediaCoverage() {
   const { t } = useLang();
   const m = t.media;
   return (
-    <section id="media" data-testid="media-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
+    <section id="media" data-testid="media-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

@@ -27,7 +27,7 @@ export default function Gallery() {
   return (
     <main data-testid="gallery-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} />
-      <section className="bg-rutuja-soft py-16 md:py-20">
+      <section className="bg-rutuja-soft py-12 md:py-20">
         <div className="container-edge">
           <div className="columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
             {GALLERY.map((img, i) => (

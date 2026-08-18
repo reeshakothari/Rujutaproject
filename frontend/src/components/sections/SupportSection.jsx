@@ -7,7 +7,7 @@ export default function SupportSection() {
   const { t } = useLang();
   const s = t.support;
   return (
-    <section id="support" data-testid="support-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
+    <section id="support" data-testid="support-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>

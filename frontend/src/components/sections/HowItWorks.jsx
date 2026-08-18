@@ -6,7 +6,7 @@ export default function HowItWorks() {
   const { t } = useLang();
   const h = t.how;
   return (
-    <section id="how-it-works" data-testid="how-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
+    <section id="how-it-works" data-testid="how-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>
