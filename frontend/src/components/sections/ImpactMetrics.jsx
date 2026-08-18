@@ -1,11 +1,12 @@
 import { Reveal } from "@/components/site/Reveal";
+import CountUp from "@/components/site/CountUp";
 import { useLang } from "@/context/LanguageContext";
 
 export default function ImpactMetrics() {
   const { t } = useLang();
   const im = t.impact;
   return (
-    <section id="impact" data-testid="impact-section" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="impact" data-testid="impact-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -29,7 +30,7 @@ export default function ImpactMetrics() {
           {im.metrics.map((m, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="px-2 py-8 sm:px-6 sm:border-r sm:border-rutuja-line sm:last:border-r-0">
-                <p className="font-serif text-4xl font-medium leading-none text-rutuja-blue md:text-6xl">{m.value}</p>
+                <p className="font-serif text-4xl font-medium leading-none text-rutuja-blue md:text-6xl"><CountUp value={m.value} /></p>
                 <p className="mt-4 text-sm font-medium uppercase tracking-wide text-rutuja-slate">{m.label}</p>
               </div>
             </Reveal>

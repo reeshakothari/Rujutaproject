@@ -29,10 +29,10 @@ export default function TrustSection() {
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {tr.items.map((it, i) => (
             <Reveal key={i} delay={i * 0.05}>
-              <div className="flex h-full flex-col gap-3 border border-rutuja-line bg-white p-6">
-                <ShieldCheck size={22} className="text-rutuja-blue" aria-hidden="true" />
-                <h3 className="font-sans text-base font-semibold text-rutuja-ink">{it.t}</h3>
-                <p className="text-sm leading-relaxed text-rutuja-muted">{it.d}</p>
+              <div className="group flex h-full flex-col gap-3 border border-rutuja-line bg-white p-6 transition-colors duration-300 hover:border-rutuja-pink hover:bg-rutuja-pink">
+                <ShieldCheck size={22} className="text-rutuja-blue transition-colors duration-300 group-hover:text-white" aria-hidden="true" />
+                <h3 className="font-sans text-base font-semibold text-rutuja-ink transition-colors duration-300 group-hover:text-white">{it.t}</h3>
+                <p className="text-sm leading-relaxed text-rutuja-muted transition-colors duration-300 group-hover:text-white/85">{it.d}</p>
               </div>
             </Reveal>
           ))}

@@ -34,13 +34,13 @@ export default function AudienceSection() {
 
 function Cell({ g, className = "", img }) {
   return (
-    <Reveal className={`group relative bg-white ${className}`}>
+    <Reveal className={`group relative bg-white transition-colors duration-300 hover:bg-rutuja-pink ${className}`}>
       <div className="flex h-full min-h-[220px] flex-col justify-between p-7 md:p-8">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue">{g.label}</span>
-          <h3 className="mt-4 font-serif text-2xl leading-tight text-rutuja-ink md:text-[1.7rem]">{g.t}</h3>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue transition-colors duration-300 group-hover:text-white">{g.label}</span>
+          <h3 className="mt-4 font-serif text-2xl leading-tight text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-[1.7rem]">{g.t}</h3>
         </div>
-        <p className="mt-6 max-w-sm text-sm leading-relaxed text-rutuja-slate">{g.d}</p>
+        <p className="mt-6 max-w-sm text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{g.d}</p>
       </div>
       {img && (
         <div className="h-40 overflow-hidden md:h-48">

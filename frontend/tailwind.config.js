@@ -21,7 +21,7 @@ module.exports = {
           slate: '#4A4A52',
           muted: '#8A8A93',
           line: '#E5E5EB',
-          soft: '#F8F8FA',
+          soft: '#FBECF2',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

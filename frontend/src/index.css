@@ -37,7 +37,7 @@
         scroll-behavior: auto;
     }
     body {
-        @apply bg-background text-rutuja-ink;
+        @apply bg-rutuja-soft text-rutuja-ink;
         font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
         margin: 0;
         overflow-x: hidden;

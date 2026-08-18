@@ -7,7 +7,7 @@ export default function SupportSection() {
   const { t } = useLang();
   const s = t.support;
   return (
-    <section id="support" data-testid="support-section" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="support" data-testid="support-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>
@@ -26,20 +26,18 @@ export default function SupportSection() {
               <Link
                 to={a.to}
                 data-testid={`support-${a.key}`}
-                className={`group relative flex h-full min-h-[220px] flex-col justify-between p-8 transition-colors md:p-10 ${
-                  a.emphasis ? "hover:bg-rutuja-soft" : "hover:bg-rutuja-soft"
-                }`}
+                className="group relative flex h-full min-h-[220px] flex-col justify-between p-8 transition-colors duration-300 hover:bg-rutuja-pink md:p-10"
               >
                 <div>
                   <div className="flex items-center gap-3">
-                    {a.emphasis && <span className="h-2 w-2 rounded-full bg-rutuja-pink" aria-hidden="true" />}
-                    <h3 className={`font-serif text-2xl md:text-3xl ${a.emphasis ? "text-rutuja-ink" : "text-rutuja-ink"}`}>
+                    {a.emphasis && <span className="h-2 w-2 rounded-full bg-rutuja-pink transition-colors duration-300 group-hover:bg-white" aria-hidden="true" />}
+                    <h3 className="font-serif text-2xl text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-3xl">
                       {a.t}
                     </h3>
                   </div>
-                  <p className="mt-4 max-w-md text-sm leading-relaxed text-rutuja-slate md:text-base">{a.d}</p>
+                  <p className="mt-4 max-w-md text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90 md:text-base">{a.d}</p>
                 </div>
-                <span className={`mt-8 inline-flex items-center gap-2 text-sm font-semibold ${a.emphasis ? "text-rutuja-pink" : "text-rutuja-blue"}`}>
+                <span className={`mt-8 inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-300 group-hover:text-white ${a.emphasis ? "text-rutuja-pink" : "text-rutuja-blue"}`}>
                   {a.cta}
                   <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>

@@ -6,7 +6,7 @@ export default function HowItWorks() {
   const { t } = useLang();
   const h = t.how;
   return (
-    <section id="how-it-works" data-testid="how-section" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="how-it-works" data-testid="how-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>
@@ -26,18 +26,17 @@ export default function HowItWorks() {
         <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {h.steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.06}>
-              <div className="group relative border-t border-rutuja-line pt-6">
-                <div className="absolute -top-px left-0 h-0.5 w-0 bg-rutuja-blue transition-all duration-700 group-hover:w-16" aria-hidden="true" />
-                <span className="font-serif text-4xl text-rutuja-blue/25">{s.n}</span>
-                <h3 className="mt-3 font-sans text-lg font-semibold text-rutuja-ink">{s.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-rutuja-slate">{s.d}</p>
+              <div className="group relative border border-rutuja-line bg-white p-6 transition-colors duration-300 hover:bg-rutuja-pink">
+                <span className="font-serif text-4xl text-rutuja-blue/30 transition-colors duration-300 group-hover:text-white/60">{s.n}</span>
+                <h3 className="mt-3 font-sans text-lg font-semibold text-rutuja-ink transition-colors duration-300 group-hover:text-white">{s.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/85">{s.d}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
         {/* Transformation flow */}
-        <div className="mt-20 border border-rutuja-line bg-rutuja-soft p-8 md:p-12">
+        <div className="mt-20 border border-rutuja-line bg-white p-8 md:p-12">
           <Reveal>
             <p className="eyebrow-pink">{h.flowTitle}</p>
           </Reveal>

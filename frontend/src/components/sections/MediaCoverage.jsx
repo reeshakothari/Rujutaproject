@@ -7,7 +7,7 @@ export default function MediaCoverage() {
   const { t } = useLang();
   const m = t.media;
   return (
-    <section id="media" data-testid="media-section" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="media" data-testid="media-section" className="scroll-mt-20 bg-rutuja-soft py-24 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -37,7 +37,7 @@ export default function MediaCoverage() {
                 data-testid={`media-clipping-${i}`}
                 className="group flex h-full flex-col"
               >
-                <div className="relative overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-1.5">
+                <div className="relative overflow-hidden border border-rutuja-line bg-white shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-1.5">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={MEDIA[i]}
