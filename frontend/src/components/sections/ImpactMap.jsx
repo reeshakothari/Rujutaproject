@@ -147,6 +147,27 @@ export default function ImpactMap({ showStats = false, showCta = true }) {
                     />
                   ))}
 
+                {/* Travelling dolls — the conversation spreading outward from the hub */}
+                {!reduce &&
+                  spokes.map((p, i) => (
+                    <motion.g
+                      key={`travel-${p.id}`}
+                      data-testid={`map-travel-${p.id}`}
+                      style={{ pointerEvents: "none" }}
+                      initial={{ x: hub.x, y: hub.y, opacity: 0 }}
+                      animate={{ x: [hub.x, p.x], y: [hub.y, p.y], opacity: [0, 1, 1, 0] }}
+                      transition={{
+                        duration: 2.4,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatDelay: 1.6,
+                        delay: DROP_BASE + 0.9 + i * 0.5,
+                      }}
+                    >
+                      <DollGlyph />
+                    </motion.g>
+                  ))}
+
                 {/* Pins */}
                 {MAP_PINS.map((p, i) => {
                   const info = place(p.id);
@@ -242,5 +263,22 @@ export default function ImpactMap({ showStats = false, showCta = true }) {
         )}
       </div>
     </section>
+  );
+}
+
+// A tiny stylised doll (head + dress) that travels along the connector lines.
+function DollGlyph() {
+  return (
+    <g>
+      <circle cx={0} cy={0} r={9} fill="#C82B62" opacity={0.18} />
+      <path
+        d="M-4 5 L4 5 L2.2 -1 L-2.2 -1 Z"
+        fill="#C82B62"
+        stroke="#ffffff"
+        strokeWidth={0.8}
+        strokeLinejoin="round"
+      />
+      <circle cx={0} cy={-4} r={3} fill="#C82B62" stroke="#ffffff" strokeWidth={0.8} />
+    </g>
   );
 }
