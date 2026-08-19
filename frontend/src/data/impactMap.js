@@ -39,11 +39,17 @@ export const MAP_PINS = [
     "hq": false
   },
   {
-    "id": "pune",
-    "x": 205.6,
-    "y": 715.5,
+    "id": "balasore",
+    "x": 658,
+    "y": 604.1,
+    "hq": false
+  },
+  {
+    "id": "mumbai",
+    "x": 171.7,
+    "y": 694.7,
     "hq": true
   }
 ];
 
-export const HQ_ID = "pune";
+export const HQ_ID = "mumbai";

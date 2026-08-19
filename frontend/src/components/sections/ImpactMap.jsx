@@ -96,6 +96,21 @@ export default function ImpactMap({ showStats = false, showCta = true }) {
                     )}
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-rutuja-slate">{place(activePin.id).context}</p>
+                  {place(activePin.id).venues?.length > 0 && (
+                    <div className="mt-3">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">{im.venuesLabel}</p>
+                      <div className="mt-2 flex flex-wrap gap-1.5" data-testid="impact-map-venues">
+                        {place(activePin.id).venues.map((v, vi) => (
+                          <span
+                            key={vi}
+                            className="rounded-full border border-rutuja-pink/30 bg-white px-2.5 py-0.5 text-[11px] font-medium text-rutuja-pinkdark"
+                          >
+                            {v}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ) : (
                 <p className="text-sm leading-relaxed text-rutuja-muted">{im.note}</p>
