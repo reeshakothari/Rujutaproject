@@ -12,6 +12,7 @@ import Donate from "@/pages/Donate";
 import Partner from "@/pages/Partner";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
+import Videos from "@/pages/Videos";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/partner" element={<Partner />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/videos" element={<Videos />} />
             </Routes>
             <Footer />
             <div className="h-16 lg:hidden" aria-hidden="true" />

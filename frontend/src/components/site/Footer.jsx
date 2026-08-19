@@ -25,6 +25,7 @@ export default function Footer() {
               <li><Link className="hover:text-white" to="/#stories" data-testid="footer-stories">{t.nav.stories}</Link></li>
               <li><Link className="hover:text-white" to="/#impact" data-testid="footer-impact">{t.nav.impact}</Link></li>
               <li><Link className="hover:text-white" to="/gallery" data-testid="footer-gallery">{t.nav.gallery}</Link></li>
+              <li><Link className="hover:text-white" to="/videos" data-testid="footer-videos">{t.nav.videos}</Link></li>
             </ul>
           </div>
 

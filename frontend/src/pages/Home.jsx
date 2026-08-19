@@ -5,6 +5,7 @@ import Hero from "@/components/sections/Hero";
 import WhyThisMatters from "@/components/sections/WhyThisMatters";
 import DignityDollIntro from "@/components/sections/DignityDollIntro";
 import HowItWorks from "@/components/sections/HowItWorks";
+import ExperienceVideo from "@/components/sections/ExperienceVideo";
 import FieldStories from "@/components/sections/FieldStories";
 import ImpactMetrics from "@/components/sections/ImpactMetrics";
 import AudienceSection from "@/components/sections/AudienceSection";
@@ -46,6 +47,7 @@ export default function Home() {
       <WhyThisMatters />
       <DignityDollIntro />
       <HowItWorks />
+      <ExperienceVideo />
       <FieldStories />
       <ImpactMetrics />
       <AudienceSection />
