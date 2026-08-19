@@ -290,6 +290,11 @@ export const CONTENT = {
           { title: "A Dignity Doll session", description: "A short film capturing the atmosphere of a real facilitated session." },
         ],
       },
+      ambassadors: {
+        eyebrow: "Our ambassadors",
+        title: "The people championing dignity.",
+        sub: "National Dignified Menstruation Ambassadors carrying the Dignity Doll into their communities. Tap a card to read their story.",
+      },
     },
   },
 
@@ -552,6 +557,11 @@ export const CONTENT = {
         items: [
           { title: "एक डिग्निटी डॉल सत्र", description: "एक वास्तविक निर्देशित सत्र के माहौल को दर्शाती एक छोटी फ़िल्म।" },
         ],
+      },
+      ambassadors: {
+        eyebrow: "हमारे एम्बेसडर",
+        title: "गरिमा के लिए खड़े लोग।",
+        sub: "राष्ट्रीय गरिमामय मासिक धर्म एम्बेसडर जो डिग्निटी डॉल को अपने समुदायों तक पहुँचा रहे हैं। कहानी पढ़ने के लिए किसी कार्ड पर टैप करें।",
       },
     },
   },

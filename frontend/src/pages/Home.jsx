@@ -8,6 +8,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import ExperienceVideo from "@/components/sections/ExperienceVideo";
 import FieldStories from "@/components/sections/FieldStories";
 import ImpactMetrics from "@/components/sections/ImpactMetrics";
+import Ambassadors from "@/components/sections/Ambassadors";
 import AudienceSection from "@/components/sections/AudienceSection";
 import WorkshopExperience from "@/components/sections/WorkshopExperience";
 import SupportSection from "@/components/sections/SupportSection";
@@ -50,6 +51,7 @@ export default function Home() {
       <ExperienceVideo />
       <FieldStories />
       <ImpactMetrics />
+      <Ambassadors />
       <AudienceSection />
       <WorkshopExperience />
       <SupportSection />
