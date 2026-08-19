@@ -37,3 +37,10 @@ Build a premium, mobile-first Phase 1 campaign microsite for the Rutuja Dignity 
 - P0: Replace placeholders with verified content once approved; connect donation mechanism.
 - P1: Wire forms to a backend/email (Resend) if lead capture is desired; real Doll & field photography.
 - P2: Sitemap/robots, OG image refinement, count-up animation once numbers are verified.
+
+## Impact Map feature (2026-08-19)
+- Added interactive "Our Impact Across India" section: accurate India SVG outline (official-boundary DataMeet GeoJSON, projected to SVG in /app/frontend/src/data/impactMap.js), on-brand dark-pink pins with pulsing beacons, staggered drop-in (map 0.8s → pins 0.15s stagger, bounce ease), hover/tap tooltips + detail card, and dashed connector lines radiating from a Pune hub.
+- Placed on Home (after ImpactMetrics) and on a NEW dedicated route /impact (`src/pages/Impact.jsx`) which also shows count-up stats (20+/700+/6) and the States & UTs list.
+- Data = fully verified only: 6 States/UTs pinned at representative cities (New Delhi, Rewari, Dehradun, Bengaluru, Bhubaneswar, Pune). Tooltips/detail cards show state + documented qualitative context — NO invented per-city numbers. Bilingual EN/HI (content.js `impactMap` key).
+- Verified by testing agent (iteration_2.json): 100% frontend pass, zero console errors, all flows working.
+- Note (still pending from user): real per-city stats / a longer city list, if they want to expand beyond the 6 verified States/UTs.

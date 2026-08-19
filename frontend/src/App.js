@@ -13,6 +13,7 @@ import Partner from "@/pages/Partner";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
 import Videos from "@/pages/Videos";
+import Impact from "@/pages/Impact";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/videos" element={<Videos />} />
+              <Route path="/impact" element={<Impact />} />
             </Routes>
             <Footer />
             <div className="h-16 lg:hidden" aria-hidden="true" />
