@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/site/Reveal";
+import { motion, useReducedMotion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
 
@@ -50,13 +51,98 @@ export default function WhyThisMatters() {
           </div>
         </div>
 
-        <Reveal delay={0.15}>
-          <p className="mt-16 max-w-3xl border-l-2 border-rutuja-blue pl-6 font-serif text-xl leading-relaxed text-rutuja-ink md:text-2xl">
-            {w.pull}
-          </p>
-        </Reveal>
+        <PullSequence text={w.pull} />
       </div>
     </section>
+  );
+}
+
+// Scroll-triggered, editorial reveal of the "Silence → … → Positive action" line.
+// Draws the blue rule first, then reveals each phrase left-to-right (arrows trailing
+// their word), with gentle emphasis building toward "Positive action". Settles once,
+// never loops. Falls back to the original static markup for reduced-motion users.
+function PullSequence({ text }) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return (
+      <p
+        data-testid="why-pull"
+        className="mt-16 max-w-3xl border-l-2 border-rutuja-blue pl-6 font-serif text-xl leading-relaxed text-rutuja-ink md:text-2xl"
+      >
+        {text}
+      </p>
+    );
+  }
+
+  const phrases = text.split(/\s*→\s*/).filter(Boolean);
+  const ease = [0.22, 1, 0.36, 1];
+  const lineDur = 0.6;
+  const start = lineDur + 0.1; // words begin just after the rule finishes drawing
+  const stagger = 0.2; // ~200ms between elements
+  const vp = { once: true, margin: "-15% 0px" };
+  // gentle emphasis gradient toward the final phrase
+  const restOpacity = (i) => 0.72 + (i / (phrases.length - 1)) * 0.28;
+
+  let step = 0;
+
+  return (
+    <p
+      data-testid="why-pull"
+      className="relative mt-16 max-w-3xl pl-6 font-serif text-xl leading-relaxed text-rutuja-ink md:text-2xl"
+    >
+      {/* full sentence for assistive tech (visible tokens are aria-hidden) */}
+      <span className="sr-only">{text}</span>
+
+      {/* the blue rule, drawn top → bottom */}
+      <motion.span
+        aria-hidden="true"
+        data-testid="why-pull-line"
+        className="absolute inset-y-0 left-0 w-0.5 origin-top bg-rutuja-blue"
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={vp}
+        transition={{ duration: lineDur, ease }}
+      />
+
+      <span aria-hidden="true">
+        {phrases.map((phrase, i) => {
+          const isLast = i === phrases.length - 1;
+          const wordDelay = start + step * stagger;
+          step += 1;
+          const arrowDelay = start + step * stagger;
+          if (!isLast) step += 1;
+
+          return (
+            <span key={i}>
+              <motion.span
+                className="inline-block"
+                initial={isLast ? { opacity: 0, y: 14, scale: 0.97 } : { opacity: 0, y: 14 }}
+                whileInView={isLast ? { opacity: 1, y: 0, scale: 1 } : { opacity: restOpacity(i), y: 0 }}
+                viewport={vp}
+                transition={{ duration: isLast ? 0.8 : 0.6, ease, delay: wordDelay }}
+              >
+                {phrase}
+              </motion.span>
+              {!isLast && (
+                <>
+                  {" "}
+                  <motion.span
+                    className="inline-block"
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 0.5, y: 0 }}
+                    viewport={vp}
+                    transition={{ duration: 0.6, ease, delay: arrowDelay }}
+                  >
+                    →
+                  </motion.span>{" "}
+                </>
+              )}
+            </span>
+          );
+        })}
+      </span>
+    </p>
   );
 }
 
