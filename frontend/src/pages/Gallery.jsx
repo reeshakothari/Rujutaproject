@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import PageHeader from "@/components/site/PageHeader";
-import { Reveal } from "@/components/site/Reveal";
+import { FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { GALLERY } from "@/data/images";
 
@@ -31,11 +31,11 @@ export default function Gallery() {
         <div className="container-edge">
           <div className="columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
             {GALLERY.map((img, i) => (
-              <Reveal key={i} delay={(i % 3) * 0.06}>
+              <FlyIn key={i} direction={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"} distance={110} delay={(i % 3) * 0.08}>
                 <button
                   data-testid={`gallery-item-${i}`}
                   onClick={() => setActive(img)}
-                  className="group block w-full overflow-hidden border border-rutuja-line bg-white"
+                  className="group block w-full overflow-hidden border border-rutuja-line bg-white transition-[box-shadow,border-color] duration-500 hover:border-rutuja-pink/40 hover:shadow-[0_25px_60px_-24px_rgba(200,43,98,0.55)]"
                   aria-label={img.alt}
                 >
                   <img
@@ -45,7 +45,7 @@ export default function Gallery() {
                     className="w-full transition-transform duration-[1.1s] ease-out group-hover:scale-[1.05]"
                   />
                 </button>
-              </Reveal>
+              </FlyIn>
             ))}
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function Gallery() {
               src={active.src}
               alt={active.alt}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[85vh] max-w-[92vw] object-contain shadow-2xl"
+              className="max-h-[85vh] max-w-[92vw] object-contain shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_80px_-10px_rgba(200,43,98,0.5)]"
             />
           </motion.div>
         )}

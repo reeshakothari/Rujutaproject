@@ -26,7 +26,7 @@ export default function SupportSection() {
               <Link
                 to={a.to}
                 data-testid={`support-${a.key}`}
-                className="group relative flex h-full min-h-[220px] flex-col justify-between p-8 transition-colors duration-300 hover:bg-rutuja-pink md:p-10"
+                className="group relative flex h-full min-h-[220px] flex-col justify-between p-8 transition-[background-color,box-shadow] duration-300 hover:z-10 hover:bg-rutuja-pink hover:shadow-[0_25px_65px_-20px_rgba(200,43,98,0.6)] md:p-10"
               >
                 <div>
                   <div className="flex items-center gap-3">

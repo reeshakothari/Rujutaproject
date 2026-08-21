@@ -66,13 +66,13 @@
         @apply text-xs font-semibold uppercase tracking-[0.25em] text-rutuja-pink;
     }
     .btn-primary {
-        @apply inline-flex items-center justify-center gap-2 bg-rutuja-blue px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-bluedark hover:shadow-[0_14px_30px_-12px_rgba(41,94,170,0.55)] active:translate-y-0;
+        @apply relative inline-flex items-center justify-center gap-2 bg-rutuja-blue px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-bluedark hover:shadow-[0_16px_44px_-10px_rgba(41,94,170,0.6),0_0_32px_-6px_rgba(200,43,98,0.35)] active:translate-y-0;
     }
     .btn-secondary {
-        @apply inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-pinkdark hover:shadow-[0_14px_30px_-12px_rgba(200,43,98,0.55)] active:translate-y-0;
+        @apply relative inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-pinkdark hover:shadow-[0_16px_44px_-10px_rgba(200,43,98,0.65),0_0_38px_-6px_rgba(200,43,98,0.55)] active:translate-y-0;
     }
     .btn-outline {
-        @apply inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-blue hover:text-white active:translate-y-0;
+        @apply relative inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-[background-color,color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-blue hover:text-white hover:shadow-[0_14px_36px_-14px_rgba(41,94,170,0.55)] active:translate-y-0;
     }
     .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -80,6 +80,22 @@
     .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+    }
+    /* Pink glow system — reusable across cards, images, and accents */
+    .glow-pink {
+        box-shadow: 0 0 0 1px rgba(200, 43, 98, 0.12), 0 24px 60px -20px rgba(200, 43, 98, 0.5), 0 0 40px -12px rgba(200, 43, 98, 0.4);
+    }
+    .glow-pink-sm {
+        box-shadow: 0 10px 30px -12px rgba(200, 43, 98, 0.45);
+    }
+    .hover-glow-pink {
+        transition: box-shadow 0.45s ease, transform 0.45s ease, border-color 0.45s ease;
+    }
+    .hover-glow-pink:hover {
+        box-shadow: 0 24px 60px -18px rgba(200, 43, 98, 0.55), 0 0 48px -12px rgba(200, 43, 98, 0.5);
+    }
+    .group:hover .group-hover-glow-pink {
+        box-shadow: 0 24px 60px -18px rgba(200, 43, 98, 0.55), 0 0 48px -12px rgba(200, 43, 98, 0.5);
     }
 }
 

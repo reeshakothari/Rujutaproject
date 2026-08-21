@@ -30,8 +30,10 @@ export default function FinalCTA() {
         </svg>
       </motion.div>
 
-      {/* subtle glow inside the dome */}
-      <div className="pointer-events-none absolute left-1/2 top-24 h-40 w-[80%] -translate-x-1/2 rounded-[100%] bg-rutuja-pink/10 blur-3xl md:top-40" aria-hidden="true" />
+      {/* glow inside the dome */}
+      <div className="pointer-events-none absolute left-1/2 top-24 h-40 w-[80%] -translate-x-1/2 animate-glow-pulse rounded-[100%] bg-rutuja-pink/20 blur-3xl md:top-40" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-10 bottom-10 h-64 w-64 animate-float rounded-full bg-rutuja-pink/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-10 bottom-24 h-72 w-72 animate-float-slow rounded-full bg-rutuja-blue/10 blur-3xl" aria-hidden="true" />
 
       <div className="container-edge relative">
         <div className="mx-auto max-w-4xl text-center">
@@ -51,7 +53,7 @@ export default function FinalCTA() {
               <Link to="/donate" data-testid="final-donate-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
                 {c.secondary}
               </Link>
-              <Link to="/partner" data-testid="final-partner-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-rutuja-ink sm:w-auto">
+              <Link to="/partner" data-testid="final-partner-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,color,box-shadow] duration-300 hover:bg-white hover:text-rutuja-ink hover:shadow-[0_0_30px_-4px_rgba(255,255,255,0.5)] sm:w-auto">
                 {c.tertiary}
               </Link>
             </div>

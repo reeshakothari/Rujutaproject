@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Play, ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { VIDEOS } from "@/data/videos";
 
@@ -27,12 +27,12 @@ export default function ExperienceVideo() {
           </div>
 
           <div className="lg:col-span-8">
-            <Reveal delay={0.1}>
+            <FlyIn direction="right" delay={0.1}>
               <Link
                 to="/videos"
                 data-testid="experience-video-link"
                 aria-label={e.cta}
-                className="group relative block aspect-video w-full overflow-hidden bg-rutuja-ink shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)]"
+                className="group relative block aspect-video w-full overflow-hidden bg-rutuja-ink shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] transition-shadow duration-500 hover:shadow-[0_30px_90px_-30px_rgba(0,0,0,0.55),0_0_60px_-14px_rgba(200,43,98,0.5)]"
               >
                 {poster && (
                   <img
@@ -44,7 +44,7 @@ export default function ExperienceVideo() {
                 )}
                 <span className="absolute inset-0 bg-rutuja-ink/25 transition-colors duration-300 group-hover:bg-rutuja-ink/10" aria-hidden="true" />
                 <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="grid h-20 w-20 place-items-center rounded-full bg-white/95 text-rutuja-pink shadow-xl transition-transform duration-300 group-hover:scale-110 md:h-24 md:w-24">
+                  <span className="grid h-20 w-20 place-items-center rounded-full bg-white/95 text-rutuja-pink shadow-[0_0_0_0_rgba(200,43,98,0.5)] transition-transform duration-300 group-hover:scale-110 group-hover:shadow-[0_0_50px_10px_rgba(200,43,98,0.55)] animate-glow-pulse md:h-24 md:w-24">
                     <Play size={30} className="ml-1 fill-rutuja-pink" />
                   </span>
                 </span>
@@ -52,7 +52,7 @@ export default function ExperienceVideo() {
                   {e.cta}
                 </span>
               </Link>
-            </Reveal>
+            </FlyIn>
           </div>
         </div>
       </div>

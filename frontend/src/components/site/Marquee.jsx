@@ -12,8 +12,8 @@ export default function Marquee({ items, className = "" }) {
       >
         {track.map((it, i) => (
           <span key={i} className="flex items-center gap-16">
-            <span className="font-serif text-2xl italic text-rutuja-ink/30 md:text-4xl">{it}</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-rutuja-pink/50" />
+            <span className="font-serif text-2xl italic text-rutuja-ink/30 transition-colors duration-500 hover:text-rutuja-pink md:text-4xl">{it}</span>
+            <span className={`h-1.5 w-1.5 rounded-full bg-rutuja-pink/60 shadow-[0_0_10px_2px_rgba(200,43,98,0.55)] ${reduce ? "" : "animate-glow-pulse-sm"}`} />
           </span>
         ))}
       </div>

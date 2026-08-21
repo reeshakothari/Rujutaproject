@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import Marquee from "@/components/site/Marquee";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
@@ -58,8 +58,8 @@ function Story({ quote, context, location, audience, img, index, layout }) {
   return (
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
       <div className={`lg:col-span-6 ${imageFirst ? "" : "lg:order-2"}`}>
-        <Reveal>
-          <div className="group relative aspect-[5/4] overflow-hidden">
+        <FlyIn direction={imageFirst ? "left" : "right"}>
+          <div className="group relative aspect-[5/4] overflow-hidden shadow-[0_25px_60px_-30px_rgba(200,43,98,0.4)] transition-shadow duration-700 hover:shadow-[0_25px_80px_-24px_rgba(200,43,98,0.6)]">
             <img
               src={img}
               alt="A Dignity Doll session in the community"
@@ -67,12 +67,12 @@ function Story({ quote, context, location, audience, img, index, layout }) {
               loading="lazy"
             />
           </div>
-        </Reveal>
+        </FlyIn>
       </div>
       <div className={`lg:col-span-6 ${imageFirst ? "" : "lg:order-1"}`}>
         <Reveal delay={0.1}>
           <span className="font-serif text-5xl text-white/15">{index}</span>
-          <Quote className="mt-3 text-rutuja-pink" size={30} aria-hidden="true" />
+          <Quote className="mt-3 text-rutuja-pink drop-shadow-[0_0_10px_rgba(200,43,98,0.65)]" size={30} aria-hidden="true" />
           <blockquote className="mt-4 font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">{context}</p>
           <Meta location={location} audience={audience} />
@@ -85,8 +85,8 @@ function Story({ quote, context, location, audience, img, index, layout }) {
 function StoryWide({ quote, context, location, audience, img, index }) {
   return (
     <div>
-      <Reveal>
-        <div className="group relative aspect-[16/9] w-full overflow-hidden">
+      <FlyIn direction="up">
+        <div className="group relative aspect-[16/9] w-full overflow-hidden shadow-[0_25px_70px_-30px_rgba(200,43,98,0.4)] transition-shadow duration-700 hover:shadow-[0_25px_90px_-24px_rgba(200,43,98,0.6)]">
           <img
             src={img}
             alt="Participants at a Dignity Doll session"
@@ -96,7 +96,7 @@ function StoryWide({ quote, context, location, audience, img, index }) {
           <div className="absolute inset-0 bg-gradient-to-t from-rutuja-ink/70 to-transparent" aria-hidden="true" />
           <span className="absolute left-6 top-6 font-serif text-5xl text-white/40">{index}</span>
         </div>
-      </Reveal>
+      </FlyIn>
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <Reveal delay={0.05}>

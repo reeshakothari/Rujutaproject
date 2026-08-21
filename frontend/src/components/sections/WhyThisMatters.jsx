@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
@@ -20,7 +20,7 @@ export default function WhyThisMatters() {
             <Reveal>
               <h2 className="font-serif text-4xl font-medium leading-[1.08] tracking-tight text-rutuja-ink md:text-5xl lg:text-[3.4rem]">
                 The problem is not menstruation. The problem is{" "}
-                <span className="italic text-rutuja-pink">{silence(w.title)}</span>.
+                <span className="italic text-rutuja-pink animate-text-glow">{silence(w.title)}</span>.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -38,16 +38,16 @@ export default function WhyThisMatters() {
           </div>
 
           <div className="lg:col-span-5">
-            <Reveal delay={0.1}>
-              <div className="relative aspect-[4/5] overflow-hidden">
+            <FlyIn direction="right" delay={0.1}>
+              <div className="group relative aspect-[4/5] overflow-hidden shadow-[0_30px_70px_-30px_rgba(200,43,98,0.35)] transition-shadow duration-700 hover:shadow-[0_30px_90px_-24px_rgba(200,43,98,0.55)]">
                 <img
                   src={IMAGES.girlPortrait}
                   alt="A girl holding the Dignity Doll after a session"
-                  className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
-            </Reveal>
+            </FlyIn>
           </div>
         </div>
 
@@ -116,7 +116,7 @@ function PullSequence({ text }) {
           return (
             <span key={i}>
               <motion.span
-                className="inline-block"
+                className={`inline-block ${isLast ? "text-rutuja-pink [text-shadow:0_0_22px_rgba(200,43,98,0.5)]" : ""}`}
                 initial={isLast ? { opacity: 0, y: 14, scale: 0.97 } : { opacity: 0, y: 14 }}
                 whileInView={isLast ? { opacity: 1, y: 0, scale: 1 } : { opacity: restOpacity(i), y: 0 }}
                 viewport={vp}

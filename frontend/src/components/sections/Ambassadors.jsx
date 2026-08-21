@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { AMBASSADORS } from "@/data/ambassadors";
 
@@ -34,12 +34,12 @@ export default function Ambassadors() {
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {AMBASSADORS.map((amb, i) => (
-            <Reveal key={i} delay={(i % 3) * 0.06}>
+            <FlyIn key={i} direction={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"} distance={100} delay={(i % 3) * 0.08}>
               <button
                 data-testid={`ambassador-${i}`}
                 onClick={() => setActive(amb)}
                 aria-label={`Ambassador ${i + 1}`}
-                className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-1.5"
+                className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.5 hover:border-rutuja-pink/40 hover:shadow-[0_25px_60px_-25px_rgba(200,43,98,0.55)]"
               >
                 <img
                   src={amb.src}
@@ -48,7 +48,7 @@ export default function Ambassadors() {
                   className="aspect-square w-full object-cover transition-transform duration-[1.1s] ease-out group-hover:scale-[1.03]"
                 />
               </button>
-            </Reveal>
+            </FlyIn>
           ))}
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function Ambassadors() {
               src={active.src}
               alt="Rutuja Dignity Doll ambassador"
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[88vh] max-w-[92vw] object-contain shadow-2xl"
+              className="max-h-[88vh] max-w-[92vw] object-contain shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_80px_-10px_rgba(200,43,98,0.5)]"
             />
           </motion.div>
         )}

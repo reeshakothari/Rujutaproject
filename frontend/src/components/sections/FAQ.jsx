@@ -30,7 +30,7 @@ export default function FAQ() {
                   <AccordionItem key={i} value={`item-${i}`} className="border-b border-rutuja-line">
                     <AccordionTrigger
                       data-testid={`faq-trigger-${i}`}
-                      className="py-6 text-left font-serif text-xl text-rutuja-ink hover:no-underline md:text-2xl [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-rutuja-blue"
+                      className="py-6 text-left font-serif text-xl text-rutuja-ink transition-colors duration-300 hover:text-rutuja-pink hover:no-underline md:text-2xl [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-rutuja-blue [&>svg]:transition-transform [&>svg]:duration-300 [&[data-state=open]>svg]:text-rutuja-pink [&[data-state=open]>svg]:drop-shadow-[0_0_8px_rgba(200,43,98,0.6)]"
                     >
                       {item.q}
                     </AccordionTrigger>

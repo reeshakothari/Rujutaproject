@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
 import { ArrowUpRight, Check } from "lucide-react";
@@ -9,7 +9,8 @@ export default function WorkshopExperience() {
   const w = t.workshop;
   return (
     <section data-testid="workshop-section" className="relative overflow-hidden bg-rutuja-blue py-24 text-white md:py-32">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/5" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 animate-float rounded-full bg-white/5" aria-hidden="true" />
+      <div className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 animate-float-slow rounded-full bg-rutuja-pink/10 blur-3xl" aria-hidden="true" />
       <div className="container-edge">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
@@ -28,7 +29,7 @@ export default function WorkshopExperience() {
             <ul className="mt-8 space-y-3">
               {w.points.map((p, i) => (
                 <Reveal as="li" key={i} delay={0.14 + i * 0.05} className="flex items-start gap-3">
-                  <Check size={18} className="mt-1 shrink-0 text-rutuja-pink" aria-hidden="true" />
+                  <Check size={18} className="mt-1 shrink-0 text-rutuja-pink drop-shadow-[0_0_8px_rgba(200,43,98,0.7)]" aria-hidden="true" />
                   <span className="text-sm leading-relaxed text-white/90 md:text-base">{p}</span>
                 </Reveal>
               ))}
@@ -47,11 +48,11 @@ export default function WorkshopExperience() {
           </div>
 
           <div className="lg:col-span-6">
-            <Reveal delay={0.1}>
-              <div className="relative aspect-[4/3] overflow-hidden shadow-2xl">
-                <img src={IMAGES.workshopField} alt={w.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+            <FlyIn direction="right" delay={0.1}>
+              <div className="group relative aspect-[4/3] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5),0_0_60px_-14px_rgba(200,43,98,0.5)] transition-shadow duration-700 hover:shadow-[0_30px_90px_-16px_rgba(0,0,0,0.55),0_0_80px_-10px_rgba(200,43,98,0.7)]">
+                <img src={IMAGES.workshopField} alt={w.imageAlt} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105" loading="lazy" />
               </div>
-            </Reveal>
+            </FlyIn>
           </div>
         </div>
       </div>

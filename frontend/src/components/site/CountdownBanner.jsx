@@ -46,7 +46,7 @@ export default function CountdownBanner() {
       data-testid="countdown-banner"
       aria-live="polite"
       className={`relative mt-[72px] transition-colors duration-500 ${
-        timeLeft ? "bg-rutuja-blue" : "bg-rutuja-pink"
+        timeLeft ? "bg-rutuja-blue shadow-[0_10px_30px_-14px_rgba(41,94,170,0.55)]" : "bg-rutuja-pink shadow-[0_10px_34px_-12px_rgba(200,43,98,0.6)]"
       }`}
     >
       <div className="container-edge flex flex-col items-center justify-center gap-3 py-4 text-center sm:flex-row sm:gap-8 sm:py-5 sm:text-left">
@@ -113,7 +113,7 @@ export default function CountdownBanner() {
                 {!reduce && (
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/60" />
                 )}
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_10px_3px_rgba(255,255,255,0.7)]" />
               </span>
               <div>
                 <p className="font-serif text-lg font-medium text-white sm:text-xl">{c.liveTitle}</p>

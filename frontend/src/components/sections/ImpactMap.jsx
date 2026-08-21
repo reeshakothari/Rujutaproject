@@ -88,7 +88,7 @@ export default function ImpactMap() {
           {/* Legend */}
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-rutuja-slate">
             <span className="inline-flex items-center gap-2">
-              <span className="inline-block h-3 w-3 rounded-full border-2 border-rutuja-pink bg-white" />
+              <span className="inline-block h-3 w-3 animate-glow-pulse-sm rounded-full border-2 border-rutuja-pink bg-white" />
               {im.legendReach}
             </span>
             <span className="inline-flex items-center gap-2">
@@ -287,7 +287,7 @@ export default function ImpactMap() {
             {/* Detail card */}
             {tab === "regions" ? (
               <motion.article key={`r-${regionIdx}`} data-testid="editorial-story-card"
-                className="mt-6 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
+                className="mt-6 rounded-md border border-rutuja-pink/20 bg-white p-5 shadow-[0_12px_40px_-14px_rgba(200,43,98,0.35)]"
                 initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }}>
                 <div className="flex items-start justify-between gap-3 border-b border-rutuja-line pb-3">
                   <div>
@@ -328,12 +328,12 @@ export default function ImpactMap() {
         </div>
 
         {/* Closing statement */}
-        <motion.div data-testid="impact-closing-statement-card" className="relative mt-14 overflow-hidden rounded-md bg-rutuja-ink p-8 sm:mt-20 sm:p-12"
+        <motion.div data-testid="impact-closing-statement-card" className="relative mt-14 overflow-hidden rounded-md bg-rutuja-ink p-8 shadow-[0_30px_80px_-30px_rgba(200,43,98,0.4)] sm:mt-20 sm:p-12"
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: EASE }}>
           <blockquote data-testid="impact-closing-quote" className="relative max-w-3xl font-serif text-xl font-normal italic leading-relaxed text-white sm:text-2xl lg:text-3xl">
             {`\u201C${im.closing.quote}\u201D`}
           </blockquote>
-          <p className="relative mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-pink">{im.closing.attribution}</p>
+          <p className="relative mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-pink [text-shadow:0_0_16px_rgba(200,43,98,0.55)]">{im.closing.attribution}</p>
           <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
             <Link to="/request-workshop" data-testid="impact-closing-cta-workshop"
               className="inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rutuja-pinkdark">

@@ -29,10 +29,10 @@ export default function ImpactMetrics() {
         <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-rutuja-line pt-10 md:grid-cols-5 md:divide-x md:divide-rutuja-line">
           {p.metrics.map((m, i) => (
             <Reveal key={i} delay={i * 0.08}>
-              <div className="transition-transform duration-300 hover:-translate-y-1.5 md:px-6 md:first:pl-0">
+              <div className="group transition-transform duration-300 hover:-translate-y-1.5 md:px-6 md:first:pl-0">
                 <p
                   data-testid={`pilot-stat-value-${i}`}
-                  className={`font-serif font-medium leading-none text-rutuja-blue ${
+                  className={`font-serif font-medium leading-none text-rutuja-blue transition-[color,text-shadow] duration-300 group-hover:text-rutuja-pinkdark group-hover:[text-shadow:0_0_24px_rgba(200,43,98,0.5)] ${
                     m.isText ? "text-lg md:text-xl" : "text-4xl md:text-5xl"
                   }`}
                 >

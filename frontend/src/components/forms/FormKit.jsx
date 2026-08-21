@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { Loader2, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
@@ -72,8 +73,8 @@ export function Field({ label, name, values, errors, setField, type = "text", re
         onChange={(e) => setField(name, e.target.value)}
         aria-invalid={err ? "true" : "false"}
         aria-describedby={err ? `${name}-error` : undefined}
-        className={`w-full border bg-white px-4 py-3 text-base text-rutuja-ink outline-none transition-colors placeholder:text-rutuja-muted focus:border-rutuja-blue ${
-          err ? "border-rutuja-pink" : "border-rutuja-line"
+        className={`w-full border bg-white px-4 py-3 text-base text-rutuja-ink outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-rutuja-muted focus:border-rutuja-pink focus:shadow-[0_0_0_4px_rgba(200,43,98,0.15),0_0_24px_-8px_rgba(200,43,98,0.5)] ${
+          err ? "border-rutuja-pink shadow-[0_0_0_3px_rgba(200,43,98,0.12)]" : "border-rutuja-line"
         }`}
         {...rest}
       />
@@ -98,8 +99,8 @@ export function TextAreaField({ label, name, values, errors, setField, required,
         onChange={(e) => setField(name, e.target.value)}
         aria-invalid={err ? "true" : "false"}
         aria-describedby={err ? `${name}-error` : undefined}
-        className={`w-full resize-y border bg-white px-4 py-3 text-base text-rutuja-ink outline-none transition-colors focus:border-rutuja-blue ${
-          err ? "border-rutuja-pink" : "border-rutuja-line"
+        className={`w-full resize-y border bg-white px-4 py-3 text-base text-rutuja-ink outline-none transition-[border-color,box-shadow] duration-300 focus:border-rutuja-pink focus:shadow-[0_0_0_4px_rgba(200,43,98,0.15),0_0_24px_-8px_rgba(200,43,98,0.5)] ${
+          err ? "border-rutuja-pink shadow-[0_0_0_3px_rgba(200,43,98,0.12)]" : "border-rutuja-line"
         }`}
       />
       {err && <ErrorText id={`${name}-error`}>{err}</ErrorText>}
@@ -123,8 +124,8 @@ export function SelectField({ label, name, values, errors, setField, options, re
         onChange={(e) => setField(name, e.target.value)}
         aria-invalid={err ? "true" : "false"}
         aria-describedby={err ? `${name}-error` : undefined}
-        className={`w-full appearance-none border bg-white px-4 py-3 text-base outline-none transition-colors focus:border-rutuja-blue ${
-          err ? "border-rutuja-pink" : "border-rutuja-line"
+        className={`w-full appearance-none border bg-white px-4 py-3 text-base outline-none transition-[border-color,box-shadow] duration-300 focus:border-rutuja-pink focus:shadow-[0_0_0_4px_rgba(200,43,98,0.15),0_0_24px_-8px_rgba(200,43,98,0.5)] ${
+          err ? "border-rutuja-pink shadow-[0_0_0_3px_rgba(200,43,98,0.12)]" : "border-rutuja-line"
         } ${values[name] ? "text-rutuja-ink" : "text-rutuja-muted"}`}
       >
         <option value="">{t.forms.select}</option>
@@ -159,7 +160,7 @@ export function SubmitButton({ status, testid }) {
       type="submit"
       data-testid={testid}
       disabled={status === "loading"}
-      className="btn-primary rounded-sm px-8 py-4 text-base disabled:opacity-70"
+      className={`btn-primary rounded-sm px-8 py-4 text-base disabled:opacity-70 ${status === "loading" ? "" : "animate-glow-pulse-sm"}`}
     >
       {status === "loading" ? (
         <>
@@ -177,8 +178,20 @@ export function SubmitButton({ status, testid }) {
 export function SuccessState({ onReset, testid }) {
   const { t } = useLang();
   return (
-    <div data-testid={testid} className="flex flex-col items-start gap-5 border border-rutuja-line bg-rutuja-soft p-8 md:p-10">
-      <CheckCircle2 size={40} className="text-rutuja-blue" />
+    <motion.div
+      data-testid={testid}
+      initial={{ opacity: 0, y: 16, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="flex flex-col items-start gap-5 border border-rutuja-pink/20 bg-rutuja-soft p-8 shadow-[0_25px_60px_-28px_rgba(200,43,98,0.4)] md:p-10"
+    >
+      <motion.span
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <CheckCircle2 size={40} className="text-rutuja-pink drop-shadow-[0_0_16px_rgba(200,43,98,0.6)]" />
+      </motion.span>
       <div>
         <h3 className="font-serif text-2xl text-rutuja-ink md:text-3xl">{t.forms.successTitle}</h3>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-rutuja-slate">{t.forms.successBody}</p>
@@ -191,6 +204,6 @@ export function SuccessState({ onReset, testid }) {
           {t.forms.backHome}
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

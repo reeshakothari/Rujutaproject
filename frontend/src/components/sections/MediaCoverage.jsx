@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { MEDIA } from "@/data/images";
 import { ExternalLink } from "lucide-react";
@@ -37,7 +37,7 @@ export default function MediaCoverage() {
                 data-testid={`media-clipping-${i}`}
                 className="group flex h-full flex-col"
               >
-                <div className="relative overflow-hidden border border-rutuja-line bg-white shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-1.5">
+                <FlyIn direction={i % 2 === 0 ? "left" : "right"} distance={90} className="relative overflow-hidden border border-rutuja-line bg-white shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)] transition-[transform,box-shadow,border-color] duration-500 group-hover:-translate-y-1.5 group-hover:border-rutuja-pink/40 group-hover:shadow-[0_25px_60px_-24px_rgba(200,43,98,0.55)]">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={MEDIA[i]}
@@ -49,7 +49,7 @@ export default function MediaCoverage() {
                   <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center bg-white/90 text-rutuja-blue opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                     <ExternalLink size={16} />
                   </span>
-                </div>
+                </FlyIn>
                 <div className="mt-5 flex items-baseline justify-between gap-3 border-t border-rutuja-line pt-4">
                   <span className="text-sm font-semibold text-rutuja-blue">{item.publication}</span>
                   <span className="shrink-0 text-xs uppercase tracking-[0.15em] text-rutuja-muted">{item.date}</span>

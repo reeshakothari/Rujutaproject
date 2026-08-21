@@ -58,9 +58,9 @@ export default function Header() {
   return (
     <header
       data-testid="site-header"
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-500 ${
         scrolled || open
-          ? "bg-white/90 backdrop-blur-md border-b border-rutuja-line"
+          ? "bg-white/90 backdrop-blur-md border-b border-rutuja-line shadow-[0_8px_30px_-18px_rgba(200,43,98,0.35)]"
           : "bg-transparent"
       }`}
     >
@@ -92,7 +92,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <LangSwitch lang={lang} setLang={setLang} label={t.nav.langLabel} />
           <span className="h-5 w-px bg-rutuja-line" aria-hidden="true" />
-          <Link to="/donate" data-testid="nav-donate-cta" className="text-sm font-semibold text-rutuja-pink transition-colors hover:text-rutuja-pinkdark">
+          <Link to="/donate" data-testid="nav-donate-cta" className="text-sm font-semibold text-rutuja-pink transition-[color,text-shadow] duration-300 hover:text-rutuja-pinkdark hover:[text-shadow:0_0_16px_rgba(200,43,98,0.6)]">
             {t.nav.donate}
           </Link>
           <Link to="/request-workshop" data-testid="nav-workshop-cta" className="btn-primary rounded-sm px-5 py-2.5 text-sm">
@@ -126,29 +126,38 @@ export default function Header() {
           >
             <div className="container-edge flex flex-col gap-1 py-6">
               {links.map((l, i) => (
-                <button
+                <motion.button
                   key={l.id}
                   data-testid={`mobile-nav-${l.id}`}
                   onClick={() => goToSection(l.id)}
-                  className="border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink"
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.35, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  className="border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink transition-colors hover:text-rutuja-pink"
                 >
                   <span className="mr-3 text-xs align-middle text-rutuja-muted">0{i + 1}</span>
                   {l.label}
-                </button>
+                </motion.button>
               ))}
-              <MobileLink to="/gallery" label={t.nav.gallery} testid="mobile-nav-gallery" onClick={() => setOpen(false)} />
-              <MobileLink to="/videos" label={t.nav.videos} testid="mobile-nav-videos" onClick={() => setOpen(false)} />
-              <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} />
-              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} />
-              <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} />
-              <Link
-                to="/request-workshop"
-                data-testid="mobile-nav-workshop"
-                onClick={() => setOpen(false)}
-                className="btn-primary mt-5 w-full rounded-sm py-4 text-base"
+              <MobileLink to="/gallery" label={t.nav.gallery} testid="mobile-nav-gallery" onClick={() => setOpen(false)} delay={links.length * 0.05} />
+              <MobileLink to="/videos" label={t.nav.videos} testid="mobile-nav-videos" onClick={() => setOpen(false)} delay={(links.length + 1) * 0.05} />
+              <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} delay={(links.length + 2) * 0.05} />
+              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} delay={(links.length + 3) * 0.05} />
+              <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} delay={(links.length + 4) * 0.05} />
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: (links.length + 5) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
-                {t.nav.requestWorkshop} <ArrowUpRight size={18} />
-              </Link>
+                <Link
+                  to="/request-workshop"
+                  data-testid="mobile-nav-workshop"
+                  onClick={() => setOpen(false)}
+                  className="btn-primary mt-5 w-full rounded-sm py-4 text-base animate-glow-pulse"
+                >
+                  {t.nav.requestWorkshop} <ArrowUpRight size={18} />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -157,16 +166,22 @@ export default function Header() {
   );
 }
 
-function MobileLink({ to, label, testid, onClick }) {
+function MobileLink({ to, label, testid, onClick, delay = 0 }) {
   return (
-    <Link
-      to={to}
-      data-testid={testid}
-      onClick={onClick}
-      className="border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink"
+    <motion.div
+      initial={{ opacity: 0, x: -16 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.35, delay, ease: [0.22, 1, 0.36, 1] }}
     >
-      {label}
-    </Link>
+      <Link
+        to={to}
+        data-testid={testid}
+        onClick={onClick}
+        className="block border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink transition-colors hover:text-rutuja-pink"
+      >
+        {label}
+      </Link>
+    </motion.div>
   );
 }
 

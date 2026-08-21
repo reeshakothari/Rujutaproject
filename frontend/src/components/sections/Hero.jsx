@@ -20,8 +20,8 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative overflow-hidden bg-rutuja-soft"
     >
-      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-rutuja-blue/5 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-rutuja-pink/5 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 animate-float rounded-full bg-rutuja-blue/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-16 bottom-0 h-96 w-96 animate-float-slow rounded-full bg-rutuja-pink/15 blur-3xl" aria-hidden="true" />
 
       <div className="container-edge grid min-h-0 grid-cols-1 items-center gap-10 py-10 lg:min-h-[calc(88vh-72px)] lg:grid-cols-12 lg:py-16">
         <div className="lg:col-span-6 xl:col-span-6">
@@ -68,13 +68,13 @@ export default function Hero() {
 
         <div className="lg:col-span-6 xl:col-span-6">
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, x: 160, rotate: 6, scale: 0.9 }}
+            animate={reduce ? { opacity: 1 } : { opacity: 1, x: 0, rotate: 0, scale: 1 }}
+            transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto max-w-md lg:ml-auto lg:mr-0"
           >
-            <div className="absolute -inset-3 -z-10 border border-rutuja-blue/15" aria-hidden="true" />
-            <div className="relative aspect-[726/1040] overflow-hidden shadow-[0_30px_80px_-30px_rgba(41,94,170,0.35)]">
+            <div className="absolute -inset-3 -z-10 border border-rutuja-pink/25" aria-hidden="true" />
+            <div className="relative aspect-[726/1040] overflow-hidden shadow-[0_30px_80px_-30px_rgba(41,94,170,0.35),0_0_60px_-18px_rgba(200,43,98,0.4)] transition-shadow duration-700 hover:shadow-[0_30px_90px_-24px_rgba(41,94,170,0.4),0_0_80px_-16px_rgba(200,43,98,0.55)]">
               <motion.video
                 src="/media/hero-doll.mp4"
                 aria-label={h.imageAlt}
@@ -87,7 +87,7 @@ export default function Hero() {
                 preload="auto"
               />
             </div>
-            <div className="absolute -bottom-4 left-4 bg-rutuja-pink px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+            <div className="absolute -bottom-4 left-4 animate-glow-pulse-sm bg-rutuja-pink px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white">
               {h.caption}
             </div>
           </motion.div>

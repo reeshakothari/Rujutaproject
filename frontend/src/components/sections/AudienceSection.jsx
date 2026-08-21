@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
 
@@ -34,7 +34,7 @@ export default function AudienceSection() {
 
 function Cell({ g, className = "", img }) {
   return (
-    <Reveal className={`group relative bg-white transition-colors duration-300 hover:bg-rutuja-pink ${className}`}>
+    <Reveal className={`group relative bg-white transition-[background-color,box-shadow] duration-300 hover:z-10 hover:bg-rutuja-pink hover:shadow-[0_25px_60px_-20px_rgba(200,43,98,0.6)] ${className}`}>
       <div className="flex h-full min-h-[220px] flex-col justify-between p-7 md:p-8">
         <div>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue transition-colors duration-300 group-hover:text-white">{g.label}</span>
@@ -43,9 +43,9 @@ function Cell({ g, className = "", img }) {
         <p className="mt-6 max-w-sm text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{g.d}</p>
       </div>
       {img && (
-        <div className="h-40 overflow-hidden md:h-48">
+        <FlyIn direction="up" distance={80} className="h-40 overflow-hidden md:h-48">
           <img src={img} alt="" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" loading="lazy" />
-        </div>
+        </FlyIn>
       )}
     </Reveal>
   );

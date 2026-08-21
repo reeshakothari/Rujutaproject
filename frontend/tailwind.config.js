@@ -85,12 +85,38 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' }
+        },
+        'glow-pulse': {
+          '0%, 100%': { boxShadow: '0 0 0px 0px rgba(200,43,98,0.0)' },
+          '50%': { boxShadow: '0 0 45px 8px rgba(200,43,98,0.45)' }
+        },
+        'glow-pulse-sm': {
+          '0%, 100%': { boxShadow: '0 0 0px 0px rgba(200,43,98,0.0)' },
+          '50%': { boxShadow: '0 0 22px 3px rgba(200,43,98,0.5)' }
+        },
+        'text-glow': {
+          '0%, 100%': { textShadow: '0 0 0px rgba(200,43,98,0)' },
+          '50%': { textShadow: '0 0 18px rgba(200,43,98,0.65)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-16px)' }
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.25s ease-out',
         'accordion-up': 'accordion-up 0.25s ease-out',
-        'marquee': 'marquee 40s linear infinite'
+        'marquee': 'marquee 40s linear infinite',
+        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+        'glow-pulse-sm': 'glow-pulse-sm 2.4s ease-in-out infinite',
+        'text-glow': 'text-glow 3.2s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 9s ease-in-out infinite',
+        'spin-slow': 'spin-slow 14s linear infinite'
       }
     }
   },
