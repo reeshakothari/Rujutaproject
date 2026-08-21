@@ -74,6 +74,13 @@
     .btn-outline {
         @apply inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-colors duration-300 hover:bg-rutuja-blue hover:text-white;
     }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 .mask-line {

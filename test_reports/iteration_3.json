@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only e2e verification of the new editorial 'Our Impact / Where the Dignity Doll Has Reached' section on / and /impact. All acceptance criteria pass. Header (eyebrow/headline/subtext) renders. India SVG map renders with exactly 6 documented region markers (delhi, odisha, haryana, uttarakhand, maharashtra, karnataka) and the map-journey-lines group. The 6-item region selector is present and clicking/hovering a region updates the editorial story card correctly for all 5 tested regions (delhi->Delhi, odisha->Bhubaneswar & Balasore, haryana->Rewari, uttarakhand->Dehradun, karnataka->Bengaluru), with distinct context text and expected venue chips (e.g. karnataka: Anweshana School, Dodda Bommasandra, Tailoring Unit). Maharashtra is the default active region, shows the 'Outreach hub' badge, and its pin is styled as the blue hub. National Pilot strip displays exact figures 2,924 / 38 / 13 / '11 May – 31 July 2026' / '30–60 min' and counts up on scroll. Closing card shows the full quote and CTAs impact-closing-cta-workshop -> /request-workshop, impact-closing-cta-donate -> /donate. Hindi toggle translates eyebrow, headline, region button, story card, pilot label, and closing quote to Devanagari; EN toggles back. Mobile (390px): stack order selector -> map -> story card -> pilot -> closing verified via top positions, zero horizontal overflow, region pill and map marker are tappable. Desktop (1440px): map on left, selector+story on right, zero horizontal overflow. National Pilot strip is confirmed to NOT be nested within the older ambassador impact-section; both sections are separate DOM nodes on Home. Zero console/page errors on either route.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Impact section - Hindi region pill labels", "issues": ["In HI, region button text renders state and city concatenated without a visible separator on mobile-narrow scroller (e.g. 'कर्नाटकबेंगलुरु'). On desktop the two lines display fine because the city is a block-level `hidden lg:block` span, but in HI narrow rendering the accessible reading order still runs them together. Consider adding a bullet/·/newline visible cue or comma between state and city for screen-readers and copy-paste UX. Not blocking."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "ImpactMap.jsx: onHoverStart on framer motion marker <g> sets active on desktop but there is no onHoverEnd — this is intentional per new design (no bounce/no churn), verified fine.",
+    "impactMap.js: single ~50KB SVG path string in JS bundle inflates initial JS parse; consider moving to a static .json import or public/ SVG to improve TTI (existing feedback from prior iteration, not addressed).",
+    "content.js HI region pills read as 'stateCity' concatenated when city span is visible (see design issue above); minor a11y polish."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Section auto-loads with maharashtra as active (hub). Markers use whileInView with ~0.6s + i*0.14s stagger and count-ups use IntersectionObserver — wait ~2.5-3s after scrolling into view. Per-city images are intentionally OMITTED (do NOT flag as missing images). National Pilot strip (2,924/38/13) is a SEPARATE dataset from the older ambassador '20+/700+/6' impact-section on Home; the two are not expected to reconcile. Verified on desktop 1440x1080 and mobile 390x844; both routes / and /impact have zero console errors.",
+  "rca of the issue": "N/A - no issues"
+}
