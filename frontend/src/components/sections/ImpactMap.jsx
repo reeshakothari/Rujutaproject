@@ -200,7 +200,7 @@ export default function ImpactMap() {
               <motion.article
                 key={active}
                 data-testid="editorial-story-card"
-                className="mt-4 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-14px_rgba(163,35,79,0.22)] lg:absolute lg:bottom-5 lg:right-5 lg:z-10 lg:mt-0 lg:w-[300px] lg:max-w-[48%] lg:p-5 lg:backdrop-blur-none"
+                className="mt-5 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
                 initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: EASE }}
