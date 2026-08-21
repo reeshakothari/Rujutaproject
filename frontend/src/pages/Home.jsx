@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useLenis } from "lenis/react";
+import CountdownBanner from "@/components/site/CountdownBanner";
 import Hero from "@/components/sections/Hero";
 import WhyThisMatters from "@/components/sections/WhyThisMatters";
 import DignityDollIntro from "@/components/sections/DignityDollIntro";
@@ -45,6 +46,7 @@ export default function Home() {
 
   return (
     <main data-testid="home-page">
+      <CountdownBanner />
       <Hero />
       <WhyThisMatters />
       <DignityDollIntro />

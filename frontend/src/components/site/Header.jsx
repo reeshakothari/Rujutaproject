@@ -73,16 +73,19 @@ export default function Header() {
               key={l.id}
               data-testid={`nav-${l.id}`}
               onClick={() => goToSection(l.id)}
-              className="text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
+              className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
             >
               {l.label}
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
             </button>
           ))}
-          <Link to="/gallery" data-testid="nav-gallery" className="text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
+          <Link to="/gallery" data-testid="nav-gallery" className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
             {t.nav.gallery}
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
           </Link>
-          <Link to="/videos" data-testid="nav-videos" className="text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
+          <Link to="/videos" data-testid="nav-videos" className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
             {t.nav.videos}
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
           </Link>
         </nav>
 

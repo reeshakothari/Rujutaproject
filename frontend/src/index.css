@@ -66,13 +66,13 @@
         @apply text-xs font-semibold uppercase tracking-[0.25em] text-rutuja-pink;
     }
     .btn-primary {
-        @apply inline-flex items-center justify-center gap-2 bg-rutuja-blue px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rutuja-bluedark;
+        @apply inline-flex items-center justify-center gap-2 bg-rutuja-blue px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-bluedark hover:shadow-[0_14px_30px_-12px_rgba(41,94,170,0.55)] active:translate-y-0;
     }
     .btn-secondary {
-        @apply inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rutuja-pinkdark;
+        @apply inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-pinkdark hover:shadow-[0_14px_30px_-12px_rgba(200,43,98,0.55)] active:translate-y-0;
     }
     .btn-outline {
-        @apply inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-colors duration-300 hover:bg-rutuja-blue hover:text-white;
+        @apply inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-blue hover:text-white active:translate-y-0;
     }
 }
 

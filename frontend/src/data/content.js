@@ -20,6 +20,16 @@ export const CONTENT = {
       menu: "Menu",
       close: "Close",
     },
+    countdown: {
+      eyebrow: "Save the Date",
+      title: "We Go Live In",
+      liveTitle: "We're Live Now",
+      liveSub: "The wait is over — explore what's new.",
+      days: "Days",
+      hours: "Hours",
+      minutes: "Minutes",
+      seconds: "Seconds",
+    },
     hero: {
       eyebrow: "A Rutuja Initiative · Menstrual Dignity",
       lines: [
@@ -340,6 +350,16 @@ export const CONTENT = {
       langLabel: "भाषा",
       menu: "मेन्यू",
       close: "बंद करें",
+    },
+    countdown: {
+      eyebrow: "यह तारीख़ याद रखें",
+      title: "हम लॉन्च हो रहे हैं",
+      liveTitle: "अब हम लाइव हैं",
+      liveSub: "इंतज़ार खत्म हुआ — नया क्या है, देखें।",
+      days: "दिन",
+      hours: "घंटे",
+      minutes: "मिनट",
+      seconds: "सेकंड",
     },
     hero: {
       eyebrow: "एक रुतुजा पहल · मासिक धर्म की गरिमा",

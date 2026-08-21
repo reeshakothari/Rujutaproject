@@ -13,8 +13,13 @@ export default function DignityDollIntro() {
             <Reveal>
               <div className="relative">
                 <div className="absolute -left-4 -top-4 h-24 w-24 border-t-2 border-l-2 border-rutuja-pink" aria-hidden="true" />
-                <div className="relative aspect-[4/5] overflow-hidden bg-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.4)]">
-                  <img src={IMAGES.dollCloseup} alt={t.hero.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+                <div className="group relative aspect-[4/5] overflow-hidden bg-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.4)]">
+                  <img
+                    src={IMAGES.dollCloseup}
+                    alt={t.hero.imageAlt}
+                    className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute -right-4 -bottom-4 h-24 w-24 border-b-2 border-r-2 border-rutuja-blue" aria-hidden="true" />
               </div>

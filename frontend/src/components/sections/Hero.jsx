@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       ref={ref}
       data-testid="hero-section"
-      className="relative overflow-hidden bg-rutuja-soft pt-[72px]"
+      className="relative overflow-hidden bg-rutuja-soft"
     >
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-rutuja-blue/5 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-rutuja-pink/5 blur-3xl" aria-hidden="true" />

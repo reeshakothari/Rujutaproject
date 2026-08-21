@@ -256,7 +256,7 @@ export default function ImpactMap({ showStats = false, showCta = true }) {
           <div className="mt-16 grid grid-cols-1 divide-y divide-rutuja-line border-y border-rutuja-line sm:grid-cols-3 sm:divide-y-0">
             {im.metrics.map((m, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="px-2 py-8 sm:border-r sm:border-rutuja-line sm:px-6 sm:last:border-r-0">
+                <div className="px-2 py-8 transition-transform duration-300 hover:-translate-y-1.5 sm:border-r sm:border-rutuja-line sm:px-6 sm:last:border-r-0">
                   <p className="font-serif text-4xl font-medium leading-none text-rutuja-pink md:text-6xl">
                     <CountUp value={m.value} />
                   </p>

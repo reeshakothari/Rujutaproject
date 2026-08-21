@@ -59,8 +59,13 @@ function Story({ quote, context, location, audience, img, index, layout }) {
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
       <div className={`lg:col-span-6 ${imageFirst ? "" : "lg:order-2"}`}>
         <Reveal>
-          <div className="relative aspect-[5/4] overflow-hidden">
-            <img src={img} alt="A Dignity Doll session in the community" className="h-full w-full object-cover" loading="lazy" />
+          <div className="group relative aspect-[5/4] overflow-hidden">
+            <img
+              src={img}
+              alt="A Dignity Doll session in the community"
+              className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+              loading="lazy"
+            />
           </div>
         </Reveal>
       </div>
@@ -81,8 +86,13 @@ function StoryWide({ quote, context, location, audience, img, index }) {
   return (
     <div>
       <Reveal>
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
-          <img src={img} alt="Participants at a Dignity Doll session" className="h-full w-full object-cover" loading="lazy" />
+        <div className="group relative aspect-[16/9] w-full overflow-hidden">
+          <img
+            src={img}
+            alt="Participants at a Dignity Doll session"
+            className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            loading="lazy"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-rutuja-ink/70 to-transparent" aria-hidden="true" />
           <span className="absolute left-6 top-6 font-serif text-5xl text-white/40">{index}</span>
         </div>
