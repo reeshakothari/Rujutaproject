@@ -99,7 +99,7 @@ export default function ImpactMap() {
                       {!reduce && (
                         <motion.circle
                           r={14}
-                          fill="#C82B62"
+                          fill="#295EAA"
                           style={{ transformBox: "fill-box", transformOrigin: "center" }}
                           initial={{ opacity: 0 }}
                           animate={{ scale: [0.7, 1.9], opacity: [0.32, 0] }}
@@ -117,20 +117,11 @@ export default function ImpactMap() {
                         onHoverStart={() => setActive(i)}
                         onTap={() => setActive(i)}
                         data-testid={`map-pin-${p.id}`}
-                        aria-label={`${p.n}. ${people[i]?.name || ""}`}
+                        aria-label={people[i]?.name || ""}
                       >
-                        <circle r={13.5} fill={isActive ? "#A3234F" : "#C82B62"} stroke="#ffffff" strokeWidth={1.6} />
-                        <text
-                          textAnchor="middle"
-                          dominantBaseline="central"
-                          fontSize={15}
-                          fontWeight={700}
-                          fontFamily='"Manrope", system-ui, sans-serif'
-                          fill="#ffffff"
-                          style={{ pointerEvents: "none" }}
-                        >
-                          {p.n}
-                        </text>
+                        <circle r={10} fill="#ffffff" stroke="#295EAA" strokeWidth={1} />
+                        <circle r={isActive ? 7.5 : 6.5} fill={isActive ? "#204985" : "#295EAA"} />
+                        <circle r={2.3} fill="#ffffff" />
                       </motion.g>
                     </g>
                   );
@@ -186,19 +177,17 @@ export default function ImpactMap() {
                     aria-label={`${person.name}, ${person.loc}`}
                     className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${
                       isActive
-                        ? "border-rutuja-pink bg-rutuja-soft"
-                        : "border-rutuja-line hover:border-rutuja-pink/50 lg:border-transparent lg:hover:bg-rutuja-soft/60"
+                        ? "border-rutuja-blue bg-rutuja-blue/5"
+                        : "border-rutuja-line hover:border-rutuja-blue/50 lg:border-transparent lg:hover:bg-rutuja-blue/5"
                     }`}
                   >
                     <span
-                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${
-                        isActive ? "bg-rutuja-pinkdark" : "bg-rutuja-pink"
+                      className={`h-2.5 w-2.5 shrink-0 rounded-full transition-colors duration-200 ${
+                        isActive ? "bg-rutuja-blue" : "bg-rutuja-line"
                       }`}
-                    >
-                      {p.n}
-                    </span>
+                    />
                     <span className="min-w-0">
-                      <span className={`block font-medium ${isActive ? "text-rutuja-pinkdark" : "text-rutuja-ink"}`}>
+                      <span className={`block font-medium ${isActive ? "text-rutuja-blue" : "text-rutuja-ink"}`}>
                         {person.name}
                       </span>
                       <span className="hidden truncate text-xs text-rutuja-muted lg:block">{person.loc}</span>
@@ -218,16 +207,14 @@ export default function ImpactMap() {
               transition={{ duration: 0.5, ease: EASE }}
             >
               <div className="flex items-start gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rutuja-pink text-sm font-bold text-white">
-                  {activePin?.n}
-                </span>
+                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-rutuja-blue" />
                 <div className="min-w-0">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
                     {im.roleLabel}
                   </p>
                   <h3
                     data-testid="editorial-story-title"
-                    className="mt-1 font-serif text-xl font-medium tracking-tight text-rutuja-pinkdark sm:text-2xl"
+                    className="mt-1 font-serif text-xl font-medium tracking-tight text-rutuja-blue sm:text-2xl"
                   >
                     {activePerson.name}
                   </h3>
