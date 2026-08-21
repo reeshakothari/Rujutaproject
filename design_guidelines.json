@@ -1,109 +1,530 @@
 {
-  "theme": "light",
-  "typography": {
-    "headings": {
-      "font_family": "Playfair Display, serif",
-      "weights": ["400", "500", "600"],
-      "usage": "Used for all major section titles, manifesto numbers, quotes, and the primary hero heading. Use tight tracking (tracking-tight) for large sizes."
+  "section_meta": {
+    "section_name": "Our Impact / Where the Dignity Doll Has Reached",
+    "target_component": "/app/frontend/src/components/sections/ImpactMap.jsx",
+    "companion_data_file": "/app/frontend/src/data/impactMap.js",
+    "content_registry": "/app/frontend/src/data/content.js",
+    "app_type": "marketing_site",
+    "context": "Nonprofit menstrual-dignity microsite in India. Editorial visual highlight section set within existing React + Tailwind + Framer Motion + Lenis stack.",
+    "theme_transition": "Deliberate warm shift: from the site's default light-pink (#FBECF2) base to a rich editorial warm ivory/cream background (#FAF6F0) with deep burgundy/maroon (#6A1B29), Rutuja blue (#295EAA), muted gold (#C5A059), and restrained pink (#C82B62) accents."
+  },
+  "emotional_storytelling_and_archetype": {
+    "archetype": "Editorial Social-Impact & Indian Craft Heritage (Fusion of Warm Organic + Swiss Narrative Clarity)",
+    "tone": "Human, premium, culturally grounded, credible, deeply respectful, warm.",
+    "narrative_arc": "Moves from an intimate conversation starter to a nationwide grassroots ripple effect. The visual story proves that dignity is not just a geographic pin—it is a documented moment where silence was transformed into honest dialogue.",
+    "anti_patterns_avoided": [
+      "No generic Google Maps style, blue pins, or road tiles.",
+      "No cartoonish bouncing pins, spinning 3D globes, or scroll-jacking.",
+      "No generic corporate charity gloss, heavy glassmorphism, or neon gradients.",
+      "No overcrowded equal-grid cards; layout uses asymmetric tension and editorial whitespace.",
+      "No full-screen gradients; uses tactile warm paper feel with subtle Indian block-print woodcut linework."
+    ]
+  },
+  "palette_and_color_system": {
+    "background_layers": {
+      "section_bg_primary": "#FAF6F0",
+      "section_bg_alt_panel": "#F3ECE3",
+      "card_bg_editorial": "#FFFFFF",
+      "card_bg_tinted": "#FCF9F5",
+      "pilot_strip_bg": "#F5ECE1",
+      "closing_quote_bg": "#2A141A"
     },
-    "body": {
-      "font_family": "Manrope, sans-serif",
-      "weights": ["400", "500", "600"],
-      "usage": "Used for all paragraphs, buttons, UI elements, navigation, and small labels. Keep tracking normal, loose line-height (leading-relaxed) for readability."
+    "brand_and_accent_colors": {
+      "rutuja_burgundy": "#6A1B29",
+      "rutuja_burgundy_dark": "#4D111D",
+      "rutuja_burgundy_light": "#8E2438",
+      "rutuja_blue": "#295EAA",
+      "rutuja_blue_dark": "#204985",
+      "rutuja_blue_subtle": "#EBF2FA",
+      "rutuja_pink": "#C82B62",
+      "rutuja_pink_dark": "#A3234F",
+      "rutuja_pink_soft": "#FBECF2",
+      "muted_gold": "#C5A059",
+      "muted_gold_light": "#E8D8B0",
+      "muted_gold_dark": "#9E7A32"
     },
-    "scale": {
-      "h1": "text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-none",
-      "h2": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight",
-      "h3": "text-2xl md:text-3xl lg:text-4xl leading-snug",
-      "h4": "text-xl md:text-2xl",
-      "body": "text-base md:text-lg leading-relaxed text-gray-700",
-      "small": "text-sm text-gray-500 tracking-wide uppercase"
+    "typography_and_strokes": {
+      "text_ink_primary": "#1E1B18",
+      "text_ink_secondary": "#47423C",
+      "text_muted": "#7C746B",
+      "border_subtle": "#E4DAD0",
+      "border_gold_accent": "#D8C7A5",
+      "border_burgundy_tint": "#E8CCD3"
+    },
+    "map_and_marker_colors": {
+      "india_svg_fill": "#EDE4D8",
+      "india_svg_stroke": "#D3C3B0",
+      "india_svg_active_state_glow": "#F7EEE4",
+      "journey_line_stroke": "#C5A059",
+      "journey_line_secondary": "#C82B62",
+      "marker_pulse_burgundy": "#6A1B29",
+      "marker_core_blue": "#295EAA",
+      "marker_center_gold": "#C5A059",
+      "marker_ring_white": "#FFFFFF"
+    },
+    "tailwind_config_extension": {
+      "colors": {
+        "editorial": {
+          "cream": "#FAF6F0",
+          "creamlite": "#FCF9F5",
+          "creamsubtle": "#F3ECE3",
+          "burgundy": "#6A1B29",
+          "burgundydark": "#4D111D",
+          "gold": "#C5A059",
+          "goldlite": "#E8D8B0",
+          "golddark": "#9E7A32",
+          "ink": "#1E1B18",
+          "slate": "#47423C",
+          "stone": "#7C746B",
+          "border": "#E4DAD0",
+          "bordergold": "#D8C7A5"
+        }
+      }
     }
   },
-  "colors": {
-    "primary": {
-      "name": "Rutuja Blue",
-      "hex": "#295EAA",
-      "usage": "Trust, structure, navigation, primary call-to-actions, and structural borders."
+  "typography_and_hierarchy": {
+    "fonts": {
+      "display_serif": "\"Playfair Display\", Georgia, serif",
+      "body_sans": "Manrope, ui-sans-serif, system-ui, sans-serif"
     },
-    "secondary": {
-      "name": "Rutuja Pink",
-      "hex": "#C82B62",
-      "usage": "Emotional emphasis, key highlight words in text, secondary CTAs, and storytelling accents. Use sparingly."
-    },
-    "background": {
-      "primary": "#FFFFFF",
-      "secondary": "#F8F8FA",
-      "usage": "70-80% of the UI should be these white/soft neutral colors to let typography and imagery breathe."
-    },
-    "text": {
-      "primary": "#1A1A1A",
-      "secondary": "#4A4A52",
-      "muted": "#8A8A93",
-      "usage": "Primary text for headings and strong body content. Secondary for standard body content. Muted for captions."
-    },
-    "borders": {
-      "default": "#E5E5EB",
-      "usage": "Very light neutral grey for subtle dividers and minimal card outlines. Never harsh black borders."
+    "hierarchy_rules": {
+      "eyebrow": {
+        "font": "body_sans",
+        "classes": "text-xs font-semibold uppercase tracking-[0.25em] text-editorial-burgundy",
+        "example": "WHERE THE CONVERSATION IS HAPPENING"
+      },
+      "section_headline": {
+        "font": "display_serif",
+        "classes": "text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.15] tracking-tight text-editorial-ink",
+        "example": "From one conversation to communities across India."
+      },
+      "supporting_body": {
+        "font": "body_sans",
+        "classes": "text-base sm:text-lg leading-relaxed text-editorial-slate font-normal max-w-2xl",
+        "example": "The Rutuja Dignity Doll has been used in conversations, reflection activities and menstrual-health sessions across diverse communities. Create a visual journey showing where documented field activity has taken place."
+      },
+      "panel_city_title": {
+        "font": "display_serif",
+        "classes": "text-2xl sm:text-3xl font-medium tracking-tight text-editorial-burgundy",
+        "example": "Dehradun"
+      },
+      "panel_state_label": {
+        "font": "body_sans",
+        "classes": "text-xs font-semibold uppercase tracking-[0.2em] text-editorial-golddark",
+        "example": "Uttarakhand · Documented Field Activity"
+      },
+      "pilot_strip_heading": {
+        "font": "display_serif",
+        "classes": "text-xl sm:text-2xl font-normal text-editorial-burgundy tracking-tight",
+        "example": "The National Pilot — By the Numbers"
+      },
+      "pilot_number_stat": {
+        "font": "display_serif",
+        "classes": "text-3xl sm:text-4xl lg:text-5xl font-medium leading-none text-editorial-burgundy tracking-tight",
+        "example": "2,924"
+      },
+      "pilot_label_stat": {
+        "font": "body_sans",
+        "classes": "text-xs uppercase font-medium tracking-[0.18em] text-editorial-slate mt-2",
+        "example": "Females reached"
+      },
+      "closing_statement_quote": {
+        "font": "display_serif",
+        "classes": "text-xl sm:text-2xl lg:text-3xl font-normal leading-relaxed text-editorial-cream text-center sm:text-left italic",
+        "example": "“The impact is not only in the number of people reached. It is in the conversations that became possible.”"
+      }
     }
   },
-  "layouts": {
-    "spacing": "Generous spacing. Use py-24 or py-32 for section padding. Use gap-12 to gap-24 for grid layouts.",
-    "grids": "Use asymmetric layouts (e.g., col-span-5 for text, col-span-7 for image) to create tension and an editorial feel.",
-    "alignment": "Mix of center alignment for majestic section headers (like 'Meet the Dignity Doll') and left-aligned structured grids for 'How It Works'.",
-    "corners": "Minimal border radius. Use rounded-sm or rounded-none for images and buttons to maintain a premium editorial feel, instead of playful heavy rounded corners."
+  "indian_craft_and_blockprint_motifs": {
+    "concept": "Subtle, authentic Indian block-print and textile craft details (woodblock stamp geometry, fine jaali hairlines, and gold kalamkari flourishes) embedded as vector ornaments to celebrate grassroots craftsmanship.",
+    "motifs": [
+      {
+        "id": "blockprint-corner-flourish",
+        "placement": "Top-right and bottom-left borders of the editorial location card and National Pilot container",
+        "svg_markup_guide": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" className=\"text-editorial-gold/60\"><path d=\"M2 2h8a8 8 0 0 1 8 8v8\" strokeWidth=\"1\" strokeDasharray=\"2 2\"/><circle cx=\"18\" cy=\"18\" r=\"2\" fill=\"currentColor\"/></svg>"
+      },
+      {
+        "id": "editorial-compass-motif",
+        "placement": "Floating discreetly above the India Map SVG in the north-west ocean quadrant (x: 80, y: 120)",
+        "svg_markup_guide": "An antique 8-point gold compass rose with delicate Roman cardinal markers (N, S, E, W) in Playfair Display serif, rendered in #C5A059 with 40% opacity."
+      },
+      {
+        "id": "kalka-paisley-divider",
+        "placement": "Between the main map area and the National Pilot By the Numbers strip",
+        "svg_markup_guide": "A crisp horizontal hairline (#E4DAD0) interrupted in the center by a subtle Indian 3-dot floral stamp (#C5A059)."
+      }
+    ]
   },
-  "motion": {
-    "scroll": "MUST install and use `lenis` or `@studio-freight/react-lenis` for buttery smooth scrolling.",
-    "hero_reveal": "Masked line-by-line reveal using `framer-motion`. Wrap lines in `overflow-hidden` and animate `y` from `100%` to `0%`.",
-    "parallax": "Subtle parallax on hero images and large section background images using `framer-motion` useScroll.",
-    "marquee": "Slow, elegant editorial marquee for 'Stories From the Field' or partner logos. Use `react-fast-marquee`.",
-    "micro_interactions": "Subtle hover lifts (`-translate-y-1`), image scale up within `overflow-hidden` containers on hover."
-  },
-  "components": {
-    "navigation": "Sticky nav. Initially transparent (`bg-transparent`), transitions to solid white (`bg-white shadow-sm`) upon scroll. Must include an EN | हिंदी toggle.",
-    "buttons": {
-      "primary": "bg-[#295EAA] text-white hover:bg-[#204985] px-6 py-3 transition-colors",
-      "secondary": "bg-[#C82B62] text-white hover:bg-[#A3234F] px-6 py-3 transition-colors",
-      "outline": "bg-transparent border border-[#295EAA] text-[#295EAA] hover:bg-[#295EAA] hover:text-white px-6 py-3 transition-colors"
+  "layout_and_responsive_architecture": {
+    "container": "container-edge mx-auto max-w-[1320px] px-4 sm:px-8 lg:px-12",
+    "desktop_layout": {
+      "grid": "grid grid-cols-12 gap-8 lg:gap-12 items-start",
+      "map_column": "col-span-12 lg:col-span-7 xl:col-span-8 sticky top-24",
+      "editorial_panel_column": "col-span-12 lg:col-span-5 xl:col-span-4 flex flex-col gap-6",
+      "visual_weight": "Map is large, breathable (max-w-[680px]), allowing intricate state exploration. Side panel stays pinned or fluidly transitions as user hovers/taps regions."
     },
-    "forms": "Use Shadcn UI inputs and textareas for `/request-workshop`, `/donate`, `/partner`, `/contact`. Style them with minimal borders (`border-b` only, or very light full borders) for an elegant look.",
-    "accordion": "Use Shadcn Accordion for the FAQ section. Large typography, thin dividers.",
-    "mobile_bar": "Fixed bottom CTA bar on mobile screens with 'Donate' and 'Request Workshop' buttons."
-  },
-  "image_urls": {
-    "hero_dignity_doll": {
-      "url": "https://images.unsplash.com/photo-1649894160974-777f5d4bbd06?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxoYW5kbWFkZSUyMGNsb3RoJTIwZG9sbCUyMG5ldXRyYWx8ZW58MHx8fHwxNzg2OTUwNjE4fDA&ixlib=rb-4.1.0&q=85",
-      "description": "Placeholder for the Dignity Doll. Neutral, soft, human."
+    "tablet_layout": {
+      "grid": "grid grid-cols-1 gap-8",
+      "map_treatment": "Centered, scaled to 520px max width with high-contrast touch pins.",
+      "panel_treatment": "Horizontal tab list of 6 regions followed by an expansive editorial card with photograph, context narrative, and venue chips underneath."
     },
-    "workshop_1": {
-      "url": "https://images.unsplash.com/photo-1708593337380-6f97a307696f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
-      "description": "Indian women sitting in a group discussion, representing the workshop experience."
-    },
-    "workshop_2": {
-      "url": "https://images.unsplash.com/photo-1774504798113-a03e2aa24789?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMHdvcmtzaG9wJTIwcnVyYWx8ZW58MHx8fHwxNzg2OTUwNjI2fDA&ixlib=rb-4.1.0&q=85",
-      "description": "Group of Indian women in colorful saris, suitable for stories from the field."
-    },
-    "school_girls": {
-      "url": "https://images.unsplash.com/photo-1692269725911-87697c558be1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBnaXJscyUyMHNtaWxpbmclMjBydXJhbCUyMHNjaG9vbHxlbnwwfHx8fDE3ODY5NTA2Mzd8MA&ixlib=rb-4.1.0&q=85",
-      "description": "Two young Indian girls sitting at a desk, smiling, representing the 'Who it is for' or impact sections."
-    },
-    "portrait_girl": {
-      "url": "https://images.unsplash.com/photo-1771229376320-1087541dadbd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBnaXJscyUyMHNtaWxpbmclMjBydXJhbCUyMHNjaG9vbHxlbnwwfHx8fDE3ODY5NTA2Mzd8MA&ixlib=rb-4.1.0&q=85",
-      "description": "Portrait of a young Indian girl, great for an alternating text/image layout."
+    "mobile_layout": {
+      "stack_order": "1. Section Header -> 2. Region Quick Selector (horizontal snap pills) -> 3. India Map SVG (min-h-[380px], comfortable pan/tap pins) -> 4. Active Editorial Story Card -> 5. Pilot Metrics Grid -> 6. Closing Statement",
+      "touch_targets": "Minimum 48px x 48px interactive hitbox for map pins and selector pills.",
+      "overflow_protection": "No horizontal scrolling on main viewport; map uses responsive SVG viewBox with preserveAspectRatio=\"xMidYMid meet\"."
     }
   },
-  "instructions_to_main_agent": [
-    "Install `framer-motion`, `lenis`, `lucide-react`, `react-fast-marquee`.",
-    "Set up Tailwind to include 'Playfair Display' (serif) and 'Manrope' (sans).",
-    "Use standard HTML structure for layout, applying heavy Tailwind paddings (`py-24`, `py-32`) to let the design breathe. Do NOT rely heavily on standard Shadcn `Card` for marketing sections.",
-    "Implement the sticky navbar with background transition based on scroll position.",
-    "Build the 12 specific sections on the homepage: Hero, Why This Matters, Meet the Dignity Doll, How It Works, Stories From the Field, Impact Metrics, Who It Is For, Workshop Experience, Ways to Support, Trust & Credibility, FAQ, Final CTA.",
-    "Create the placeholder routing pages (/request-workshop, /donate, etc.) with functional Shadcn forms.",
-    "Ensure all interactive elements have `data-testid` attributes.",
-    "Add an EN | हिंदी toggle state in the nav. It can just switch dummy content or show a toast indicating language switch for now.",
-    "Respect `prefers-reduced-motion` in Framer Motion variants.",
-    "Ensure the hero has a kinetic line-by-line reveal for the main heading."
-  ],
-  "UNIVERSAL GUIDELINES FOR MAIN AGENT": "Do not make generic centered layouts or uniform styling. Use glass-morphism effects with backdrop filters where appropriate (like the sticky nav). Do not apply universal transitions (`transition: all`). Do not center align the App container. Use layered design elements, overlapping images, and generous white space. Never use AI assistant emojis. Use the exact provided Rutuja Blue and Pink."
+  "interactive_map_specifications": {
+    "svg_viewbox": "0 0 1040 1127",
+    "base_path_data": "Uses the official high-resolution India national boundary SVG path from /app/frontend/src/data/impactMap.js.",
+    "styling": {
+      "land_fill": "#EDE4D8",
+      "land_stroke": "#D3C3B0",
+      "land_stroke_width": "1.5px",
+      "active_state_highlight": "Soft warm fill #FCEFE6 with 1.8px burgundy stroke #6A1B29 on the active region.",
+      "ocean_texture": "Subtle repeating hairline dot grid or antique parchment background."
+    },
+    "journey_lines": {
+      "description": "Curved SVG Bezier paths radiating smoothly from the Mumbai/Thane outreach hub to the other 5 documented state clusters (Delhi, Haryana, Uttarakhand, Odisha, Karnataka).",
+      "style": "stroke: #C5A059; stroke-width: 1.5; stroke-dasharray: 4 6; stroke-linecap: round; opacity: 0.65;",
+      "motion": "Sequential pathLength reveal (0 to 1 over 1.2s with cubic-bezier(0.22, 1, 0.36, 1)), followed by gentle pulsating energy dash offsets."
+    },
+    "marker_pins": [
+      {
+        "id": "delhi",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "stateKey": "delhi",
+        "coordinates": { "x": 321.6, "y": 337.3 },
+        "isHub": false,
+        "venues": ["V.P. Singh Camp", "Lal Kuan"],
+        "context": "Community sessions held in Delhi — at V.P. Singh Camp and Lal Kuan, introducing the doll to diverse urban settlements.",
+        "hasPhoto": false
+      },
+      {
+        "id": "rewari",
+        "city": "Rewari",
+        "state": "Haryana",
+        "stateKey": "haryana",
+        "coordinates": { "x": 301.1, "y": 352.9 },
+        "isHub": false,
+        "venues": ["Lakshit Career Institute", "Skilling Centre"],
+        "context": "Sessions at the Lakshit Career Institute and a local skilling centre — where an adolescent girl who had long stayed silent finally shared her first-period experience, giving others the courage to speak.",
+        "hasPhoto": true,
+        "photoKey": "schoolGirls"
+      },
+      {
+        "id": "dehradun",
+        "city": "Dehradun",
+        "state": "Uttarakhand",
+        "stateKey": "uttarakhand",
+        "coordinates": { "x": 350.1, "y": 273.5 },
+        "isHub": false,
+        "venues": ["Rani Lakshmi Bai Silai Prashikshan Kendra", "Swami Vivekanand Bal Sansthan"],
+        "context": "Sessions at the Rani Lakshmi Bai Silai Prashikshan Kendra and Swami Vivekanand Bal Sansthan — where a participant understood, for the first time, that menstruation is natural and not a taboo.",
+        "hasPhoto": true,
+        "photoKey": "classroom"
+      },
+      {
+        "id": "mumbai",
+        "city": "Mumbai / Thane",
+        "state": "Maharashtra",
+        "stateKey": "maharashtra",
+        "coordinates": { "x": 171.7, "y": 694.7 },
+        "isHub": true,
+        "venues": ["Lodha Amara Housing Society", "Thane Community Centers"],
+        "context": "The primary outreach hub in Maharashtra — facilitating statewide training, community workshops at Lodha Amara, and ambassador coordination.",
+        "hasPhoto": true,
+        "photoKey": "dollCloseup"
+      },
+      {
+        "id": "bhubaneswar",
+        "city": "Bhubaneswar & Balasore",
+        "state": "Odisha",
+        "stateKey": "odisha",
+        "coordinates": { "x": 619.7, "y": 649.0 },
+        "secondaryCoord": { "x": 658.0, "y": 604.1 },
+        "isHub": false,
+        "venues": ["School Programme", "IIT Bhubaneswar", "Balasore Engineering College"],
+        "context": "Higher education and grassroots school programmes across Bhubaneswar and Balasore, engaging students and faculty in period dignity dialogues.",
+        "hasPhoto": true,
+        "photoKey": "villageGroup"
+      },
+      {
+        "id": "bengaluru",
+        "city": "Bengaluru & Dodda Bommasandra",
+        "state": "Karnataka",
+        "stateKey": "karnataka",
+        "coordinates": { "x": 334.9, "y": 923.5 },
+        "isHub": false,
+        "venues": ["Anweshana School", "Dodda Bommasandra Tailoring Unit"],
+        "context": "Tailoring training units and schools in Bengaluru, where women shared: 'Holding the Dignity Doll made me feel like I was comforting my younger self.'",
+        "hasPhoto": true,
+        "photoKey": "workshopGroup"
+      }
+    ],
+    "marker_pin_visual_spec": {
+      "type": "Multi-layer Refined Glow/Pulse Beacon (NOT a generic bouncing pin)",
+      "layers": [
+        "1. Ambient Aura: SVG circle r=18 with animate opacity [0.4, 0] and scale [0.8, 1.8], fill=#6A1B29/20, duration 2.4s ease-out.",
+        "2. Outer Solid Stroke Ring: SVG circle r=10, fill=#FFFFFF, stroke=#C5A059, strokeWidth=1.5, dropShadow=[0 2px 8px rgba(106,27,41,0.18)].",
+        "3. Core Jewel: SVG circle r=6.5, fill=#6A1B29 (Burgundy) or #295EAA (Rutuja Blue for Hub), with active state expanding to r=8.",
+        "4. Center Gold Pip: SVG circle r=2.2, fill=#C5A059 (Muted Gold) on white center.",
+        "5. Floating Label: Small serif badge next to marker on desktop with location name, background #FCF9F5, border #E4DAD0, text-xs text-editorial-ink."
+      ]
+    }
+  },
+  "editorial_location_panel_specifications": {
+    "card_structure": {
+      "container": "relative overflow-hidden rounded-md bg-white border border-editorial-border p-6 sm:p-8 shadow-[0_12px_36px_-12px_rgba(77,17,29,0.08)]",
+      "header": "flex items-center justify-between border-b border-editorial-border pb-4 mb-5",
+      "eyebrow_and_badge": "Eyebrow state label in gold + optional 'Outreach Hub' pill in deep burgundy with gold text.",
+      "title": "Playfair Display font-medium text-2xl sm:text-3xl text-editorial-burgundy",
+      "narrative": "text-sm sm:text-base leading-relaxed text-editorial-slate font-normal mt-3",
+      "venues_section": {
+        "title": "text-[11px] font-semibold uppercase tracking-[0.2em] text-editorial-golddark mt-5 mb-2.5",
+        "chips_container": "flex flex-wrap gap-2",
+        "chip_style": "inline-flex items-center gap-1.5 rounded-full bg-editorial-creamsubtle px-3 py-1 text-xs font-medium text-editorial-burgundy border border-editorial-border"
+      },
+      "photography_slot": {
+        "rule": "Only render if verified real field photo exists in data. If no approved photo exists (e.g. Delhi), cleanly collapse the photo area and let the narrative breathe without awkward blank spaces.",
+        "image_container": "mt-5 overflow-hidden rounded border border-editorial-border aspect-[16/10] relative",
+        "image_treatment": "Warm duotone-tinted or natural high-fidelity photography with a subtle caption bar at the bottom: 'Documented field activity · [Location]'"
+      }
+    },
+    "interactive_region_list": {
+      "style": "Vertical list on desktop, horizontal snap-scroll pill bar on mobile/tablet.",
+      "item_active_state": "bg-editorial-creamsubtle border-l-4 border-editorial-burgundy text-editorial-burgundy font-semibold shadow-sm",
+      "item_inactive_state": "bg-transparent border-l-4 border-transparent text-editorial-slate hover:text-editorial-burgundy hover:bg-editorial-cream/60 transition-all duration-200"
+    }
+  },
+  "national_pilot_by_the_numbers_specifications": {
+    "strategic_positioning": "MUST be placed in a dedicated, clearly bordered panel below the map. Labelled unequivocally as 'The National Pilot — By the Numbers' to keep this specific pilot dataset distinct from cumulative field reports.",
+    "container": "mt-14 sm:mt-20 rounded-md bg-editorial-creamsubtle border border-editorial-bordergold/60 p-6 sm:p-10 lg:p-12 relative overflow-hidden",
+    "header_strip": {
+      "eyebrow": "DATASET: CONSERVATIVELY RECORDED",
+      "title": "The National Pilot — By the Numbers",
+      "subtext": "Documented pilot evaluation conducted across facilitated community cohorts (May – July 2026)."
+    },
+    "metrics_grid": {
+      "layout": "grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 divide-y md:divide-y-0 md:divide-x divide-editorial-border pt-6 mt-6 border-t border-editorial-border",
+      "items": [
+        {
+          "id": "stat-females",
+          "raw_number": 2924,
+          "formatted_display": "2,924",
+          "label": "Females Reached",
+          "sub": "Direct session attendees",
+          "accent_color": "text-editorial-burgundy"
+        },
+        {
+          "id": "stat-sessions",
+          "raw_number": 38,
+          "formatted_display": "38",
+          "label": "Sessions Conducted",
+          "sub": "Guided workshops held",
+          "accent_color": "text-editorial-burgundy"
+        },
+        {
+          "id": "stat-participants",
+          "raw_number": 13,
+          "formatted_display": "13",
+          "label": "Key Cohorts / Leads",
+          "sub": "Ambassador facilitators",
+          "accent_color": "text-editorial-burgundy"
+        },
+        {
+          "id": "stat-window",
+          "raw_number": null,
+          "is_text": true,
+          "formatted_display": "11 May – 31 Jul",
+          "label": "2026 Project Window",
+          "sub": "First pilot phase",
+          "accent_color": "text-editorial-burgundy"
+        },
+        {
+          "id": "stat-length",
+          "raw_number": null,
+          "is_text": true,
+          "formatted_display": "30–60 min",
+          "label": "Session Length",
+          "sub": "Deep dialogue format",
+          "accent_color": "text-editorial-burgundy"
+        }
+      ]
+    },
+    "count_up_integration": "Uses the existing CountUp component (/app/frontend/src/components/site/CountUp.jsx) with custom ease [0.22, 1, 0.36, 1], 1.8s duration, triggered when in-view."
+  },
+  "closing_statement_specifications": {
+    "position": "Directly below the National Pilot strip, serving as the section's emotional anchor and narrative culmination.",
+    "container": "mt-12 sm:mt-16 rounded-md bg-gradient-to-br from-[#35101A] to-[#200A10] border border-editorial-gold/30 p-8 sm:p-12 text-white relative overflow-hidden",
+    "block_print_accent": "Faint gold woodblock lotus/jaali watermark SVG in top-left and bottom-right corners with 12% opacity.",
+    "quote_copy": "“The impact is not only in the number of people reached. It is in the conversations that became possible.”",
+    "attribution": "Rutuja Dignity Doll Initiative · Grassroots Field Principle",
+    "cta_group": {
+      "enabled": true,
+      "primary_action": {
+        "label": "Bring a Session to Your Community",
+        "to": "/request-workshop",
+        "classes": "btn-primary bg-editorial-burgundy hover:bg-editorial-burgundydark text-white border border-editorial-gold/40 shadow-md"
+      },
+      "secondary_action": {
+        "label": "Support More Conversations",
+        "to": "/donate",
+        "classes": "inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-editorial-gold hover:text-white border border-editorial-gold/50 hover:border-editorial-gold transition-colors duration-300"
+      }
+    }
+  },
+  "motion_choreography_and_scroll_sequence": {
+    "scroll_trigger_flow": [
+      {
+        "step": 1,
+        "name": "India Map Outline Reveal",
+        "delay": 0.0,
+        "duration": 0.85,
+        "easing": [0.22, 1, 0.36, 1],
+        "effect": "SVG Path stroke/scale opacity transition from 0.95 scale to 1.0, stroke-dashoffset draws national perimeter."
+      },
+      {
+        "step": 2,
+        "name": "Journey Lines Connect Hub to States",
+        "delay": 0.35,
+        "stagger": 0.12,
+        "duration": 0.9,
+        "easing": "easeOut",
+        "effect": "Subtle dashed gold lines draw outward from Mumbai across India."
+      },
+      {
+        "step": 3,
+        "name": "Region Marker Pins Drop & Pulse",
+        "delay": 0.6,
+        "stagger": 0.14,
+        "duration": 0.65,
+        "easing": [0.34, 1.56, 0.64, 1],
+        "effect": "Soft spring drop with glowing ambient beacon expansion."
+      },
+      {
+        "step": 4,
+        "name": "Editorial Story Card Populates",
+        "delay": 0.8,
+        "duration": 0.5,
+        "easing": [0.22, 1, 0.36, 1],
+        "effect": "Smooth fade-up of initial active location (Mumbai/Maharashtra or Dehradun) with human narrative."
+      },
+      {
+        "step": 5,
+        "name": "National Pilot Numbers Count Up",
+        "delay": 1.0,
+        "stagger": 0.1,
+        "duration": 1.6,
+        "easing": [0.22, 1, 0.36, 1],
+        "effect": "Digits tick upwards fluidly from 0 to 2,924, 38, and 13 with locale commas."
+      },
+      {
+        "step": 6,
+        "name": "Closing Editorial Statement Emerges",
+        "delay": 1.2,
+        "duration": 0.8,
+        "easing": [0.22, 1, 0.36, 1],
+        "effect": "Deep burgundy card surfaces with subtle gold glow."
+      }
+    ],
+    "reduced_motion_policy": {
+      "prefers_reduced_motion": "When active, disable all scale springs, pathLength draw animations, pulse loops, and count-up timers. Immediately render static vector map, visible pins, loaded numbers, and cards with instant opacity: 1."
+    }
+  },
+  "accessibility_and_contrast": {
+    "wcag_compliance": "WCAG 2.1 AA and APCA compliant across all text/background combinations.",
+    "contrast_ratios": [
+      {
+        "element": "Burgundy Headlines on Warm Ivory (#FAF6F0)",
+        "ratio": "8.4:1 (Passes AAA)"
+      },
+      {
+        "element": "Slate Body (#47423C) on Warm Ivory (#FAF6F0)",
+        "ratio": "6.8:1 (Passes AAA)"
+      },
+      {
+        "element": "Gold Accents (#9E7A32) on Warm Ivory",
+        "ratio": "4.6:1 (Passes AA)"
+      },
+      {
+        "element": "White Quote Text on Deep Burgundy Card (#35101A)",
+        "ratio": "14.2:1 (Passes AAA)"
+      }
+    ],
+    "screen_readers": {
+      "map_aria_label": "Interactive map of India showing 6 documented states and union territories where the Rutuja Dignity Doll has facilitated menstrual health dialogues.",
+      "pin_aria_role": "button",
+      "pin_aria_expanded": "Reflects boolean isActive state for each region pin."
+    }
+  },
+  "testing_and_data_testids": {
+    "section": "data-testid=\"our-impact-section\"",
+    "section_eyebrow": "data-testid=\"impact-eyebrow\"",
+    "section_headline": "data-testid=\"impact-headline\"",
+    "section_subtext": "data-testid=\"impact-subtext\"",
+    "map_container": "data-testid=\"impact-map-container\"",
+    "map_svg": "data-testid=\"india-map-svg\"",
+    "journey_lines": "data-testid=\"map-journey-lines\"",
+    "region_pin_prefix": "data-testid=\"map-pin-[region_id]\"",
+    "region_selector_list": "data-testid=\"impact-region-selector-list\"",
+    "region_selector_btn_prefix": "data-testid=\"impact-region-btn-[region_id]\"",
+    "editorial_story_card": "data-testid=\"editorial-story-card\"",
+    "editorial_story_title": "data-testid=\"editorial-story-title\"",
+    "editorial_story_context": "data-testid=\"editorial-story-context\"",
+    "editorial_story_venues": "data-testid=\"editorial-story-venues\"",
+    "editorial_story_photo": "data-testid=\"editorial-story-photo\"",
+    "pilot_stats_strip": "data-testid=\"national-pilot-stats-strip\"",
+    "pilot_stat_item_prefix": "data-testid=\"pilot-stat-[stat_id]\"",
+    "pilot_stat_value_prefix": "data-testid=\"pilot-stat-value-[stat_id]\"",
+    "closing_statement_card": "data-testid=\"impact-closing-statement-card\"",
+    "closing_statement_quote": "data-testid=\"impact-closing-quote\"",
+    "closing_cta_workshop": "data-testid=\"impact-closing-cta-workshop\"",
+    "closing_cta_donate": "data-testid=\"impact-closing-cta-donate\""
+  },
+  "image_assets_and_curation": {
+    "source_file": "/app/frontend/src/data/images.js",
+    "allocated_photos": {
+      "maharashtra": {
+        "url": "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/gwqmndoj_WhatsApp%20Image%202026-04-29%20at%204.42.46%20PM%20%281%29.jpeg",
+        "caption": "The Rutuja Dignity Doll — facilitated in Mumbai & Thane community sessions."
+      },
+      "karnataka": {
+        "url": "https://images.unsplash.com/photo-1680759291020-79a92d38cdfd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjB3b21lbiUyMGNvbW11bml0eSUyMHdvcmtzaG9wJTIwY29udmVyc2F0aW9ufGVufDB8fHx8MTc4Njk1MDcwMXww&ixlib=rb-4.1.0&q=85",
+        "caption": "Tailoring training cohort reflection in Dodda Bommasandra, Bengaluru."
+      },
+      "uttarakhand": {
+        "url": "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/bp73mlxb_1000532672%20%281%29.webp",
+        "caption": "Facilitated dialogue at Rani Lakshmi Bai Silai Prashikshan Kendra, Dehradun."
+      },
+      "haryana": {
+        "url": "https://images.unsplash.com/photo-1573894998033-c0cef4ed722b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzY2hvb2xnaXJscyUyMGNsYXNzcm9vbSUyMHNtaWxpbmd8ZW58MHx8fHwxNzg2OTUwNzAwfDA&ixlib=rb-4.1.0&q=85",
+        "caption": "Adolescent girls sharing their first-period experiences in Rewari."
+      },
+      "odisha": {
+        "url": "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/nku2y3pk_WhatsApp%20Image%202026-05-13%20at%207.14.19%20PM%20%281%29.jpeg",
+        "caption": "College and community participants in Bhubaneswar and Balasore."
+      },
+      "delhi": {
+        "url": null,
+        "caption": "Documented grassroots session at V.P. Singh Camp and Lal Kuan."
+      }
+    }
+  },
+  "component_implementation_blueprint": {
+    "main_component_file": "/app/frontend/src/components/sections/ImpactMap.jsx",
+    "step_by_step_execution": [
+      "Step 1: Update /app/frontend/src/data/content.js with rich bilingual copy for the new headline ('From one conversation to communities across India.'), eyebrow ('WHERE THE CONVERSATION IS HAPPENING'), supporting text, National Pilot numbers, and closing statement.",
+      "Step 2: Update /app/frontend/src/data/impactMap.js to export enhanced pin structures with rich location metadata, venue chips, photo mapping, and journey bezier anchors.",
+      "Step 3: Refactor /app/frontend/src/components/sections/ImpactMap.jsx into the premium editorial section featuring: warm ivory container (#FAF6F0), custom block-print SVG ornaments, hand-built India SVG map with smooth pulse markers and gold journey lines, interactive side story panel with photo support, National Pilot By the Numbers count-up strip, and closing quote banner.",
+      "Step 4: Ensure all data-testid attributes are cleanly bound for testing agent and verify responsive layout across desktop, tablet, and mobile breakpoints."
+    ]
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": {
+    "design_purity": "Avoid generic AI centered blocks or plain SaaS cards. Treat this section like a feature spread in a high-end cultural magazine (Architectural Digest / Monocle meets Grassroots India).",
+    "color_discipline": "Do not flood the section with bright neon pink or corporate blue. Anchor in warm ivory (#FAF6F0) and deep burgundy (#6A1B29), using Rutuja Blue and Pink only as intentional accents.",
+    "motion_subtlety": "Ensure all animations feel weighty and measured (~600-900ms). Never use snappy bounce effects. Always respect prefers-reduced-motion.",
+    "test_stability": "Every button, pin, venue chip, metric, and text block must have its exact data-testid matching this guideline."
+  }
 }
