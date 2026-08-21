@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import ImpactMap from "@/components/sections/ImpactMap";
+import ImpactMetrics from "@/components/sections/ImpactMetrics";
 import { useLang } from "@/context/LanguageContext";
 
 export default function Impact() {
@@ -12,6 +13,7 @@ export default function Impact() {
 
   return (
     <main data-testid="impact-page" className="pt-[72px]">
+      <ImpactMetrics />
       <ImpactMap />
     </main>
   );
