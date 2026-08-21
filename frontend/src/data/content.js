@@ -351,7 +351,41 @@ export const CONTENT = {
         title: "Watch the experience",
         sub: "Films and moments from real Dignity Doll sessions.",
         items: [
-          { title: "A Dignity Doll session", description: "A short film capturing the atmosphere of a real facilitated session." },
+          {
+            title: "Launch of a new community youth initiative",
+            description:
+              "On a quiet afternoon, shaded by mango and banana leaves, something simple but powerful took shape — a gathering of women, elders, and children coming together to mark the launch of a new community youth initiative.\n\nThere were no stages, no microphones, no polished backdrops. Just a banner tied between two trees, a mat spread across the earth, and a circle of neighbors — grandmothers in bright sarees, young mothers, children curled up on the ground, and the youth leading the charge — all standing shoulder to shoulder for a cause bigger than any one of them.\n\nThe banner told the story: a call for equality, responsibility, and unity — a reminder that real change in a community doesn't start with grand declarations, but with people showing up for each other, again and again, one small gathering at a time.\n\nThis is what grassroots work looks like. Not curated, not rehearsed — just a community rooted in the belief that when they grow together, everyone grows stronger.",
+          },
+          {
+            title: "A Doll That Carries a Bigger Message",
+            description:
+              "In this video, an elder from the community holds up the Dignity Doll — the simple, handmade symbol at the center of the Rutuja Dignity Doll Project — and speaks directly to the camera about what it means to her.\n\nThe doll isn't just a toy. It's a tool for conversation — a way to gently open up discussions around menstrual health and dignity in communities where the topic has long been wrapped in silence and shame. By putting something soft, familiar, and non-threatening into people's hands, the project creates space for women of every generation — grandmothers, mothers, and daughters alike — to talk openly about something every woman experiences.\n\nHere, an older woman becomes an unexpected but powerful voice for this cause. Her willingness to hold the doll and speak about it on camera is itself a quiet act of breaking taboo — proof that dignified conversations about menstruation aren't just for the young, but for everyone.\n\nThis is what the Rutuja Dignity Doll Project stands for: dignity, awareness, and community, one conversation at a time.",
+          },
+          {
+            title: "Coloring Outside the Lines of Silence",
+            description:
+              "Under the shade of neem trees, in the sandy courtyard of a rural school, something quietly radical was happening — children were coloring.\n\nNot just any coloring sheets, but ones featuring the Dignity Doll, each page carrying a message that generations before them were never given the words for: \"My period is a part of me, and that's perfectly okay.\" One by one, children held up their finished artwork with pride — some shy, some grinning ear to ear, all of them part of a moment bigger than a classroom activity.\n\nWhat makes this work powerful isn't just that girls are learning to talk about menstruation without shame — it's that boys are colouring these sheets too, holding up the same posters, absorbing the same message. Because real change doesn't happen when only half a community understands the conversation — it happens when everyone does.\n\nThis is the Rutuja Charitable Trust's Dignity Doll Project in action: turning a taboo into a coloring page, and a coloring page into the start of a conversation that could follow these children for the rest of their lives.\n\nMenstrual health is wealth. Let's talk. Let's support. Let's grow.",
+          },
+          {
+            title: "Where the Doll Lives, When No One's Watching",
+            description:
+              "Most of what people see of the Dignity Doll Project are the moments in front of a camera — the workshops, the coloring sheets, the group photos under trees. But this video captures something different: a small girl at home, curled up on a bed, doll tucked against her shoulder while she watches something on a phone.\n\nThere's no banner here. No speech. No audience. Just a child, comfortable enough to have the doll simply be part of her everyday world — the same way any other toy might sit beside her.\n\nAnd maybe that's the quiet success of a project like this. Not just the workshops and the awareness sessions, but the moment a doll stops being \"the awareness tool\" and just becomes hers — something she reaches for without being told to, without a lesson attached.\n\nSometimes the biggest impact isn't seen in a classroom. It's seen in a bedroom, on an ordinary afternoon, where a doll about dignity has simply become a part of growing up.",
+          },
+          {
+            title: "Taking the Conversation to the Street",
+            description:
+              "Not every awareness campaign happens inside a classroom or under a workshop tent — sometimes it happens right at someone's doorstep.\n\nIn this video, a mic'd interviewer meets women in their own neighborhood, having open, unscripted conversations about menstrual health and dignity — the very conversations the Rutuja Dignity Doll Project exists to normalize. From a woman standing at her shop entrance to another speaking candidly beside a brick courtyard wall, each interview captures something simple but rare: women speaking on camera, in their own words, about a topic long kept behind closed doors.\n\nThis is what taking dignity to the streets looks like — no stage, no script, just real conversations meeting people exactly where they are. Because breaking a taboo doesn't happen only in planned sessions; it happens every time someone is willing to talk about it in the open, mic in hand, for anyone passing by to hear.\n\nMenstrual health is wealth. Let's talk. Let's support. Let's grow.",
+          },
+          {
+            title: "Two Organizations, One Mission: Dignity for Every Woman",
+            description:
+              "In this video, a spokesperson speaks directly to camera on behalf of the Rutuja Dignity Doll Project, this time in partnership with Matri Sudha Charitable Trust — holding the same handcrafted doll that has become the quiet symbol of this movement.\n\nWhen two organizations come together under one banner, it isn't just a collaboration — it's a signal. It shows that the fight to normalize conversations about menstrual health and dignity isn't confined to a single trust or a single community; it's a shared cause, one that grows stronger every time another partner steps in to carry it forward.\n\nSpeaking plainly and directly, she brings the mission home: that dignity shouldn't be something women have to ask for — it should be something every girl and woman is simply given, without hesitation or shame.\n\nThis is what partnership in purpose looks like: two names, one doll, one message — carried further because more hands are holding it up.\n\nMenstrual health is wealth. Let's talk. Let's support. Let's grow.",
+          },
+          {
+            title: "A Younger Voice Joins the Conversation",
+            description:
+              "Dignity doesn't have an age limit, and neither does the courage to talk about it.\n\nIn this video, a young woman sits quietly indoors, the Dignity Doll resting in her lap, and speaks openly to the camera. There's no stage, no event backdrop — just her, in a simple room, choosing to add her voice to a conversation that so many her age are taught to stay silent about.\n\nThat's what makes clips like this matter as much as the big group gatherings and workshops. Change doesn't only happen in classrooms full of children or crowds under trees — it happens every time one more person, young or old, decides they're no longer willing to stay quiet about something as natural as menstruation.\n\nHer voice joins a growing chorus — grandmothers, schoolchildren, mothers, and now her — all holding the same doll, all carrying the same message forward.",
+          },
         ],
       },
       ambassadors: {
@@ -683,7 +717,41 @@ export const CONTENT = {
         title: "अनुभव देखें",
         sub: "वास्तविक डिग्निटी डॉल सत्रों की फ़िल्में और पल।",
         items: [
-          { title: "एक डिग्निटी डॉल सत्र", description: "एक वास्तविक निर्देशित सत्र के माहौल को दर्शाती एक छोटी फ़िल्म।" },
+          {
+            title: "एक नई सामुदायिक युवा पहल का शुभारंभ",
+            description:
+              "आम और केले के पत्तों की छांव तले, एक शांत दोपहर में कुछ सरल पर शक्तिशाली आकार ले रहा था — महिलाओं, बुज़ुर्गों और बच्चों का एक जमावड़ा, एक नई सामुदायिक युवा पहल के शुभारंभ को चिह्नित करने के लिए एक साथ आया।\n\nन कोई मंच था, न माइक्रोफ़ोन, न सजी-धजी पृष्ठभूमि। बस दो पेड़ों के बीच बंधा एक बैनर, ज़मीन पर बिछी एक चटाई, और पड़ोसियों का एक घेरा — चटख साड़ियों में दादी-नानी, युवा माताएं, ज़मीन पर सिमटे बच्चे, और आगे बढ़कर नेतृत्व करते युवा — सब एक ऐसे उद्देश्य के लिए कंधे से कंधा मिलाकर खड़े थे जो किसी एक व्यक्ति से कहीं बड़ा था।\n\nबैनर ने कहानी कह दी: समानता, ज़िम्मेदारी और एकता का आह्वान — यह याद दिलाते हुए कि किसी समुदाय में असली बदलाव बड़े-बड़े ऐलानों से नहीं, बल्कि लोगों के एक-दूसरे के लिए बार-बार, हर छोटे जमावड़े में साथ आने से शुरू होता है।\n\nयही जमीनी स्तर का काम कैसा दिखता है। न सजा-संवरा, न पूर्वाभ्यास किया हुआ — बस एक समुदाय, इस विश्वास में जड़ जमाए हुए कि जब वे साथ बढ़ते हैं, तो हर कोई मज़बूत होता है।",
+          },
+          {
+            title: "एक गुड़िया जो एक बड़ा संदेश साथ लाती है",
+            description:
+              "इस वीडियो में, समुदाय की एक बुज़ुर्ग महिला डिग्निटी डॉल — रुतुजा डिग्निटी डॉल प्रोजेक्ट के केंद्र में मौजूद सरल, हस्तनिर्मित प्रतीक — को उठाए हुए कैमरे के सामने सीधे बोलती हैं कि यह उनके लिए क्या मायने रखती है।\n\nयह गुड़िया केवल एक खिलौना नहीं है। यह बातचीत का एक माध्यम है — उन समुदायों में मासिक धर्म स्वास्थ्य और गरिमा को लेकर धीरे-धीरे बातचीत खोलने का एक तरीका, जहाँ यह विषय लंबे समय से चुप्पी और शर्म में लिपटा रहा है। कुछ नरम, परिचित और निर्भय चीज़ लोगों के हाथों में देकर, यह प्रोजेक्ट हर पीढ़ी की महिलाओं — दादी-नानी, माताओं और बेटियों — के लिए वह बात खुलकर करने की जगह बनाता है जो हर महिला अनुभव करती है।\n\nयहाँ, एक बुज़ुर्ग महिला इस उद्देश्य के लिए एक अप्रत्याशित पर सशक्त आवाज़ बन जाती हैं। गुड़िया को थामकर कैमरे पर उसके बारे में बोलने की उनकी इच्छा खुद वर्जना तोड़ने का एक शांत कार्य है — यह प्रमाण कि मासिक धर्म पर गरिमापूर्ण बातचीत केवल युवाओं के लिए नहीं, बल्कि सबके लिए है।\n\nरुतुजा डिग्निटी डॉल प्रोजेक्ट यही दर्शाता है: गरिमा, जागरूकता और समुदाय, एक बार में एक बातचीत।",
+          },
+          {
+            title: "चुप्पी की रेखाओं से बाहर रंग भरते हुए",
+            description:
+              "नीम के पेड़ों की छांव तले, एक ग्रामीण स्कूल के रेतीले आँगन में, कुछ चुपचाप क्रांतिकारी हो रहा था — बच्चे रंग भर रहे थे।\n\nयह कोई साधारण रंग भरने वाली शीट नहीं थीं, बल्कि इनमें डिग्निटी डॉल थी, और हर पन्ने पर एक संदेश था जिसके लिए पिछली पीढ़ियों को कभी शब्द नहीं मिले: \"मेरा मासिक धर्म मेरा हिस्सा है, और यह बिल्कुल ठीक है।\" एक-एक करके, बच्चों ने गर्व से अपनी बनाई कलाकृति दिखाई — कुछ शर्माते हुए, कुछ कान से कान तक मुस्कुराते हुए, सब एक ऐसे पल का हिस्सा जो किसी कक्षा-गतिविधि से कहीं बड़ा था।\n\nजो बात इसे शक्तिशाली बनाती है वह सिर्फ यह नहीं कि लड़कियाँ बिना शर्म के मासिक धर्म पर बात करना सीख रही हैं — बल्कि यह कि लड़के भी इन शीट्स में रंग भर रहे हैं, वही पोस्टर उठाए हुए, वही संदेश आत्मसात करते हुए। क्योंकि असली बदलाव तब नहीं होता जब समुदाय का सिर्फ आधा हिस्सा बातचीत समझता है — यह तब होता है जब हर कोई समझता है।\n\nयही है रुतुजा चैरिटेबल ट्रस्ट का डिग्निटी डॉल प्रोजेक्ट काम करते हुए: एक वर्जना को रंग भरने वाले पन्ने में बदलना, और उस पन्ने को एक ऐसी बातचीत की शुरुआत में बदलना जो इन बच्चों के साथ जीवन भर चल सकती है।\n\nमासिक धर्म स्वास्थ्य ही धन है। आइए बात करें। आइए साथ दें। आइए साथ बढ़ें।",
+          },
+          {
+            title: "जहाँ गुड़िया रहती है, जब कोई नहीं देख रहा",
+            description:
+              "लोग डिग्निटी डॉल प्रोजेक्ट के जो पल सबसे ज़्यादा देखते हैं वे कैमरे के सामने के होते हैं — वर्कशॉप, रंग भरने वाली शीट्स, पेड़ों तले खिंची समूह-तस्वीरें। पर यह वीडियो कुछ अलग दिखाता है: घर पर एक छोटी बच्ची, बिस्तर पर सिमटी हुई, गुड़िया उसके कंधे से सटी हुई, जबकि वह फोन पर कुछ देख रही है।\n\nयहाँ कोई बैनर नहीं है। कोई भाषण नहीं। कोई दर्शक नहीं। बस एक बच्ची, इतनी सहज कि गुड़िया बस उसकी रोज़मर्रा की दुनिया का हिस्सा बन गई है — जैसे कोई और खिलौना उसके पास पड़ा हो।\n\nऔर शायद यही इस तरह के प्रोजेक्ट की शांत सफलता है। सिर्फ वर्कशॉप और जागरूकता सत्र नहीं, बल्कि वह पल जब गुड़िया \"जागरूकता का साधन\" होना छोड़कर बस उसकी अपनी बन जाती है — कुछ ऐसा जिसे वह बिना कहे, बिना किसी सीख के साथ, खुद उठा लेती है।\n\nकभी-कभी सबसे बड़ा असर कक्षा में नहीं दिखता। यह एक साधारण दोपहर, एक शयनकक्ष में दिखता है, जहाँ गरिमा के बारे में एक गुड़िया बस बड़े होने का हिस्सा बन गई है।",
+          },
+          {
+            title: "बातचीत को सड़क तक ले जाना",
+            description:
+              "हर जागरूकता अभियान कक्षा के भीतर या वर्कशॉप के तंबू में नहीं होता — कभी-कभी यह किसी के दरवाज़े पर ही होता है।\n\nइस वीडियो में, माइक थामे एक इंटरव्यूअर महिलाओं से उनके ही मोहल्ले में मिलता है, मासिक धर्म स्वास्थ्य और गरिमा पर खुली, बिना स्क्रिप्ट की बातचीत करते हुए — वही बातचीत जिसे सामान्य बनाना रुतुजा डिग्निटी डॉल प्रोजेक्ट का मक़सद है। अपनी दुकान के प्रवेश द्वार पर खड़ी एक महिला से लेकर ईंट की आँगन-दीवार के पास खुलकर बोलती दूसरी महिला तक, हर इंटरव्यू कुछ सरल पर दुर्लभ दर्शाता है: महिलाएं कैमरे पर, अपने ही शब्दों में, लंबे समय से बंद दरवाज़ों के पीछे रखे विषय पर बोल रही हैं।\n\nयही है गरिमा को सड़कों तक ले जाना — कोई मंच नहीं, कोई स्क्रिप्ट नहीं, बस असली बातचीत लोगों से वहीं मिलती हुई जहाँ वे हैं। क्योंकि वर्जना तोड़ना सिर्फ योजनाबद्ध सत्रों में नहीं होता; यह हर बार होता है जब कोई खुले में, हाथ में माइक लिए, आस-पास से गुज़रने वाले किसी के लिए भी इस बारे में बात करने को तैयार होता है।\n\nमासिक धर्म स्वास्थ्य ही धन है। आइए बात करें। आइए साथ दें। आइए साथ बढ़ें।",
+          },
+          {
+            title: "दो संस्थाएं, एक मिशन: हर महिला के लिए गरिमा",
+            description:
+              "इस वीडियो में, एक प्रवक्ता रुतुजा डिग्निटी डॉल प्रोजेक्ट की ओर से कैमरे के सामने सीधे बोलती हैं, इस बार मातृ सुधा चैरिटेबल ट्रस्ट के साथ साझेदारी में — वही हस्तनिर्मित गुड़िया थामे हुए जो इस आंदोलन का शांत प्रतीक बन गई है।\n\nजब दो संस्थाएं एक ही बैनर तले साथ आती हैं, तो यह सिर्फ सहयोग नहीं है — यह एक संकेत है। यह दिखाता है कि मासिक धर्म स्वास्थ्य और गरिमा पर बातचीत को सामान्य बनाने की लड़ाई किसी एक ट्रस्ट या एक समुदाय तक सीमित नहीं है; यह एक साझा उद्देश्य है, जो हर बार और मज़बूत होता है जब कोई नया साथी इसे आगे ले जाने के लिए कदम बढ़ाता है।\n\nसीधे और स्पष्ट रूप से बोलते हुए, वह इस मिशन की बात घर तक पहुँचाती हैं: कि गरिमा महिलाओं को माँगनी नहीं चाहिए — यह हर लड़की और महिला को बिना किसी हिचकिचाहट या शर्म के, बस दी जानी चाहिए।\n\nयही है उद्देश्य में साझेदारी का रूप: दो नाम, एक गुड़िया, एक संदेश — और आगे तक पहुँचता है क्योंकि इसे थामने वाले और हाथ जुड़ गए हैं।\n\nमासिक धर्म स्वास्थ्य ही धन है। आइए बात करें। आइए साथ दें। आइए साथ बढ़ें।",
+          },
+          {
+            title: "बातचीत में जुड़ी एक युवा आवाज़",
+            description:
+              "गरिमा की कोई उम्र-सीमा नहीं होती, और न ही उसके बारे में बोलने के साहस की।\n\nइस वीडियो में, एक युवा महिला घर के भीतर शांति से बैठी है, डिग्निटी डॉल उसकी गोद में है, और वह कैमरे से खुलकर बात करती है। यहाँ कोई मंच नहीं, कोई आयोजन की पृष्ठभूमि नहीं — बस वह, एक साधारण कमरे में, उस बातचीत में अपनी आवाज़ जोड़ना चुनती हुई जिसके बारे में उसकी उम्र के कई लोगों को चुप रहना सिखाया जाता है।\n\nयही बात इस तरह के क्लिप्स को बड़े समूह-आयोजनों और वर्कशॉप जितना ही महत्वपूर्ण बनाती है। बदलाव सिर्फ बच्चों से भरी कक्षाओं या पेड़ों तले जुटी भीड़ में नहीं होता — यह हर बार होता है जब एक और व्यक्ति, चाहे युवा हो या बुज़ुर्ग, तय करता है कि वह मासिक धर्म जैसे स्वाभाविक विषय पर चुप नहीं रहेगा।\n\nउसकी आवाज़ एक बढ़ते समूह-स्वर में जुड़ती है — दादी-नानी, स्कूली बच्चे, माताएं, और अब वह — सब एक ही गुड़िया थामे, सब एक ही संदेश को आगे ले जाते हुए।",
+          },
         ],
       },
       ambassadors: {
