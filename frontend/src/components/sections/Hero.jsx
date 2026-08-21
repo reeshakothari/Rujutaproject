@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { MaskReveal } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
-import { IMAGES } from "@/data/images";
 
 export default function Hero() {
   const { t } = useLang();
@@ -75,13 +74,17 @@ export default function Hero() {
             className="relative mx-auto max-w-md lg:ml-auto lg:mr-0"
           >
             <div className="absolute -inset-3 -z-10 border border-rutuja-blue/15" aria-hidden="true" />
-            <div className="relative aspect-[4/5] overflow-hidden bg-white shadow-[0_30px_80px_-30px_rgba(41,94,170,0.35)]">
-              <motion.img
-                src={IMAGES.dollHero}
-                alt={h.imageAlt}
+            <div className="relative aspect-[726/1040] overflow-hidden shadow-[0_30px_80px_-30px_rgba(41,94,170,0.35)]">
+              <motion.video
+                src="/media/hero-doll.mp4"
+                aria-label={h.imageAlt}
                 style={{ y, scale }}
-                className="h-full w-full object-contain p-6"
-                loading="eager"
+                className="h-full w-full object-cover object-center"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
               />
             </div>
             <div className="absolute -bottom-4 left-4 bg-rutuja-pink px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white">

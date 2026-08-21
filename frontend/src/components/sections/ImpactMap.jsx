@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -17,6 +17,14 @@ function curvePath(hub, p) {
   return `M ${hub.x} ${hub.y} Q ${mx + (-dy / len) * off} ${my + (dx / len) * off} ${p.x} ${p.y}`;
 }
 
+// A region has both a documented story and an ambassador when a marker of each sits at (near) the same spot.
+const hasAmbassadorHere = (region) =>
+  AMBASSADORS.some((a) => Math.hypot(a.x - region.x, a.y - region.y) < 5);
+
+const PINK_GLOW = { filter: "drop-shadow(0 0 5px rgba(200,43,98,0.65))" };
+const BLUE_GLOW = { filter: "drop-shadow(0 0 5px rgba(41,94,170,0.65))" };
+const AUTOPLAY_INTERVAL = 2800;
+
 export default function ImpactMap() {
   const { t } = useLang();
   const im = t.impactMap;
@@ -26,6 +34,20 @@ export default function ImpactMap() {
   const [tab, setTab] = useState("regions");
   const [regionIdx, setRegionIdx] = useState(hubIdx < 0 ? 0 : hubIdx);
   const [ambIdx, setAmbIdx] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+
+  // Auto-tour: reveal each pin on the active tab one by one, until the user hovers/taps one.
+  useEffect(() => {
+    if (!autoplay || reduce) return undefined;
+    const id = setInterval(() => {
+      if (tab === "regions") {
+        setRegionIdx((prev) => (prev + 1) % MAP_REGIONS.length);
+      } else {
+        setAmbIdx((prev) => (prev + 1) % AMBASSADORS.length);
+      }
+    }, AUTOPLAY_INTERVAL);
+    return () => clearInterval(id);
+  }, [autoplay, reduce, tab]);
 
   const people = im.ambassadors || [];
   const place = (id) => im.places[id] || {};
@@ -43,8 +65,8 @@ export default function ImpactMap() {
       : { x: activeAmbPin?.x, y: activeAmbPin?.y, text: (activeAmb.loc || "").split(",")[0] };
 
   const vp = { once: true, margin: "-12% 0px" };
-  const selectRegion = (i) => { setTab("regions"); setRegionIdx(i); };
-  const selectAmb = (i) => { setTab("amb"); setAmbIdx(i); };
+  const selectRegion = (i) => { setAutoplay(false); setTab("regions"); setRegionIdx(i); };
+  const selectAmb = (i) => { setAutoplay(false); setTab("amb"); setAmbIdx(i); };
 
   return (
     <section id="impact-map" data-testid="our-impact-section" className="scroll-mt-20 bg-white py-16 md:py-28">
@@ -108,17 +130,17 @@ export default function ImpactMap() {
                   </motion.g>
                 ))}
 
-                {/* Ambassador markers (blue dots) — rendered first so pink region rings stay on top & hoverable */}
+                {/* Ambassador markers (blue dots) — rendered first so pink region dots stay on top & hoverable */}
                 {AMBASSADORS.map((p, i) => {
                   const isActive = tab === "amb" && ambIdx === i;
                   return (
                     <g key={p.id} transform={`translate(${p.x} ${p.y})`}>
-                      {isActive && !reduce && (
+                      {!reduce && (
                         <motion.circle r={10} fill="#295EAA" style={{ transformBox: "fill-box", transformOrigin: "center" }}
                           initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.4, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.25 }} />
                       )}
-                      <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer" }}
+                      <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...BLUE_GLOW }}
                         initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
                         transition={{ duration: 0.5, ease: EASE, delay: 0.9 + i * 0.07 }}
                         animate={isActive && !reduce ? { scale: 1.25 } : undefined} whileHover={{ scale: 1.25 }}
@@ -130,45 +152,78 @@ export default function ImpactMap() {
                   );
                 })}
 
-                {/* Region markers (pink rings) — on top; transparent fill keeps them hoverable while showing any blue pin beneath */}
+                {/* Region markers (solid pink dots, glowing) — on top */}
                 {MAP_REGIONS.map((r, i) => {
                   const isActive = tab === "regions" && regionIdx === i;
+                  const shared = hasAmbassadorHere(r);
                   return (
                     <g key={r.id}>
                       {r.x2 != null && (
-                        <g transform={`translate(${r.x2} ${r.y2})`}>
-                          <circle r={7} fill="transparent" stroke="#C82B62" strokeWidth={2.2} />
+                        <g transform={`translate(${r.x2} ${r.y2})`} style={PINK_GLOW}>
+                          <circle r={7} fill="#C82B62" stroke="#ffffff" strokeWidth={1.4} />
                         </g>
                       )}
                       <g transform={`translate(${r.x} ${r.y})`}>
-                        {isActive && !reduce && (
-                          <motion.circle r={12} fill="none" stroke="#C82B62" strokeWidth={2}
+                        {!reduce && (
+                          <motion.circle r={10} fill="#C82B62"
                             style={{ transformBox: "fill-box", transformOrigin: "center" }}
                             initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.3 }} />
                         )}
-                        <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer" }}
+                        <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...PINK_GLOW }}
                           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
                           transition={{ duration: 0.55, ease: EASE, delay: 0.6 + i * 0.09 }}
                           animate={isActive && !reduce ? { scale: 1.2 } : undefined} whileHover={{ scale: 1.2 }}
                           onHoverStart={() => selectRegion(i)} onTap={() => selectRegion(i)}
                           data-testid={`map-pin-${r.id}`} aria-label={`${place(r.id).city}, ${place(r.id).state}`}>
-                          <circle r={11} fill={isActive ? "#FBECF2" : "transparent"} stroke={isActive ? "#A3234F" : "#C82B62"} strokeWidth={2.6} />
+                          {shared && (
+                            <circle
+                              r={15}
+                              fill="none"
+                              stroke="#295EAA"
+                              strokeWidth={1.6}
+                              style={{ pointerEvents: "none" }}
+                              data-testid={`map-shared-ring-${r.id}`}
+                              aria-hidden="true"
+                            />
+                          )}
+                          <circle r={11} fill={isActive ? "#A3234F" : "#C82B62"} stroke="#ffffff" strokeWidth={1.4} />
                         </motion.g>
                       </g>
                     </g>
                   );
                 })}
 
-                {/* Active label */}
-                {label.text && label.x != null && (
-                  <motion.text key={`lbl-${tab}-${label.text}`} x={label.x} y={label.y - 22} textAnchor="middle" fontSize={24}
-                    fontFamily='"Playfair Display", Georgia, serif' fill="#1A1A1A" stroke="#ffffff" strokeWidth={5} paintOrder="stroke" strokeLinejoin="round"
-                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, ease: EASE }} style={{ pointerEvents: "none" }}>
-                    {label.text}
-                  </motion.text>
-                )}
               </svg>
+
+              {/* Tooltip overlay — centered directly on the active pin */}
+              {label.text && label.x != null && (
+                <motion.div
+                  key={`tip-${tab}-${label.text}`}
+                  className="pointer-events-none absolute z-10 hidden w-max max-w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-rutuja-ink px-3.5 py-2.5 text-left shadow-xl sm:block"
+                  style={{
+                    left: `${(label.x / INDIA_MAP.width) * 100}%`,
+                    top: `${(label.y / INDIA_MAP.height) * 100}%`,
+                  }}
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.28, ease: EASE }}
+                >
+                  <p className="font-serif text-sm text-white">
+                    {tab === "regions" ? (
+                      <>
+                        {activeRegionInfo.city}
+                        <span className="text-white/60"> · {activeRegionInfo.state}</span>
+                      </>
+                    ) : (
+                      <>
+                        {activeAmb.name}
+                        <span className="text-white/60"> · {(activeAmb.loc || "").split(",")[0]}</span>
+                      </>
+                    )}
+                  </p>
+                </motion.div>
+              )}
             </div>
           </div>
 
