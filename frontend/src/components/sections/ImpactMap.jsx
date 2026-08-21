@@ -3,264 +3,289 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import { INDIA_MAP, AMBASSADORS } from "@/data/impactMap";
+import { INDIA_MAP, MAP_REGIONS, AMBASSADORS, HQ_ID } from "@/data/impactMap";
 
 const EASE = [0.22, 1, 0.36, 1];
+
+function curvePath(hub, p) {
+  const mx = (hub.x + p.x) / 2;
+  const my = (hub.y + p.y) / 2;
+  const dx = p.x - hub.x;
+  const dy = p.y - hub.y;
+  const len = Math.hypot(dx, dy) || 1;
+  const off = len * 0.14;
+  return `M ${hub.x} ${hub.y} Q ${mx + (-dy / len) * off} ${my + (dx / len) * off} ${p.x} ${p.y}`;
+}
 
 export default function ImpactMap() {
   const { t } = useLang();
   const im = t.impactMap;
   const reduce = useReducedMotion();
-  const [active, setActive] = useState(0);
+
+  const hubIdx = MAP_REGIONS.findIndex((r) => r.id === HQ_ID);
+  const [tab, setTab] = useState("regions");
+  const [regionIdx, setRegionIdx] = useState(hubIdx < 0 ? 0 : hubIdx);
+  const [ambIdx, setAmbIdx] = useState(0);
 
   const people = im.ambassadors || [];
-  const activePerson = people[active] || {};
-  const activePin = AMBASSADORS[active];
-  const labelCity = (activePerson.loc || "").split(",")[0];
+  const place = (id) => im.places[id] || {};
+  const hub = MAP_REGIONS[hubIdx];
+  const spokes = MAP_REGIONS.filter((r) => r.id !== HQ_ID);
+
+  const activeRegion = MAP_REGIONS[regionIdx];
+  const activeRegionInfo = place(activeRegion?.id);
+  const activeAmbPin = AMBASSADORS[ambIdx];
+  const activeAmb = people[ambIdx] || {};
+
+  const label =
+    tab === "regions"
+      ? { x: activeRegion?.x, y: activeRegion?.y, text: activeRegionInfo.city }
+      : { x: activeAmbPin?.x, y: activeAmbPin?.y, text: (activeAmb.loc || "").split(",")[0] };
 
   const vp = { once: true, margin: "-12% 0px" };
+  const selectRegion = (i) => { setTab("regions"); setRegionIdx(i); };
+  const selectAmb = (i) => { setTab("amb"); setAmbIdx(i); };
 
   return (
-    <section
-      id="impact-map"
-      data-testid="our-impact-section"
-      className="scroll-mt-20 bg-white py-16 md:py-28"
-    >
+    <section id="impact-map" data-testid="our-impact-section" className="scroll-mt-20 bg-white py-16 md:py-28">
       <div className="container-edge">
         {/* Header */}
         <div className="max-w-3xl">
-          <motion.p
-            data-testid="impact-eyebrow"
-            className="eyebrow-pink"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={vp}
-            transition={{ duration: 0.7, ease: EASE }}
-          >
+          <motion.p data-testid="impact-eyebrow" className="eyebrow-pink"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.7, ease: EASE }}>
             {im.eyebrow}
           </motion.p>
-          <motion.h2
-            data-testid="impact-headline"
-            className="mt-5 font-serif text-3xl font-medium leading-[1.12] tracking-tight text-rutuja-ink sm:text-4xl lg:text-5xl"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={vp}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.08 }}
-          >
+          <motion.h2 data-testid="impact-headline" className="mt-5 font-serif text-3xl font-medium leading-[1.12] tracking-tight text-rutuja-ink sm:text-4xl lg:text-5xl"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.8, ease: EASE, delay: 0.08 }}>
             {im.title}
           </motion.h2>
-          <motion.p
-            data-testid="impact-subtext"
-            className="mt-6 max-w-2xl text-base leading-relaxed text-rutuja-slate sm:text-lg"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={vp}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.16 }}
-          >
+          <motion.p data-testid="impact-subtext" className="mt-6 max-w-2xl text-base leading-relaxed text-rutuja-slate sm:text-lg"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.8, ease: EASE, delay: 0.16 }}>
             {im.sub}
           </motion.p>
+          {/* Legend */}
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-rutuja-slate">
+            <span className="inline-flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full border-2 border-rutuja-pink bg-white" />
+              {im.legendReach}
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full bg-rutuja-blue" />
+              {im.legendAmbassadors}
+            </span>
+          </div>
         </div>
 
-        {/* Map + selector */}
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:mt-16 lg:grid-cols-12">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:mt-14 lg:grid-cols-12">
           {/* Map */}
           <div className="order-2 lg:order-none lg:col-span-8">
-            <div
-              data-testid="impact-map-container"
-              className="relative mx-auto max-w-[640px] rounded-md border border-rutuja-line bg-white p-4 sm:p-5"
-            >
-              <svg
-                viewBox={INDIA_MAP.viewBox}
-                preserveAspectRatio="xMidYMid meet"
-                className="h-auto w-full"
-                role="img"
-                aria-label="Map of India and Nepal showing the 12 Dignity Dialogue 2026 ambassadors"
-                data-testid="india-map-svg"
-              >
-                <motion.path
-                  d={INDIA_MAP.path}
-                  fill="#F0DEE6"
-                  stroke="#D9B9C8"
-                  strokeWidth={1.4}
-                  strokeLinejoin="round"
+            <div data-testid="impact-map-container" className="relative mx-auto max-w-[640px] rounded-md border border-rutuja-line bg-white p-4 sm:p-5">
+              <svg viewBox={INDIA_MAP.viewBox} preserveAspectRatio="xMidYMid meet" className="h-auto w-full" role="img"
+                aria-label="Map of India and Nepal showing documented Dignity Doll reach and the 12 ambassadors" data-testid="india-map-svg">
+                <motion.path d={INDIA_MAP.path} fill="#F0DEE6" stroke="#D9B9C8" strokeWidth={1.4} strokeLinejoin="round"
                   style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={vp}
-                  transition={{ duration: 0.85, ease: EASE }}
-                />
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp} transition={{ duration: 0.85, ease: EASE }} />
 
-                {/* Ambassador pins */}
+                {/* Animated pink connector lines (regions only) */}
+                <g data-testid="map-journey-lines">
+                  {!reduce && hub && spokes.map((p, i) => (
+                    <motion.path key={`line-${p.id}`} d={curvePath(hub, p)} fill="none" stroke="#C82B62" strokeWidth={1.3}
+                      strokeDasharray="4 6" strokeLinecap="round" opacity={0.4}
+                      initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 0.4 }} viewport={vp}
+                      transition={{ duration: 0.9, ease: "easeOut", delay: 0.35 + i * 0.12 }} />
+                  ))}
+                </g>
+
+                {/* Travelling markers flowing along the documented-reach lines (from hub) */}
+                {!reduce && hub && spokes.map((p, i) => (
+                  <motion.g key={`travel-${p.id}`} style={{ pointerEvents: "none" }}
+                    initial={{ x: hub.x, y: hub.y, opacity: 0 }}
+                    animate={{ x: [hub.x, p.x], y: [hub.y, p.y], opacity: [0, 1, 1, 0] }}
+                    transition={{ duration: 2.4, ease: "easeInOut", repeat: Infinity, repeatDelay: 1.4, delay: 0.9 + i * 0.5 }}
+                    data-testid={`map-travel-${p.id}`}>
+                    <circle r={9} fill="#C82B62" opacity={0.16} />
+                    <circle r={3.6} fill="#C82B62" stroke="#ffffff" strokeWidth={0.8} />
+                  </motion.g>
+                ))}
+
+                {/* Ambassador markers (blue dots) — rendered first so pink region rings stay on top & hoverable */}
                 {AMBASSADORS.map((p, i) => {
-                  const isActive = active === i;
-                  const dropDelay = 0.6 + i * 0.1;
+                  const isActive = tab === "amb" && ambIdx === i;
                   return (
                     <g key={p.id} transform={`translate(${p.x} ${p.y})`}>
-                      {!reduce && (
-                        <motion.circle
-                          r={14}
-                          fill="#295EAA"
-                          style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                          initial={{ opacity: 0 }}
-                          animate={{ scale: [0.7, 1.9], opacity: [0.32, 0] }}
-                          transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut", delay: 0.6 + i * 0.22 }}
-                        />
+                      {isActive && !reduce && (
+                        <motion.circle r={10} fill="#295EAA" style={{ transformBox: "fill-box", transformOrigin: "center" }}
+                          initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.4, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
                       )}
-                      <motion.g
-                        style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer" }}
-                        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={vp}
-                        transition={{ duration: 0.55, ease: EASE, delay: dropDelay }}
-                        animate={isActive && !reduce ? { scale: 1.2 } : undefined}
-                        whileHover={{ scale: 1.2 }}
-                        onHoverStart={() => setActive(i)}
-                        onTap={() => setActive(i)}
-                        data-testid={`map-pin-${p.id}`}
-                        aria-label={people[i]?.name || ""}
-                      >
-                        <circle r={10} fill="#ffffff" stroke="#295EAA" strokeWidth={1} />
-                        <circle r={isActive ? 7.5 : 6.5} fill={isActive ? "#204985" : "#295EAA"} />
-                        <circle r={2.3} fill="#ffffff" />
+                      <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer" }}
+                        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
+                        transition={{ duration: 0.5, ease: EASE, delay: 0.9 + i * 0.07 }}
+                        animate={isActive && !reduce ? { scale: 1.25 } : undefined} whileHover={{ scale: 1.25 }}
+                        onHoverStart={() => selectAmb(i)} onTap={() => selectAmb(i)}
+                        data-testid={`map-pin-${p.id}`} aria-label={people[i]?.name || ""}>
+                        <circle r={7} fill={isActive ? "#204985" : "#295EAA"} stroke="#ffffff" strokeWidth={1.4} />
                       </motion.g>
                     </g>
                   );
                 })}
 
-                {/* Active location label */}
-                {activePin && labelCity && (
-                  <motion.text
-                    key={`lbl-${active}`}
-                    x={activePin.x}
-                    y={activePin.y - 24}
-                    textAnchor="middle"
-                    fontSize={24}
-                    fontFamily='"Playfair Display", Georgia, serif'
-                    fill="#1A1A1A"
-                    stroke="#ffffff"
-                    strokeWidth={5}
-                    paintOrder="stroke"
-                    strokeLinejoin="round"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, ease: EASE }}
-                    style={{ pointerEvents: "none" }}
-                  >
-                    {labelCity}
+                {/* Region markers (pink rings) — on top; transparent fill keeps them hoverable while showing any blue pin beneath */}
+                {MAP_REGIONS.map((r, i) => {
+                  const isActive = tab === "regions" && regionIdx === i;
+                  return (
+                    <g key={r.id}>
+                      {r.x2 != null && (
+                        <g transform={`translate(${r.x2} ${r.y2})`}>
+                          <circle r={7} fill="transparent" stroke="#C82B62" strokeWidth={2.2} />
+                        </g>
+                      )}
+                      <g transform={`translate(${r.x} ${r.y})`}>
+                        {isActive && !reduce && (
+                          <motion.circle r={12} fill="none" stroke="#C82B62" strokeWidth={2}
+                            style={{ transformBox: "fill-box", transformOrigin: "center" }}
+                            initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.5, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+                        )}
+                        <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer" }}
+                          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
+                          transition={{ duration: 0.55, ease: EASE, delay: 0.6 + i * 0.09 }}
+                          animate={isActive && !reduce ? { scale: 1.2 } : undefined} whileHover={{ scale: 1.2 }}
+                          onHoverStart={() => selectRegion(i)} onTap={() => selectRegion(i)}
+                          data-testid={`map-pin-${r.id}`} aria-label={`${place(r.id).city}, ${place(r.id).state}`}>
+                          <circle r={11} fill={isActive ? "#FBECF2" : "transparent"} stroke={isActive ? "#A3234F" : "#C82B62"} strokeWidth={2.6} />
+                        </motion.g>
+                      </g>
+                    </g>
+                  );
+                })}
+
+                {/* Active label */}
+                {label.text && label.x != null && (
+                  <motion.text key={`lbl-${tab}-${label.text}`} x={label.x} y={label.y - 22} textAnchor="middle" fontSize={24}
+                    fontFamily='"Playfair Display", Georgia, serif' fill="#1A1A1A" stroke="#ffffff" strokeWidth={5} paintOrder="stroke" strokeLinejoin="round"
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, ease: EASE }} style={{ pointerEvents: "none" }}>
+                    {label.text}
                   </motion.text>
                 )}
               </svg>
             </div>
           </div>
 
-          {/* Selector + detail */}
+          {/* Right rail: tabs + list + detail */}
           <div className="order-1 lg:order-none lg:col-span-4">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-rutuja-muted">
-              {im.tapHint}
-            </p>
-            <div
-              data-testid="impact-region-selector-list"
-              className="no-scrollbar flex gap-2 overflow-x-auto pb-1 lg:max-h-[420px] lg:flex-col lg:gap-0.5 lg:overflow-y-auto lg:pb-0"
-            >
-              {people.map((person, i) => {
-                const p = AMBASSADORS[i];
-                const isActive = active === i;
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    data-testid={`impact-region-btn-${p.id}`}
-                    onMouseEnter={() => setActive(i)}
-                    onFocus={() => setActive(i)}
-                    onClick={() => setActive(i)}
-                    aria-pressed={isActive}
-                    aria-label={`${person.name}, ${person.loc}`}
-                    className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${
-                      isActive
-                        ? "border-rutuja-blue bg-rutuja-blue/5"
-                        : "border-rutuja-line hover:border-rutuja-blue/50 lg:border-transparent lg:hover:bg-rutuja-blue/5"
-                    }`}
-                  >
-                    <span
-                      className={`h-2.5 w-2.5 shrink-0 rounded-full transition-colors duration-200 ${
-                        isActive ? "bg-rutuja-blue" : "bg-rutuja-line"
-                      }`}
-                    />
-                    <span className="min-w-0">
-                      <span className={`block font-medium ${isActive ? "text-rutuja-blue" : "text-rutuja-ink"}`}>
-                        {person.name}
-                      </span>
-                      <span className="hidden truncate text-xs text-rutuja-muted lg:block">{person.loc}</span>
-                    </span>
-                  </button>
-                );
-              })}
+            {/* Tabs */}
+            <div className="flex gap-2 border-b border-rutuja-line" data-testid="impact-tabs">
+              <button type="button" data-testid="impact-tab-regions" onClick={() => setTab("regions")}
+                className={`-mb-px border-b-2 px-1 pb-2.5 text-sm font-semibold transition-colors ${tab === "regions" ? "border-rutuja-pink text-rutuja-pinkdark" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
+                {im.regionsTitle}
+              </button>
+              <button type="button" data-testid="impact-tab-amb" onClick={() => setTab("amb")}
+                className={`-mb-px ml-4 border-b-2 px-1 pb-2.5 text-sm font-semibold transition-colors ${tab === "amb" ? "border-rutuja-blue text-rutuja-blue" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
+                {im.ambassadorsTitle}
+              </button>
             </div>
 
-            {/* Ambassador detail card */}
-            <motion.article
-              key={active}
-              data-testid="editorial-story-card"
-              className="mt-6 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: EASE }}
-            >
-              <div className="flex items-start gap-3">
-                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-rutuja-blue" />
-                <div className="min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
-                    {im.roleLabel}
-                  </p>
-                  <h3
-                    data-testid="editorial-story-title"
-                    className="mt-1 font-serif text-xl font-medium tracking-tight text-rutuja-blue sm:text-2xl"
-                  >
-                    {activePerson.name}
-                  </h3>
-                </div>
+            {/* Lists */}
+            {tab === "regions" ? (
+              <div data-testid="impact-region-selector-list" className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
+                {MAP_REGIONS.map((r, i) => {
+                  const info = place(r.id);
+                  const isActive = regionIdx === i;
+                  return (
+                    <button key={r.id} type="button" data-testid={`impact-region-btn-${r.id}`}
+                      onMouseEnter={() => selectRegion(i)} onFocus={() => selectRegion(i)} onClick={() => selectRegion(i)}
+                      aria-pressed={isActive} aria-label={`${info.state}, ${info.city}`}
+                      className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-pink bg-rutuja-soft" : "border-rutuja-line hover:border-rutuja-pink/50 lg:border-transparent lg:hover:bg-rutuja-soft/60"}`}>
+                      <span className={`h-2.5 w-2.5 shrink-0 rounded-full border-2 ${isActive ? "border-rutuja-pinkdark bg-rutuja-soft" : "border-rutuja-pink bg-white"}`} />
+                      <span className="min-w-0">
+                        <span className={`block font-medium ${isActive ? "text-rutuja-pinkdark" : "text-rutuja-ink"}`}>{info.state}</span>
+                        {info.city !== info.state && (
+                          <span className="hidden truncate text-xs text-rutuja-muted lg:block">{info.city}</span>
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
-              <p
-                data-testid="editorial-story-context"
-                className="mt-4 border-t border-rutuja-line pt-4 text-sm leading-relaxed text-rutuja-slate"
-              >
-                {activePerson.loc}
-              </p>
-            </motion.article>
+            ) : (
+              <div data-testid="impact-amb-selector-list" className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1 lg:max-h-[360px] lg:flex-col lg:gap-0.5 lg:overflow-y-auto lg:pb-0">
+                {people.map((person, i) => {
+                  const p = AMBASSADORS[i];
+                  const isActive = ambIdx === i;
+                  return (
+                    <button key={p.id} type="button" data-testid={`impact-amb-btn-${p.id}`}
+                      onMouseEnter={() => selectAmb(i)} onFocus={() => selectAmb(i)} onClick={() => selectAmb(i)}
+                      aria-pressed={isActive} aria-label={`${person.name}, ${person.loc}`}
+                      className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-blue bg-rutuja-blue/5" : "border-rutuja-line hover:border-rutuja-blue/50 lg:border-transparent lg:hover:bg-rutuja-blue/5"}`}>
+                      <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${isActive ? "bg-rutuja-blue" : "bg-rutuja-line"}`} />
+                      <span className="min-w-0">
+                        <span className={`block font-medium ${isActive ? "text-rutuja-blue" : "text-rutuja-ink"}`}>{person.name}</span>
+                        <span className="hidden truncate text-xs text-rutuja-muted lg:block">{person.loc}</span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Detail card */}
+            {tab === "regions" ? (
+              <motion.article key={`r-${regionIdx}`} data-testid="editorial-story-card"
+                className="mt-6 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }}>
+                <div className="flex items-start justify-between gap-3 border-b border-rutuja-line pb-3">
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">{activeRegionInfo.state} · {im.documentedLabel}</p>
+                    <h3 data-testid="editorial-story-title" className="mt-1.5 font-serif text-xl font-medium tracking-tight text-rutuja-pinkdark sm:text-2xl">{activeRegionInfo.city}</h3>
+                  </div>
+                  {activeRegion?.hq && (
+                    <span className="mt-1 shrink-0 rounded-full bg-rutuja-pink px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white">{im.hqBadge}</span>
+                  )}
+                </div>
+                <p data-testid="editorial-story-context" className="mt-3 text-[13px] leading-relaxed text-rutuja-slate">{activeRegionInfo.context}</p>
+                {activeRegionInfo.venues?.length > 0 && (
+                  <div className="mt-4">
+                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">{im.venuesLabel}</p>
+                    <div data-testid="editorial-story-venues" className="flex flex-wrap gap-1.5">
+                      {activeRegionInfo.venues.map((v, vi) => (
+                        <span key={vi} className="inline-flex items-center rounded-full border border-rutuja-pink/30 bg-rutuja-soft px-2.5 py-0.5 text-[11px] font-medium text-rutuja-pinkdark">{v}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.article>
+            ) : (
+              <motion.article key={`a-${ambIdx}`} data-testid="editorial-story-card"
+                className="mt-6 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(41,94,170,0.16)]"
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }}>
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-rutuja-blue" />
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">{im.roleLabel}</p>
+                    <h3 data-testid="editorial-story-title" className="mt-1 font-serif text-xl font-medium tracking-tight text-rutuja-blue sm:text-2xl">{activeAmb.name}</h3>
+                  </div>
+                </div>
+                <p data-testid="editorial-story-context" className="mt-4 border-t border-rutuja-line pt-4 text-sm leading-relaxed text-rutuja-slate">{activeAmb.loc}</p>
+              </motion.article>
+            )}
           </div>
         </div>
 
         {/* Closing statement */}
-        <motion.div
-          data-testid="impact-closing-statement-card"
-          className="relative mt-14 overflow-hidden rounded-md bg-rutuja-ink p-8 sm:mt-20 sm:p-12"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10% 0px" }}
-          transition={{ duration: 0.8, ease: EASE }}
-        >
-          <blockquote
-            data-testid="impact-closing-quote"
-            className="relative max-w-3xl font-serif text-xl font-normal italic leading-relaxed text-white sm:text-2xl lg:text-3xl"
-          >
+        <motion.div data-testid="impact-closing-statement-card" className="relative mt-14 overflow-hidden rounded-md bg-rutuja-ink p-8 sm:mt-20 sm:p-12"
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: EASE }}>
+          <blockquote data-testid="impact-closing-quote" className="relative max-w-3xl font-serif text-xl font-normal italic leading-relaxed text-white sm:text-2xl lg:text-3xl">
             {`\u201C${im.closing.quote}\u201D`}
           </blockquote>
-          <p className="relative mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-pink">
-            {im.closing.attribution}
-          </p>
+          <p className="relative mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-pink">{im.closing.attribution}</p>
           <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              to="/request-workshop"
-              data-testid="impact-closing-cta-workshop"
-              className="inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rutuja-pinkdark"
-            >
+            <Link to="/request-workshop" data-testid="impact-closing-cta-workshop"
+              className="inline-flex items-center justify-center gap-2 bg-rutuja-pink px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-rutuja-pinkdark">
               {im.closing.primaryCta} <ArrowUpRight size={18} />
             </Link>
-            <Link
-              to="/donate"
-              data-testid="impact-closing-cta-donate"
-              className="inline-flex items-center justify-center gap-2 border border-rutuja-pink/60 px-7 py-3.5 text-sm font-semibold text-rutuja-pink transition-colors duration-300 hover:border-rutuja-pink hover:text-white"
-            >
+            <Link to="/donate" data-testid="impact-closing-cta-donate"
+              className="inline-flex items-center justify-center gap-2 border border-rutuja-pink/60 px-7 py-3.5 text-sm font-semibold text-rutuja-pink transition-colors duration-300 hover:border-rutuja-pink hover:text-white">
               {im.closing.secondaryCta} <ArrowUpRight size={18} />
             </Link>
           </div>

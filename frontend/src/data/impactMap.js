@@ -24,3 +24,16 @@ export const AMBASSADORS = [
   { id: "a11", n: 11, x: 172.0, y: 694.7 },
   { id: "a12", n: 12, x: 170.3, y: 616.4 },
 ];
+
+// Six documented field-activity regions (pink), with animated connector lines from the hub.
+// `x2/y2` = an optional secondary dot (Odisha carries both Bhubaneswar & Balasore).
+export const MAP_REGIONS = [
+  { id: "delhi", x: 321.6, y: 337.3 },
+  { id: "odisha", x: 619.7, y: 649.0, x2: 658.0, y2: 604.1 },
+  { id: "haryana", x: 301.1, y: 352.9 },
+  { id: "uttarakhand", x: 350.1, y: 273.5 },
+  { id: "maharashtra", x: 171.7, y: 694.7, hq: true },
+  { id: "karnataka", x: 334.9, y: 923.5 },
+];
+
+export const HQ_ID = "maharashtra";

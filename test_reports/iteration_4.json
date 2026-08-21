@@ -1,0 +1,29 @@
+{
+  "summary": "Tested the merged ImpactMap section on /impact and / (Home). All required data-testids render; 6 pink region pins + 12 blue ambassador pins + 5 pink connector lines + 5 travelling markers verified; tabs, region/ambassador selection and editorial story card content confirmed (Delhi, Bhubaneswar & Balasore, Rewari, Dehradun, Mumbai / Thane, Bengaluru; ambassadors a5 Jyothi G, a10 Payal Patel, a11 Gundeep Kaur). Hovering a non-overlapping pin (uttarakhand pink, a5 blue) correctly auto-switches the tab and story card. Hindi (lang-hi) translates eyebrow/headline/subtext/legend/tab labels/region names/story context/ambassador location to Devanagari; ambassador names remain Latin (by design). Mobile 390px: no horizontal overflow, tabs and buttons work. Home regression: hero, why, stories, impact, ambassadors sections all render. Zero console/page errors on / and /impact.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "ImpactMap SVG pin stacking", "issue": "Blue ambassador pins are rendered AFTER pink region pins in the SVG. At cities where a blue amb pin shares coordinates with a pink region pin (Delhi a4, Rewari a6, Bengaluru a5, Mumbai a11), the blue circle intercepts pointer events and the pink region pin cannot be hovered/tapped directly. Playwright confirmed: hover on map-pin-delhi timed out with 'subtree intercepts pointer events' from the a4 circle. Users can still select those regions via the right-rail buttons.", "selector": "[data-testid=map-pin-delhi] / map-pin-haryana / map-pin-karnataka / map-pin-maharashtra", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Right-rail region list (desktop lg)", "issues": ["For regions where state==city (e.g. Delhi), the list button shows 'दिल्लीदिल्ली' / 'DelhiDelhi' because both the state (main line) and city (sub line) render the same string with no separator when they are identical. Consider hiding the sub-line when state === city, or adding a space/comma between the two <span> block lines."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix pin stacking: render ambassador (blue) pins BEFORE region (pink) pins in the SVG so the larger pink ring stays hoverable, OR give the pink ring pointerEvents priority (e.g. pointer-events:visiblePainted on the ring and pointer-events:none on the small blue dot when they overlap). Simplest fix: swap the two .map() blocks so ambassadors render first, then regions on top.",
+    "In impact-region-btn-<id>, avoid rendering the same string twice on lg screens when place.state === place.city (Delhi case)."
+  ],
+  "critical_code_review_comments": [
+    "ImpactMap.jsx: The onHoverStart/onTap handlers on the pink ring reassign the tab even when the user is just moving the mouse across the map; combined with the amb pin overlap this creates a UX conflict. Consider debouncing or using explicit click only for tab switching.",
+    "impactMap.js has an unused numeric prop `n` on each ambassador (previously used for numbered pins). Safe to remove or repurpose to clarify intent."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "95%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Merged ImpactMap fully functional with no console errors. Only known UI issue is the pin z-order overlap at Delhi/Rewari/Bengaluru/Mumbai (blue amb pin over pink region pin blocks hover). Task note claims the overlap is intentional visual, but the spec also requires that hovering the pink pin shows the region story — currently impossible at those 4 cities. Main agent should decide whether to (a) reorder SVG groups so pink regions render on top, or (b) accept the overlap and rely solely on the right-rail region buttons for those cities.",
+  "rca of the issue": "SVG paint order == source order. Region pins <g> are drawn first (lines 112-139) and Ambassador pins <g> are drawn second (lines 142-161). SVG events target the top-most painted element under the cursor, so the small blue dot (r=7 with white stroke r≈8.4) at identical (x,y) intercepts events before the pink ring (r=11) below. Reproduction: on /impact wait for pins to animate in, then attempt to hover [data-testid=map-pin-delhi] — Playwright reports 'subtree intercepts pointer events' from the a4 circle."
+}
