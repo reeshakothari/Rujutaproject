@@ -195,64 +195,10 @@ export default function ImpactMap() {
                   </motion.text>
                 )}
               </svg>
-
-              {/* Documented-activity story card — bottom-right overlay on desktop, stacked on mobile */}
-              <motion.article
-                key={active}
-                data-testid="editorial-story-card"
-                className="mt-5 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
-                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: EASE }}
-              >
-                <div className="flex items-start justify-between gap-3 border-b border-rutuja-line pb-3">
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
-                      {activePlace.state} · {im.documentedLabel}
-                    </p>
-                    <h3
-                      data-testid="editorial-story-title"
-                      className="mt-1.5 font-serif text-xl font-medium tracking-tight text-rutuja-pinkdark sm:text-2xl"
-                    >
-                      {activePlace.city}
-                    </h3>
-                  </div>
-                  {activeRegion?.hq && (
-                    <span className="mt-1 shrink-0 rounded-full bg-rutuja-pink px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white">
-                      {im.hqBadge}
-                    </span>
-                  )}
-                </div>
-
-                <p
-                  data-testid="editorial-story-context"
-                  className="mt-3 text-[13px] leading-relaxed text-rutuja-slate"
-                >
-                  {activePlace.context}
-                </p>
-
-                {activePlace.venues?.length > 0 && (
-                  <div className="mt-4">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
-                      {im.venuesLabel}
-                    </p>
-                    <div data-testid="editorial-story-venues" className="flex flex-wrap gap-1.5">
-                      {activePlace.venues.map((v, vi) => (
-                        <span
-                          key={vi}
-                          className="inline-flex items-center rounded-full border border-rutuja-pink/30 bg-rutuja-soft px-2.5 py-0.5 text-[11px] font-medium text-rutuja-pinkdark"
-                        >
-                          {v}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </motion.article>
             </div>
           </div>
 
-          {/* Region selector */}
+          {/* Region selector + story */}
           <div className="order-1 lg:order-none lg:col-span-4">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-rutuja-muted">
               {im.tapHint}
@@ -286,6 +232,60 @@ export default function ImpactMap() {
                 );
               })}
             </div>
+
+            {/* Documented-activity story card — sits below the region selector */}
+            <motion.article
+              key={active}
+              data-testid="editorial-story-card"
+              className="mt-6 rounded-md border border-rutuja-line bg-white p-5 shadow-[0_12px_36px_-16px_rgba(163,35,79,0.18)]"
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: EASE }}
+            >
+              <div className="flex items-start justify-between gap-3 border-b border-rutuja-line pb-3">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
+                    {activePlace.state} · {im.documentedLabel}
+                  </p>
+                  <h3
+                    data-testid="editorial-story-title"
+                    className="mt-1.5 font-serif text-xl font-medium tracking-tight text-rutuja-pinkdark sm:text-2xl"
+                  >
+                    {activePlace.city}
+                  </h3>
+                </div>
+                {activeRegion?.hq && (
+                  <span className="mt-1 shrink-0 rounded-full bg-rutuja-pink px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white">
+                    {im.hqBadge}
+                  </span>
+                )}
+              </div>
+
+              <p
+                data-testid="editorial-story-context"
+                className="mt-3 text-[13px] leading-relaxed text-rutuja-slate"
+              >
+                {activePlace.context}
+              </p>
+
+              {activePlace.venues?.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-rutuja-muted">
+                    {im.venuesLabel}
+                  </p>
+                  <div data-testid="editorial-story-venues" className="flex flex-wrap gap-1.5">
+                    {activePlace.venues.map((v, vi) => (
+                      <span
+                        key={vi}
+                        className="inline-flex items-center rounded-full border border-rutuja-pink/30 bg-rutuja-soft px-2.5 py-0.5 text-[11px] font-medium text-rutuja-pinkdark"
+                      >
+                        {v}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.article>
           </div>
         </div>
 
