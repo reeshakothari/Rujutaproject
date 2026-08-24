@@ -31,7 +31,7 @@ export default function Partner() {
   return (
     <main data-testid="partner-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} />
-      <section className="bg-white py-12 md:py-20">
+      <section className="overflow-x-hidden bg-white py-12 md:py-20">
         <div className="container-edge max-w-3xl">
           {form.status === "success" ? (
             <SuccessState onReset={form.reset} testid="partner-success" />

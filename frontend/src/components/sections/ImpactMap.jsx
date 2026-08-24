@@ -69,20 +69,20 @@ export default function ImpactMap() {
   const selectAmb = (i) => { setAutoplay(false); setTab("amb"); setAmbIdx(i); };
 
   return (
-    <section id="impact-map" data-testid="our-impact-section" className="scroll-mt-20 bg-white py-16 md:py-28">
+    <section id="impact-map" data-testid="our-impact-section" className="scroll-mt-20 overflow-x-hidden bg-white py-16 md:py-28">
       <div className="container-edge">
         {/* Header */}
         <div className="max-w-3xl">
           <motion.p data-testid="impact-eyebrow" className="eyebrow-pink"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.7, ease: EASE }}>
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
             {im.eyebrow}
           </motion.p>
           <motion.h2 data-testid="impact-headline" className="mt-5 font-serif text-3xl font-medium leading-[1.12] tracking-tight text-rutuja-ink sm:text-4xl lg:text-5xl"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.8, ease: EASE, delay: 0.08 }}>
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.08 }}>
             {im.title}
           </motion.h2>
           <motion.p data-testid="impact-subtext" className="mt-6 max-w-2xl text-base leading-relaxed text-rutuja-slate sm:text-lg"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ duration: 0.8, ease: EASE, delay: 0.16 }}>
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.16 }}>
             {im.sub}
           </motion.p>
           {/* Legend */}
@@ -106,7 +106,7 @@ export default function ImpactMap() {
                 aria-label="Map of India and Nepal showing documented Dignity Doll reach and the 12 ambassadors" data-testid="india-map-svg">
                 <motion.path d={INDIA_MAP.path} fill="#F0DEE6" stroke="#D9B9C8" strokeWidth={1.4} strokeLinejoin="round"
                   style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp} transition={{ duration: 0.85, ease: EASE }} />
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.85, ease: EASE }} />
 
                 {/* Animated pink connector lines (regions only) */}
                 <g data-testid="map-journey-lines">
@@ -141,9 +141,9 @@ export default function ImpactMap() {
                           transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.25 }} />
                       )}
                       <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...BLUE_GLOW }}
-                        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
+                        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
                         transition={{ duration: 0.5, ease: EASE, delay: 0.9 + i * 0.07 }}
-                        animate={isActive && !reduce ? { scale: 1.25 } : undefined} whileHover={{ scale: 1.25 }}
+                        animate={reduce ? { opacity: 1, scale: 1 } : { opacity: 1, scale: isActive ? 1.25 : 1 }} whileHover={{ scale: 1.25 }}
                         onHoverStart={() => selectAmb(i)} onTap={() => selectAmb(i)}
                         data-testid={`map-pin-${p.id}`} aria-label={people[i]?.name || ""}>
                         <circle r={7} fill={isActive ? "#204985" : "#295EAA"} stroke="#ffffff" strokeWidth={1.4} />
@@ -171,9 +171,9 @@ export default function ImpactMap() {
                             transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.3 }} />
                         )}
                         <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...PINK_GLOW }}
-                          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }} whileInView={{ opacity: 1, scale: 1 }} viewport={vp}
+                          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
                           transition={{ duration: 0.55, ease: EASE, delay: 0.6 + i * 0.09 }}
-                          animate={isActive && !reduce ? { scale: 1.2 } : undefined} whileHover={{ scale: 1.2 }}
+                          animate={reduce ? { opacity: 1, scale: 1 } : { opacity: 1, scale: isActive ? 1.2 : 1 }} whileHover={{ scale: 1.2 }}
                           onHoverStart={() => selectRegion(i)} onTap={() => selectRegion(i)}
                           data-testid={`map-pin-${r.id}`} aria-label={`${place(r.id).city}, ${place(r.id).state}`}>
                           {shared && (
@@ -195,6 +195,37 @@ export default function ImpactMap() {
                 })}
 
               </svg>
+
+              {/* Touch-friendly hit-areas — the SVG dots stay small for the design, but every pin
+                  gets a real ≥44x44 tappable/focusable button layered on top at the same position. */}
+              <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+                {AMBASSADORS.map((p, i) => (
+                  <button
+                    key={`hit-${p.id}`}
+                    type="button"
+                    tabIndex={-1}
+                    onClick={() => selectAmb(i)}
+                    style={{
+                      left: `${(p.x / INDIA_MAP.width) * 100}%`,
+                      top: `${(p.y / INDIA_MAP.height) * 100}%`,
+                    }}
+                    className="pointer-events-auto absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
+                  />
+                ))}
+                {MAP_REGIONS.map((r, i) => (
+                  <button
+                    key={`hit-${r.id}`}
+                    type="button"
+                    tabIndex={-1}
+                    onClick={() => selectRegion(i)}
+                    style={{
+                      left: `${(r.x / INDIA_MAP.width) * 100}%`,
+                      top: `${(r.y / INDIA_MAP.height) * 100}%`,
+                    }}
+                    className="pointer-events-auto absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
+                  />
+                ))}
+              </div>
 
               {/* Tooltip overlay — centered directly on the active pin */}
               {label.text && label.x != null && (
@@ -232,11 +263,11 @@ export default function ImpactMap() {
             {/* Tabs */}
             <div className="flex gap-2 border-b border-rutuja-line" data-testid="impact-tabs">
               <button type="button" data-testid="impact-tab-regions" onClick={() => setTab("regions")}
-                className={`-mb-px border-b-2 px-1 pb-2.5 text-sm font-semibold transition-colors ${tab === "regions" ? "border-rutuja-pink text-rutuja-pinkdark" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
+                className={`-mb-px flex min-h-11 items-center border-b-2 px-1 py-3 text-sm font-semibold transition-colors ${tab === "regions" ? "border-rutuja-pink text-rutuja-pinkdark" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
                 {im.regionsTitle}
               </button>
               <button type="button" data-testid="impact-tab-amb" onClick={() => setTab("amb")}
-                className={`-mb-px ml-4 border-b-2 px-1 pb-2.5 text-sm font-semibold transition-colors ${tab === "amb" ? "border-rutuja-blue text-rutuja-blue" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
+                className={`-mb-px ml-4 flex min-h-11 items-center border-b-2 px-1 py-3 text-sm font-semibold transition-colors ${tab === "amb" ? "border-rutuja-blue text-rutuja-blue" : "border-transparent text-rutuja-muted hover:text-rutuja-ink"}`}>
                 {im.ambassadorsTitle}
               </button>
             </div>
@@ -251,7 +282,7 @@ export default function ImpactMap() {
                     <button key={r.id} type="button" data-testid={`impact-region-btn-${r.id}`}
                       onMouseEnter={() => selectRegion(i)} onFocus={() => selectRegion(i)} onClick={() => selectRegion(i)}
                       aria-pressed={isActive} aria-label={`${info.state}, ${info.city}`}
-                      className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-pink bg-rutuja-soft" : "border-rutuja-line hover:border-rutuja-pink/50 lg:border-transparent lg:hover:bg-rutuja-soft/60"}`}>
+                      className={`flex min-h-11 shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-3 text-left text-sm transition-all duration-200 lg:w-full lg:min-h-0 lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-pink bg-rutuja-soft" : "border-rutuja-line hover:border-rutuja-pink/50 lg:border-transparent lg:hover:bg-rutuja-soft/60"}`}>
                       <span className={`h-2.5 w-2.5 shrink-0 rounded-full border-2 ${isActive ? "border-rutuja-pinkdark bg-rutuja-soft" : "border-rutuja-pink bg-white"}`} />
                       <span className="min-w-0">
                         <span className={`block font-medium ${isActive ? "text-rutuja-pinkdark" : "text-rutuja-ink"}`}>{info.state}</span>
@@ -272,7 +303,7 @@ export default function ImpactMap() {
                     <button key={p.id} type="button" data-testid={`impact-amb-btn-${p.id}`}
                       onMouseEnter={() => selectAmb(i)} onFocus={() => selectAmb(i)} onClick={() => selectAmb(i)}
                       aria-pressed={isActive} aria-label={`${person.name}, ${person.loc}`}
-                      className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-2 text-left text-sm transition-all duration-200 lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-blue bg-rutuja-blue/5" : "border-rutuja-line hover:border-rutuja-blue/50 lg:border-transparent lg:hover:bg-rutuja-blue/5"}`}>
+                      className={`flex min-h-11 shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-3 py-3 text-left text-sm transition-all duration-200 lg:w-full lg:min-h-0 lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-l-2 lg:px-3 lg:py-2 ${isActive ? "border-rutuja-blue bg-rutuja-blue/5" : "border-rutuja-line hover:border-rutuja-blue/50 lg:border-transparent lg:hover:bg-rutuja-blue/5"}`}>
                       <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${isActive ? "bg-rutuja-blue" : "bg-rutuja-line"}`} />
                       <span className="min-w-0">
                         <span className={`block font-medium ${isActive ? "text-rutuja-blue" : "text-rutuja-ink"}`}>{person.name}</span>
@@ -329,7 +360,7 @@ export default function ImpactMap() {
 
         {/* Closing statement */}
         <motion.div data-testid="impact-closing-statement-card" className="relative mt-14 overflow-hidden rounded-md bg-rutuja-ink p-8 shadow-[0_30px_80px_-30px_rgba(200,43,98,0.4)] sm:mt-20 sm:p-12"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: EASE }}>
+          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
           <blockquote data-testid="impact-closing-quote" className="relative max-w-3xl font-serif text-xl font-normal italic leading-relaxed text-white sm:text-2xl lg:text-3xl">
             {`\u201C${im.closing.quote}\u201D`}
           </blockquote>

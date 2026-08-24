@@ -1,16 +1,23 @@
 import { motion, useReducedMotion } from "framer-motion";
 
-// Fade-up reveal on scroll into view.
-export function Reveal({ children, delay = 0, x = 0, y = 28, className = "", as = "div", ...rest }) {
+// Fade-up reveal. Defaults to triggering on scroll into view; pass trigger="mount" for
+// content that must never sit invisible waiting on a scroll/intersection event (e.g. the
+// footer, which is often already at/near the fold and shouldn't depend on it).
+export function Reveal({ children, delay = 0, x = 0, y = 28, className = "", as = "div", trigger = "inView", ...rest }) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as] || motion.div;
+  const initial = reduce ? { opacity: 0 } : { opacity: 0, x, y };
+  const shown = reduce ? { opacity: 1 } : { opacity: 1, x: 0, y: 0 };
+  const viewportProps =
+    trigger === "mount"
+      ? { animate: shown }
+      : { whileInView: shown, viewport: { once: true, margin: "-10% 0px -10% 0px" } };
   return (
     <MotionTag
       className={className}
-      initial={reduce ? { opacity: 0 } : { opacity: 0, x, y }}
-      whileInView={reduce ? { opacity: 1 } : { opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+      initial={initial}
       transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+      {...viewportProps}
       {...rest}
     >
       {children}

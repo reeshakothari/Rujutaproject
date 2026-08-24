@@ -6,7 +6,7 @@ export default function AudienceSection() {
   const { t } = useLang();
   const a = t.audience;
   return (
-    <section data-testid="audience-section" className="bg-rutuja-soft py-16 md:py-32">
+    <section data-testid="audience-section" className="overflow-x-hidden bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="max-w-4xl">
           <Reveal>

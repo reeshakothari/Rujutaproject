@@ -6,7 +6,7 @@ export default function TrustSection() {
   const { t } = useLang();
   const tr = t.trust;
   return (
-    <section data-testid="trust-section" className="bg-rutuja-soft py-16 md:py-32">
+    <section data-testid="trust-section" className="overflow-x-hidden bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

@@ -10,7 +10,7 @@ export default function PageHeader({ eyebrow, title, sub, accent = "blue" }) {
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 animate-float rounded-full bg-rutuja-pink/10 blur-3xl" aria-hidden="true" />
       <div className="container-edge relative py-16 md:py-24">
         <Reveal>
-          <Link to="/" className="group inline-flex items-center gap-1 text-sm font-medium text-rutuja-slate transition-colors hover:text-rutuja-pink">
+          <Link to="/" className="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-rutuja-slate transition-colors hover:text-rutuja-pink">
             <ChevronLeft size={16} className="transition-transform duration-300 group-hover:-translate-x-1" /> {t.forms.backHome}
           </Link>
         </Reveal>

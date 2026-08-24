@@ -10,7 +10,7 @@ export default function FieldStories() {
   const imgs = [IMAGES.villageGroup, IMAGES.fieldNight, IMAGES.classroom];
 
   return (
-    <section id="stories" data-testid="stories-section" className="scroll-mt-20 bg-rutuja-ink py-24 text-white md:py-32">
+    <section id="stories" data-testid="stories-section" className="scroll-mt-20 overflow-x-hidden bg-rutuja-ink py-24 text-white md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>

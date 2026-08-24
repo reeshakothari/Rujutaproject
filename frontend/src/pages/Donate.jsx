@@ -18,7 +18,7 @@ export default function Donate() {
   return (
     <main data-testid="donate-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} />
-      <section className="bg-white py-16 md:py-24">
+      <section className="overflow-x-hidden bg-white py-16 md:py-24">
         <div className="container-edge grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <Reveal>

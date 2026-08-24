@@ -18,7 +18,7 @@ export default function Ambassadors() {
   }, [close]);
 
   return (
-    <section id="ambassadors" data-testid="ambassadors-section" className="scroll-mt-20 bg-white py-16 md:py-32">
+    <section id="ambassadors" data-testid="ambassadors-section" className="scroll-mt-20 overflow-x-hidden bg-white py-16 md:py-32">
       <div className="container-edge">
         <div className="max-w-3xl">
           <Reveal>

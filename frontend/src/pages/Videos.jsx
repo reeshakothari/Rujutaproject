@@ -17,7 +17,7 @@ export default function Videos() {
   return (
     <main data-testid="videos-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} accent="pink" />
-      <section className="bg-rutuja-ink py-24 text-white md:py-32">
+      <section className="overflow-x-hidden bg-rutuja-ink py-24 text-white md:py-32">
         <div className="my-14">
           <Marquee items={["Watch", "Listen", "Witness", "Reflect", "Real Moments"]} />
         </div>

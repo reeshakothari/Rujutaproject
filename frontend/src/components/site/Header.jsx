@@ -58,13 +58,21 @@ export default function Header() {
   return (
     <header
       data-testid="site-header"
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-500 ${
-        scrolled || open
-          ? "bg-white/90 backdrop-blur-md border-b border-rutuja-line shadow-[0_8px_30px_-18px_rgba(200,43,98,0.35)]"
-          : "bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50"
     >
-      <div className="container-edge flex h-[72px] items-center justify-between gap-4">
+      {/* Backdrop layer is isolated from the header itself so its backdrop-filter doesn't
+          become the containing block for the fixed mobile-menu panel below (that bug
+          collapsed the menu to ~0px tall — the panel's top/bottom offsets were resolving
+          against this bar's own height instead of the viewport). */}
+      <div
+        aria-hidden="true"
+        className={`absolute inset-x-0 top-0 h-[72px] transition-[background-color,box-shadow] duration-500 ${
+          scrolled || open
+            ? "bg-white/90 backdrop-blur-md border-b border-rutuja-line shadow-[0_8px_30px_-18px_rgba(200,43,98,0.35)]"
+            : "bg-transparent"
+        }`}
+      />
+      <div className="container-edge relative flex h-[72px] items-center justify-between gap-4">
         <Logo />
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -195,7 +203,7 @@ function LangSwitch({ lang, setLang, label, compact }) {
             data-testid={`lang-${l.code}`}
             aria-pressed={lang === l.code}
             onClick={() => setLang(l.code)}
-            className={`text-sm font-semibold transition-colors ${
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center px-2 text-sm font-semibold transition-colors ${
               lang === l.code ? "text-rutuja-blue" : "text-rutuja-muted hover:text-rutuja-ink"
             } ${compact ? "" : ""}`}
           >

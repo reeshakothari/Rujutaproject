@@ -33,7 +33,7 @@ export default function RequestWorkshop() {
   return (
     <main data-testid="workshop-page">
       <PageHeader eyebrow={p.eyebrow} title={p.title} sub={p.sub} />
-      <section className="bg-white py-12 md:py-20">
+      <section className="overflow-x-hidden bg-white py-12 md:py-20">
         <div className="container-edge max-w-3xl">
           {form.status === "success" ? (
             <SuccessState onReset={form.reset} testid="workshop-success" />

@@ -6,7 +6,7 @@ export default function DignityDollIntro() {
   const { t } = useLang();
   const d = t.doll;
   return (
-    <section id="dignity-doll" data-testid="doll-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
+    <section id="dignity-doll" data-testid="doll-section" className="scroll-mt-20 overflow-x-hidden bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-6 lg:order-2">

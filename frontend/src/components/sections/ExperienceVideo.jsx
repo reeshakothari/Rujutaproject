@@ -10,7 +10,7 @@ export default function ExperienceVideo() {
   const poster = VIDEOS[0]?.posterWide;
 
   return (
-    <section id="experience" data-testid="experience-section" className="scroll-mt-20 bg-rutuja-soft py-16 md:py-32">
+    <section id="experience" data-testid="experience-section" className="scroll-mt-20 overflow-x-hidden bg-rutuja-soft py-16 md:py-32">
       <div className="container-edge">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
@@ -20,7 +20,7 @@ export default function ExperienceVideo() {
                 {e.title}
               </h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-rutuja-slate md:text-lg">{e.sub}</p>
-              <Link to="/videos" data-testid="experience-more" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-rutuja-blue">
+              <Link to="/videos" data-testid="experience-more" className="mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-rutuja-blue">
                 {e.more} <ArrowUpRight size={18} />
               </Link>
             </Reveal>
