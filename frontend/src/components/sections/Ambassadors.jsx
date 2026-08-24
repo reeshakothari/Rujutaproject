@@ -1,18 +1,23 @@
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useLang } from "@/context/LanguageContext";
 import { AMBASSADORS } from "@/data/ambassadors";
 
+const AMBASSADOR_AUTOPLAY_INTERVAL = 3200;
+
 export default function Ambassadors() {
   const { t } = useLang();
   const a = t.pages.ambassadors;
+  const reduce = useReducedMotion();
   const [active, setActive] = useState(null);
   const close = useCallback(() => setActive(null), []);
   const [carouselApi, setCarouselApi] = useState(null);
   const [current, setCurrent] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+  const stopAutoplay = useCallback(() => setAutoplay(false), []);
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && close();
@@ -27,6 +32,19 @@ export default function Ambassadors() {
     carouselApi.on("select", onSelect);
     return () => carouselApi.off("select", onSelect);
   }, [carouselApi]);
+
+  // Auto-advance until the user swipes, taps a dot, or opens a card — then leave it where they left it.
+  useEffect(() => {
+    if (!carouselApi) return undefined;
+    carouselApi.on("pointerDown", stopAutoplay);
+    return () => carouselApi.off("pointerDown", stopAutoplay);
+  }, [carouselApi, stopAutoplay]);
+
+  useEffect(() => {
+    if (!carouselApi || !autoplay || reduce || active) return undefined;
+    const id = setInterval(() => carouselApi.scrollNext(), AMBASSADOR_AUTOPLAY_INTERVAL);
+    return () => clearInterval(id);
+  }, [carouselApi, autoplay, reduce, active]);
 
   return (
     <section id="ambassadors" data-testid="ambassadors-section" className="scroll-mt-20 overflow-x-hidden bg-white py-16 md:py-32">
@@ -51,7 +69,7 @@ export default function Ambassadors() {
                 <CarouselItem key={i} className="basis-[82%]">
                   <button
                     data-testid={`ambassador-mobile-${i}`}
-                    onClick={() => setActive(amb)}
+                    onClick={() => { stopAutoplay(); setActive(amb); }}
                     aria-label={`Ambassador ${i + 1} of ${AMBASSADORS.length}`}
                     className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)]"
                   >
@@ -78,7 +96,7 @@ export default function Ambassadors() {
                   role="tab"
                   aria-selected={current === i}
                   aria-label={`Go to ambassador ${i + 1}`}
-                  onClick={() => carouselApi?.scrollTo(i)}
+                  onClick={() => { stopAutoplay(); carouselApi?.scrollTo(i); }}
                   className="grid h-11 w-11 shrink-0 place-items-center"
                 >
                   <span className={`block h-2 rounded-full transition-all duration-300 ${current === i ? "w-6 bg-rutuja-pink" : "w-2 bg-rutuja-line"}`} />
