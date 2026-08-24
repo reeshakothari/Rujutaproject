@@ -231,7 +231,7 @@ export default function ImpactMap() {
               {label.text && label.x != null && (
                 <motion.div
                   key={`tip-${tab}-${label.text}`}
-                  className="pointer-events-none absolute z-10 hidden w-max max-w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-rutuja-ink px-3.5 py-2.5 text-left shadow-xl sm:block"
+                  className="pointer-events-none absolute z-10 w-max max-w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-rutuja-ink px-3 py-2 text-left shadow-xl sm:max-w-[220px] sm:px-3.5 sm:py-2.5"
                   style={{
                     left: `${(label.x / INDIA_MAP.width) * 100}%`,
                     top: `${(label.y / INDIA_MAP.height) * 100}%`,
