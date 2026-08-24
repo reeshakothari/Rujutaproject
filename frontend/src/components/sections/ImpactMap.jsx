@@ -113,7 +113,7 @@ export default function ImpactMap() {
                   {!reduce && hub && spokes.map((p, i) => (
                     <motion.path key={`line-${p.id}`} d={curvePath(hub, p)} fill="none" stroke="#C82B62" strokeWidth={1.3}
                       strokeDasharray="4 6" strokeLinecap="round" opacity={0.4}
-                      initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 0.4 }} viewport={vp}
+                      initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 0.4 }}
                       transition={{ duration: 0.9, ease: "easeOut", delay: 0.35 + i * 0.12 }} />
                   ))}
                 </g>
@@ -205,6 +205,7 @@ export default function ImpactMap() {
                     type="button"
                     tabIndex={-1}
                     onClick={() => selectAmb(i)}
+                    onMouseEnter={() => selectAmb(i)}
                     style={{
                       left: `${(p.x / INDIA_MAP.width) * 100}%`,
                       top: `${(p.y / INDIA_MAP.height) * 100}%`,
@@ -218,6 +219,7 @@ export default function ImpactMap() {
                     type="button"
                     tabIndex={-1}
                     onClick={() => selectRegion(i)}
+                    onMouseEnter={() => selectRegion(i)}
                     style={{
                       left: `${(r.x / INDIA_MAP.width) * 100}%`,
                       top: `${(r.y / INDIA_MAP.height) * 100}%`,
