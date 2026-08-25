@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Reveal, FlyIn } from "@/components/site/Reveal";
@@ -18,6 +18,7 @@ export default function Ambassadors() {
   const [current, setCurrent] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const stopAutoplay = useCallback(() => setAutoplay(false), []);
+  const isAutoAdvancing = useRef(false);
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && close();
@@ -25,24 +26,35 @@ export default function Ambassadors() {
     return () => window.removeEventListener("keydown", onKey);
   }, [close]);
 
+  // Sync the displayed index once on mount — separate from the stop-on-interaction
+  // listener below so this initial read never counts as a "user changed the slide" event.
   useEffect(() => {
     if (!carouselApi) return;
-    const onSelect = () => setCurrent(carouselApi.selectedScrollSnap());
-    onSelect();
-    carouselApi.on("select", onSelect);
-    return () => carouselApi.off("select", onSelect);
+    setCurrent(carouselApi.selectedScrollSnap());
   }, [carouselApi]);
 
-  // Auto-advance until the user swipes, taps a dot, or opens a card — then leave it where they left it.
+  // Stop auto-advancing only when the slide actually changes for a reason other than our
+  // own timer — i.e. a real drag-swipe (dot taps and card opens already call stopAutoplay
+  // directly). We deliberately do NOT stop on Embla's "pointerDown": that fires the instant
+  // a finger touches the carousel, including when someone is simply scrolling the page past
+  // it — which made autoplay die before anyone actually swiped it.
   useEffect(() => {
     if (!carouselApi) return undefined;
-    carouselApi.on("pointerDown", stopAutoplay);
-    return () => carouselApi.off("pointerDown", stopAutoplay);
+    const onSelect = () => {
+      setCurrent(carouselApi.selectedScrollSnap());
+      if (!isAutoAdvancing.current) stopAutoplay();
+      isAutoAdvancing.current = false;
+    };
+    carouselApi.on("select", onSelect);
+    return () => carouselApi.off("select", onSelect);
   }, [carouselApi, stopAutoplay]);
 
   useEffect(() => {
     if (!carouselApi || !autoplay || reduce || active) return undefined;
-    const id = setInterval(() => carouselApi.scrollNext(), AMBASSADOR_AUTOPLAY_INTERVAL);
+    const id = setInterval(() => {
+      isAutoAdvancing.current = true;
+      carouselApi.scrollNext();
+    }, AMBASSADOR_AUTOPLAY_INTERVAL);
     return () => clearInterval(id);
   }, [carouselApi, autoplay, reduce, active]);
 
