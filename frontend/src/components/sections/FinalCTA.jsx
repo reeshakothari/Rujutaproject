@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function FinalCTA() {
   const { t } = useLang();
   const c = t.finalCta;
+  const g = t.globalCta;
   const reduce = useReducedMotion();
 
   return (
@@ -48,13 +49,13 @@ export default function FinalCTA() {
           <Reveal delay={0.2}>
             <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <Link to="/request-workshop" data-testid="final-workshop-btn" className="btn-primary w-full justify-center rounded-sm sm:w-auto">
-                {c.primary} <ArrowUpRight size={18} />
+                {g.workshop} <ArrowUpRight size={18} />
               </Link>
               <Link to="/donate" data-testid="final-donate-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
-                {c.secondary}
+                {g.donate}
               </Link>
-              <Link to="/partner" data-testid="final-partner-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,color,box-shadow] duration-300 hover:bg-white hover:text-rutuja-ink hover:shadow-[0_0_30px_-4px_rgba(255,255,255,0.5)] sm:w-auto">
-                {c.tertiary}
+              <Link to="/contact" data-testid="final-inquiry-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,color,box-shadow] duration-300 hover:bg-white hover:text-rutuja-ink hover:shadow-[0_0_30px_-4px_rgba(255,255,255,0.5)] sm:w-auto">
+                {g.inquiry}
               </Link>
             </div>
           </Reveal>

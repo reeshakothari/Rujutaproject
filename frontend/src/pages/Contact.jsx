@@ -3,6 +3,7 @@ import PageHeader from "@/components/site/PageHeader";
 import { useLang } from "@/context/LanguageContext";
 import { useSimpleForm, Field, TextAreaField, SelectField, SubmitButton, SuccessState } from "@/components/forms/FormKit";
 import { Reveal } from "@/components/site/Reveal";
+import GlobalCTABand from "@/components/sections/GlobalCTABand";
 
 const FIELDS = [
   { name: "name", required: true },
@@ -16,7 +17,7 @@ export default function Contact() {
   const { t } = useLang();
   const p = t.pages.contact;
   const fm = t.forms;
-  const form = useSimpleForm(FIELDS);
+  const form = useSimpleForm(FIELDS, "contact");
 
   useEffect(() => {
     document.title = "Contact | Rutuja Dignity Doll";
@@ -58,6 +59,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <GlobalCTABand />
     </main>
   );
 }

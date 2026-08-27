@@ -87,16 +87,28 @@ module.exports = {
           '100%': { transform: 'translateX(-50%)' }
         },
         'glow-pulse': {
-          '0%, 100%': { boxShadow: '0 0 0px 0px rgba(200,43,98,0.0)' },
-          '50%': { boxShadow: '0 0 45px 8px rgba(200,43,98,0.45)' }
+          '0%, 100%': { boxShadow: '0 0 10px 1px rgba(200,43,98,0.14)' },
+          '50%': { boxShadow: '0 0 30px 5px rgba(200,43,98,0.38)' }
         },
         'glow-pulse-sm': {
-          '0%, 100%': { boxShadow: '0 0 0px 0px rgba(200,43,98,0.0)' },
-          '50%': { boxShadow: '0 0 22px 3px rgba(200,43,98,0.5)' }
+          '0%, 100%': { boxShadow: '0 0 5px 0px rgba(200,43,98,0.1)' },
+          '50%': { boxShadow: '0 0 14px 2px rgba(200,43,98,0.38)' }
         },
         'text-glow': {
-          '0%, 100%': { textShadow: '0 0 0px rgba(200,43,98,0)' },
-          '50%': { textShadow: '0 0 18px rgba(200,43,98,0.65)' }
+          '0%, 100%': { textShadow: '0 0 3px rgba(200,43,98,0.08)' },
+          '50%': { textShadow: '0 0 11px rgba(200,43,98,0.45)' }
+        },
+        'text-glow-blue': {
+          '0%, 100%': { textShadow: '0 0 3px rgba(41,94,170,0.08)' },
+          '50%': { textShadow: '0 0 11px rgba(41,94,170,0.4)' }
+        },
+        'icon-glow': {
+          '0%, 100%': { filter: 'drop-shadow(0 0 1px rgba(200,43,98,0.12))' },
+          '50%': { filter: 'drop-shadow(0 0 6px rgba(200,43,98,0.5))' }
+        },
+        'icon-glow-blue': {
+          '0%, 100%': { filter: 'drop-shadow(0 0 1px rgba(41,94,170,0.12))' },
+          '50%': { filter: 'drop-shadow(0 0 6px rgba(41,94,170,0.45))' }
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
@@ -111,9 +123,12 @@ module.exports = {
         'accordion-down': 'accordion-down 0.25s ease-out',
         'accordion-up': 'accordion-up 0.25s ease-out',
         'marquee': 'marquee 40s linear infinite',
-        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
-        'glow-pulse-sm': 'glow-pulse-sm 2.4s ease-in-out infinite',
-        'text-glow': 'text-glow 3.2s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 4.5s ease-in-out infinite',
+        'glow-pulse-sm': 'glow-pulse-sm 4s ease-in-out infinite',
+        'text-glow': 'text-glow 4.6s ease-in-out infinite',
+        'text-glow-blue': 'text-glow-blue 4.6s ease-in-out infinite',
+        'icon-glow': 'icon-glow 4s ease-in-out infinite',
+        'icon-glow-blue': 'icon-glow-blue 4s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
         'float-slow': 'float 9s ease-in-out infinite',
         'spin-slow': 'spin-slow 14s linear infinite'

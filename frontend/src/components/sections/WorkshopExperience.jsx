@@ -29,7 +29,12 @@ export default function WorkshopExperience() {
             <ul className="mt-8 space-y-3">
               {w.points.map((p, i) => (
                 <Reveal as="li" key={i} delay={0.14 + i * 0.05} className="flex items-start gap-3">
-                  <Check size={18} className="mt-1 shrink-0 text-rutuja-pink drop-shadow-[0_0_8px_rgba(200,43,98,0.7)]" aria-hidden="true" />
+                  <Check
+                    size={18}
+                    style={{ animationDelay: `${i * 0.2}s` }}
+                    className="mt-1 shrink-0 animate-icon-glow text-rutuja-pink"
+                    aria-hidden="true"
+                  />
                   <span className="text-sm leading-relaxed text-white/90 md:text-base">{p}</span>
                 </Reveal>
               ))}
@@ -50,7 +55,7 @@ export default function WorkshopExperience() {
           <div className="lg:col-span-6">
             <FlyIn direction="right" delay={0.1}>
               <div className="group relative aspect-[4/3] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5),0_0_60px_-14px_rgba(200,43,98,0.5)] transition-shadow duration-700 hover:shadow-[0_30px_90px_-16px_rgba(0,0,0,0.55),0_0_80px_-10px_rgba(200,43,98,0.7)]">
-                <img src={IMAGES.workshopField} alt={w.imageAlt} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105" loading="lazy" />
+                <img src={IMAGES.workshopField} alt={w.imageAlt} className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
               </div>
             </FlyIn>
           </div>

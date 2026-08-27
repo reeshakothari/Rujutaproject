@@ -1,11 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLenis } from "lenis/react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Logo from "./Logo";
 import { useLang } from "@/context/LanguageContext";
 import { LANGS } from "@/data/content";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+
+const involvedItemClass = "cursor-pointer font-sans text-sm text-rutuja-ink focus:bg-rutuja-soft focus:text-rutuja-pinkdark";
 
 export default function Header() {
   const { t, lang, setLang } = useLang();
@@ -49,8 +52,15 @@ export default function Header() {
     { id: "dignity-doll", label: t.nav.doll },
     { id: "how-it-works", label: t.nav.how },
     { id: "stories", label: t.nav.stories },
-    { id: "impact", label: t.nav.impact },
-    { id: "support", label: t.nav.involved },
+    { id: "impact", label: t.nav.impact, to: "/impact" },
+  ];
+
+  const involvedLinks = [
+    { to: "/partner", label: t.nav.partner, testid: "nav-involved-partner" },
+    { to: "/volunteer", label: t.nav.volunteer, testid: "nav-involved-volunteer" },
+    { to: "/apply-ambassador", label: t.nav.ambassadorApply, testid: "nav-involved-ambassador" },
+    { to: "/about", label: t.nav.about, testid: "nav-involved-about" },
+    { to: "/contact", label: t.nav.contact, testid: "nav-involved-contact" },
   ];
 
   const overHero = !scrolled && !open;
@@ -75,18 +85,58 @@ export default function Header() {
       <div className="container-edge relative flex h-[72px] items-center justify-between gap-4">
         <Logo />
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {links.map((l) => (
-            <button
-              key={l.id}
-              data-testid={`nav-${l.id}`}
-              onClick={() => goToSection(l.id)}
-              className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
+        <nav className="hidden items-center gap-5 whitespace-nowrap xl:gap-7 lg:flex" aria-label="Primary">
+          {links.map((l) =>
+            l.to ? (
+              <Link
+                key={l.id}
+                to={l.to}
+                data-testid={`nav-${l.id}`}
+                className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
+              >
+                {l.label}
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
+              </Link>
+            ) : (
+              <button
+                key={l.id}
+                data-testid={`nav-${l.id}`}
+                onClick={() => goToSection(l.id)}
+                className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
+              >
+                {l.label}
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
+              </button>
+            )
+          )}
+          <div className="group flex items-center gap-0.5">
+            <Link
+              to="/get-involved"
+              data-testid="nav-involved"
+              className="relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue"
             >
-              {l.label}
+              {t.nav.involved}
               <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
-            </button>
-          ))}
+            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                data-testid="nav-involved-toggle"
+                aria-label={t.nav.involved}
+                className="group/toggle rounded-sm p-1 text-rutuja-ink/60 outline-none transition-colors hover:text-rutuja-blue data-[state=open]:text-rutuja-blue"
+              >
+                <ChevronDown size={14} className="transition-transform duration-200 group-data-[state=open]/toggle:rotate-180" aria-hidden="true" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="min-w-[240px] border-rutuja-line">
+                {involvedLinks.map((l) => (
+                  <DropdownMenuItem key={l.testid} asChild className={involvedItemClass}>
+                    <Link to={l.to} data-testid={l.testid}>
+                      {l.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <Link to="/gallery" data-testid="nav-gallery" className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
             {t.nav.gallery}
             <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
@@ -95,12 +145,16 @@ export default function Header() {
             {t.nav.videos}
             <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
           </Link>
+          <Link to="/activities" data-testid="nav-playLearn" className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
+            {t.nav.playLearn}
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
           <LangSwitch lang={lang} setLang={setLang} label={t.nav.langLabel} />
           <span className="h-5 w-px bg-rutuja-line" aria-hidden="true" />
-          <Link to="/donate" data-testid="nav-donate-cta" className="text-sm font-semibold text-rutuja-pink transition-[color,text-shadow] duration-300 hover:text-rutuja-pinkdark hover:[text-shadow:0_0_16px_rgba(200,43,98,0.6)]">
+          <Link to="/donate" data-testid="nav-support-cta" className="text-sm font-semibold text-rutuja-pink transition-[color,text-shadow] duration-300 hover:text-rutuja-pinkdark hover:[text-shadow:0_0_16px_rgba(200,43,98,0.6)]">
             {t.nav.donate}
           </Link>
           <Link to="/request-workshop" data-testid="nav-workshop-cta" className="btn-primary rounded-sm px-5 py-2.5 text-sm">
@@ -133,29 +187,53 @@ export default function Header() {
             className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 overflow-y-auto bg-white"
           >
             <div className="container-edge flex flex-col gap-1 py-6">
-              {links.map((l, i) => (
-                <motion.button
-                  key={l.id}
-                  data-testid={`mobile-nav-${l.id}`}
-                  onClick={() => goToSection(l.id)}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.35, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                  className="border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink transition-colors hover:text-rutuja-pink"
-                >
-                  <span className="mr-3 text-xs align-middle text-rutuja-muted">0{i + 1}</span>
-                  {l.label}
-                </motion.button>
-              ))}
+              {links.map((l, i) =>
+                l.to ? (
+                  <motion.div
+                    key={l.id}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <Link
+                      to={l.to}
+                      data-testid={`mobile-nav-${l.id}`}
+                      onClick={() => setOpen(false)}
+                      className="block border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink transition-colors hover:text-rutuja-pink"
+                    >
+                      <span className="mr-3 text-xs align-middle text-rutuja-muted">0{i + 1}</span>
+                      {l.label}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.button
+                    key={l.id}
+                    data-testid={`mobile-nav-${l.id}`}
+                    onClick={() => goToSection(l.id)}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    className="border-b border-rutuja-line py-4 text-left font-serif text-2xl text-rutuja-ink transition-colors hover:text-rutuja-pink"
+                  >
+                    <span className="mr-3 text-xs align-middle text-rutuja-muted">0{i + 1}</span>
+                    {l.label}
+                  </motion.button>
+                )
+              )}
               <MobileLink to="/gallery" label={t.nav.gallery} testid="mobile-nav-gallery" onClick={() => setOpen(false)} delay={links.length * 0.05} />
               <MobileLink to="/videos" label={t.nav.videos} testid="mobile-nav-videos" onClick={() => setOpen(false)} delay={(links.length + 1) * 0.05} />
-              <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} delay={(links.length + 2) * 0.05} />
-              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} delay={(links.length + 3) * 0.05} />
-              <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} delay={(links.length + 4) * 0.05} />
+              <MobileLink to="/activities" label={t.nav.playLearn} testid="mobile-nav-playLearn" onClick={() => setOpen(false)} delay={(links.length + 2) * 0.05} />
+              <MobileLink to="/get-involved" label={t.nav.involved} testid="mobile-nav-involved" onClick={() => setOpen(false)} delay={(links.length + 3) * 0.05} />
+              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} delay={(links.length + 4) * 0.05} />
+              <MobileLink to="/volunteer" label={t.nav.volunteer} testid="mobile-nav-volunteer" onClick={() => setOpen(false)} delay={(links.length + 5) * 0.05} />
+              <MobileLink to="/apply-ambassador" label={t.nav.ambassadorApply} testid="mobile-nav-ambassador" onClick={() => setOpen(false)} delay={(links.length + 6) * 0.05} />
+              <MobileLink to="/about" label={t.nav.about} testid="mobile-nav-about" onClick={() => setOpen(false)} delay={(links.length + 7) * 0.05} />
+              <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} delay={(links.length + 8) * 0.05} />
+              <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} delay={(links.length + 9) * 0.05} />
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: (links.length + 5) * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, delay: (links.length + 10) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link
                   to="/request-workshop"

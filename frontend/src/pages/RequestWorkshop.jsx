@@ -3,25 +3,24 @@ import PageHeader from "@/components/site/PageHeader";
 import { useLang } from "@/context/LanguageContext";
 import { useSimpleForm, Field, TextAreaField, SelectField, SubmitButton, SuccessState } from "@/components/forms/FormKit";
 import { Reveal } from "@/components/site/Reveal";
+import GlobalCTABand from "@/components/sections/GlobalCTABand";
 
 const FIELDS = [
   { name: "name", required: true },
-  { name: "organization", required: false },
-  { name: "orgType", required: true },
-  { name: "email", type: "email", required: true },
-  { name: "phone", type: "tel", required: true },
+  { name: "organization", required: true },
   { name: "city", required: true },
   { name: "audience", required: true },
   { name: "groupSize", required: false },
   { name: "timing", required: false },
-  { name: "message", required: false },
+  { name: "phone", type: "tel", required: true },
+  { name: "notes", required: false },
 ];
 
 export default function RequestWorkshop() {
   const { t } = useLang();
   const p = t.pages.workshop;
   const fm = t.forms;
-  const form = useSimpleForm(FIELDS);
+  const form = useSimpleForm(FIELDS, "workshop");
 
   useEffect(() => {
     document.title = "Request a Workshop | Rutuja Dignity Doll";
@@ -41,16 +40,14 @@ export default function RequestWorkshop() {
             <Reveal>
               <form onSubmit={form.submit} noValidate data-testid="workshop-form" className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Field label={fm.f.name} name="name" required testid="field-name" {...shared} />
-                <Field label={fm.f.organization} name="organization" testid="field-organization" {...shared} />
-                <SelectField label={fm.f.orgType} name="orgType" required options={fm.orgTypes} testid="field-orgType" {...shared} />
-                <Field label={fm.f.email} name="email" type="email" required testid="field-email" {...shared} />
-                <Field label={fm.f.phone} name="phone" type="tel" required testid="field-phone" {...shared} />
+                <Field label={fm.f.organization} name="organization" required testid="field-organization" {...shared} />
                 <Field label={fm.f.city} name="city" required testid="field-city" {...shared} />
                 <SelectField label={fm.f.audience} name="audience" required options={fm.audiences} testid="field-audience" {...shared} />
                 <Field label={fm.f.groupSize} name="groupSize" testid="field-groupSize" {...shared} />
                 <Field label={fm.f.timing} name="timing" testid="field-timing" {...shared} />
+                <Field label={fm.f.whatsapp} name="phone" type="tel" required testid="field-phone" {...shared} />
                 <div className="md:col-span-2">
-                  <TextAreaField label={fm.f.message} name="message" testid="field-message" {...shared} />
+                  <TextAreaField label={fm.f.notes} name="notes" testid="field-notes" {...shared} />
                 </div>
                 <div className="md:col-span-2">
                   <SubmitButton status={form.status} testid="workshop-submit" />
@@ -60,6 +57,7 @@ export default function RequestWorkshop() {
           )}
         </div>
       </section>
+      <GlobalCTABand />
     </main>
   );
 }

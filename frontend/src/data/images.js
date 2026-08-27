@@ -12,8 +12,7 @@ export const MEDIA = [
 export const IMAGES = {
   dollHero:
     "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/uq0hic1m_WhatsApp%20Image%202026-04-19%20at%208.28.28%20PM.jpeg",
-  dollCloseup:
-    "https://customer-assets-4nw71qhi.emergentagent.net/job_start-conversation/artifacts/gwqmndoj_WhatsApp%20Image%202026-04-29%20at%204.42.46%20PM%20%281%29.jpeg",
+  dollCloseup: "/media/doll-real-photo.jpg",
   dollHands:
     "https://static.prod-images.emergentagent.com/jobs/6e57e5a0-84f5-4d07-bc4f-d7bdd14ed92f/images/a2f627455ca3acc4d07a558086de0f595bb1cc65fcdcb4148c29410da7f137fb.jpeg",
   workshopGroup:
@@ -49,13 +48,13 @@ export const IMAGES = {
 // Every photograph, for the Gallery page.
 export const GALLERY = [
   { src: IMAGES.dollCloseup, alt: "The Rutuja Dignity Doll" },
-  { src: IMAGES.workshopField, alt: "Hands gathered around the Dignity Doll and menstrual-hygiene kits" },
-  { src: IMAGES.villageGroup, alt: "Community women and girls with the Dignity Doll" },
+  { src: IMAGES.workshopField, alt: "Hands gathered around the Dignity Doll and menstrual product kits" },
+  { src: IMAGES.villageGroup, alt: "Community members with the Dignity Doll" },
   { src: IMAGES.classroom, alt: "A Dignity Doll session in a classroom" },
-  { src: IMAGES.girlPortrait, alt: "A girl holding the Dignity Doll" },
-  { src: IMAGES.fieldNight, alt: "An evening session with adolescent girls" },
-  { src: IMAGES.missionEvent, alt: "A menstrual-hygiene management event" },
+  { src: IMAGES.girlPortrait, alt: "A young participant holding the Dignity Doll" },
+  { src: IMAGES.fieldNight, alt: "An evening session with adolescent participants" },
+  { src: IMAGES.missionEvent, alt: "A menstrual health awareness event" },
   { src: IMAGES.sessionKids, alt: "Children with Dignity Doll awareness sheets" },
-  { src: IMAGES.fieldComics, alt: "Girls with menstrual-education comics and the Dignity Doll" },
+  { src: IMAGES.fieldComics, alt: "Young participants with menstrual-education comics and the Dignity Doll" },
   { src: IMAGES.fieldExtra, alt: "Participants at a Dignity Doll session" },
 ];

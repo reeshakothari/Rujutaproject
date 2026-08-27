@@ -1,16 +1,29 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { X, ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Reveal, FlyIn } from "@/components/site/Reveal";
+import { Reveal } from "@/components/site/Reveal";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useLang } from "@/context/LanguageContext";
-import { AMBASSADORS } from "@/data/ambassadors";
 
 const AMBASSADOR_AUTOPLAY_INTERVAL = 3200;
+
+function getInitials(name) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
 
 export default function Ambassadors() {
   const { t } = useLang();
   const a = t.pages.ambassadors;
+  const roleLabel = t.impactMap.roleLabel;
+  const people = t.impactMap.ambassadors;
+  const recruitCta = t.impactMap.recruitCta;
   const reduce = useReducedMotion();
   const [active, setActive] = useState(null);
   const close = useCallback(() => setActive(null), []);
@@ -77,38 +90,39 @@ export default function Ambassadors() {
         <Reveal delay={0.15} className="mt-10 sm:hidden">
           <Carousel setApi={setCarouselApi} opts={{ loop: true, align: "center" }} data-testid="ambassadors-carousel">
             <CarouselContent>
-              {AMBASSADORS.map((amb, i) => (
+              {people.map((person, i) => (
                 <CarouselItem key={i} className="basis-[82%]">
-                  <button
-                    data-testid={`ambassador-mobile-${i}`}
-                    onClick={() => { stopAutoplay(); setActive(amb); }}
-                    aria-label={`Ambassador ${i + 1} of ${AMBASSADORS.length}`}
-                    className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)]"
-                  >
-                    <img
-                      src={amb.src}
-                      alt="Rutuja National Dignified Menstruation Ambassador"
-                      loading="lazy"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </button>
+                  <AmbassadorCard
+                    person={person}
+                    roleLabel={roleLabel}
+                    readStory={a.readStory}
+                    testid={`ambassador-mobile-${i}`}
+                    index={i}
+                    onOpen={() => {
+                      stopAutoplay();
+                      setActive(person);
+                    }}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
           </Carousel>
           <div className="mt-5 flex items-center gap-4">
             <span className="shrink-0 font-serif text-sm text-rutuja-muted" data-testid="ambassadors-counter">
-              <span className="text-rutuja-ink">{String(current + 1).padStart(2, "0")}</span> / {String(AMBASSADORS.length).padStart(2, "0")}
+              <span className="text-rutuja-ink">{String(current + 1).padStart(2, "0")}</span> / {String(people.length).padStart(2, "0")}
             </span>
             <div className="no-scrollbar flex min-w-0 items-center gap-1 overflow-x-auto" role="tablist" aria-label="Ambassador slides">
-              {AMBASSADORS.map((_, i) => (
+              {people.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   role="tab"
                   aria-selected={current === i}
                   aria-label={`Go to ambassador ${i + 1}`}
-                  onClick={() => { stopAutoplay(); carouselApi?.scrollTo(i); }}
+                  onClick={() => {
+                    stopAutoplay();
+                    carouselApi?.scrollTo(i);
+                  }}
                   className="grid h-11 w-11 shrink-0 place-items-center"
                 >
                   <span className={`block h-2 rounded-full transition-all duration-300 ${current === i ? "w-6 bg-rutuja-pink" : "w-2 bg-rutuja-line"}`} />
@@ -120,24 +134,18 @@ export default function Ambassadors() {
 
         {/* Tablet/desktop: full grid */}
         <div className="mt-12 hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-3">
-          {AMBASSADORS.map((amb, i) => (
-            <FlyIn key={i} direction={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"} distance={100} delay={(i % 3) * 0.08}>
-              <button
-                data-testid={`ambassador-${i}`}
-                onClick={() => setActive(amb)}
-                aria-label={`Ambassador ${i + 1}`}
-                className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.5 hover:border-rutuja-pink/40 hover:shadow-[0_25px_60px_-25px_rgba(200,43,98,0.55)]"
-              >
-                <img
-                  src={amb.src}
-                  alt="Rutuja National Dignified Menstruation Ambassador"
-                  loading="lazy"
-                  className="aspect-square w-full object-cover transition-transform duration-[1.1s] ease-out group-hover:scale-[1.03]"
-                />
-              </button>
-            </FlyIn>
+          {people.map((person, i) => (
+            <Reveal key={i} delay={(i % 3) * 0.06}>
+              <AmbassadorCard person={person} roleLabel={roleLabel} readStory={a.readStory} testid={`ambassador-${i}`} index={i} onOpen={() => setActive(person)} />
+            </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.1} className="mt-10 text-center">
+          <Link to="/apply-ambassador" data-testid="ambassador-recruit-cta" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-rutuja-blue">
+            {recruitCta} <ArrowUpRight size={16} className="animate-icon-glow-blue" />
+          </Link>
+        </Reveal>
       </div>
 
       <AnimatePresence>
@@ -159,19 +167,55 @@ export default function Ambassadors() {
             >
               <X size={22} />
             </button>
-            <motion.img
-              key={active.src}
+            <motion.div
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              src={active.src}
-              alt="Rutuja Dignity Doll ambassador"
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[88vh] max-w-[92vw] object-contain shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_80px_-10px_rgba(200,43,98,0.5)]"
-            />
+              className="w-full max-w-md bg-white p-8 text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6),0_0_80px_-10px_rgba(200,43,98,0.5)] md:p-10"
+            >
+              <div className="mx-auto grid h-28 w-28 animate-glow-pulse place-items-center rounded-full bg-gradient-to-br from-rutuja-blue/15 to-rutuja-pink/15">
+                <span className="font-serif text-3xl text-rutuja-ink/50">{getInitials(active.name)}</span>
+              </div>
+              <h3 data-testid="ambassador-lightbox-name" className="mt-6 font-serif text-2xl text-rutuja-ink">
+                {active.name}
+              </h3>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rutuja-muted">{active.loc}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-rutuja-blue">{roleLabel}</p>
+              <blockquote className="mt-6 font-serif text-lg italic leading-relaxed text-rutuja-ink">
+                {active.quote ? `“${active.quote}”` : "[QUOTE PENDING VERIFICATION]"}
+              </blockquote>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+function AmbassadorCard({ person, roleLabel, readStory, onOpen, testid, index = 0 }) {
+  return (
+    <button
+      data-testid={testid}
+      onClick={onOpen}
+      aria-label={`${person.name}, ${person.loc}`}
+      className="group block w-full overflow-hidden border border-rutuja-line bg-rutuja-soft p-6 text-left shadow-[0_20px_50px_-35px_rgba(0,0,0,0.5)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-rutuja-pink/40 hover:shadow-[0_25px_60px_-25px_rgba(200,43,98,0.55)]"
+    >
+      <div
+        style={{ animationDelay: `${(index % 6) * 0.2}s` }}
+        className="mx-auto grid aspect-square w-full max-w-[140px] animate-glow-pulse-sm place-items-center rounded-full bg-gradient-to-br from-rutuja-blue/15 to-rutuja-pink/15 transition-transform duration-[400ms] ease-out group-hover:scale-[1.02]"
+      >
+        <span className="font-serif text-4xl text-rutuja-ink/50">{getInitials(person.name)}</span>
+      </div>
+      <h3 className="mt-5 text-center font-serif text-lg text-rutuja-ink">{person.name}</h3>
+      <p className="mt-1 text-center text-xs font-semibold uppercase tracking-wide text-rutuja-muted">{person.loc}</p>
+      <p className="mt-1 text-center text-[11px] uppercase tracking-wide text-rutuja-blue/70">{roleLabel}</p>
+      <p className="mt-3 text-center text-sm italic leading-relaxed text-rutuja-slate transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+        {person.quote ? `“${person.quote}”` : "[QUOTE PENDING]"}
+      </p>
+      <span className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-rutuja-pink transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+        {readStory} <ArrowUpRight size={14} className="animate-icon-glow" />
+      </span>
+    </button>
   );
 }

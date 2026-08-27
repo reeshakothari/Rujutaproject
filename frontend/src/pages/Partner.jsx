@@ -3,15 +3,16 @@ import PageHeader from "@/components/site/PageHeader";
 import { useLang } from "@/context/LanguageContext";
 import { useSimpleForm, Field, TextAreaField, SelectField, SubmitButton, SuccessState } from "@/components/forms/FormKit";
 import { Reveal } from "@/components/site/Reveal";
+import GlobalCTABand from "@/components/sections/GlobalCTABand";
 
 const FIELDS = [
-  { name: "name", required: true },
   { name: "organization", required: true },
-  { name: "orgType", required: true },
-  { name: "email", type: "email", required: true },
-  { name: "phone", type: "tel", required: false },
-  { name: "city", required: false },
-  { name: "interest", required: true },
+  { name: "name", required: true },
+  { name: "role", required: true },
+  { name: "geography", required: true },
+  { name: "partnerType", required: true },
+  { name: "scale", required: false },
+  { name: "contactDetails", type: "email", required: true },
   { name: "message", required: false },
 ];
 
@@ -19,7 +20,7 @@ export default function Partner() {
   const { t } = useLang();
   const p = t.pages.partner;
   const fm = t.forms;
-  const form = useSimpleForm(FIELDS);
+  const form = useSimpleForm(FIELDS, "partner");
 
   useEffect(() => {
     document.title = "Partner With Rutuja | Dignity Doll";
@@ -38,14 +39,14 @@ export default function Partner() {
           ) : (
             <Reveal>
               <form onSubmit={form.submit} noValidate data-testid="partner-form" className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Field label={fm.f.name} name="name" required testid="field-name" {...shared} />
                 <Field label={fm.f.organization} name="organization" required testid="field-organization" {...shared} />
-                <SelectField label={fm.f.orgType} name="orgType" required options={fm.orgTypes} testid="field-orgType" {...shared} />
-                <Field label={fm.f.email} name="email" type="email" required testid="field-email" {...shared} />
-                <Field label={fm.f.phone} name="phone" type="tel" testid="field-phone" {...shared} />
-                <Field label={fm.f.city} name="city" testid="field-city" {...shared} />
+                <Field label={fm.f.name} name="name" required testid="field-name" {...shared} />
+                <Field label={fm.f.role} name="role" required testid="field-role" {...shared} />
+                <Field label={fm.f.geography} name="geography" required testid="field-geography" {...shared} />
+                <SelectField label={fm.f.partnerType} name="partnerType" required options={fm.partnerTypes} testid="field-partnerType" {...shared} />
+                <Field label={fm.f.scale} name="scale" testid="field-scale" {...shared} />
                 <div className="md:col-span-2">
-                  <SelectField label={fm.f.interest} name="interest" required options={fm.interests} testid="field-interest" {...shared} />
+                  <Field label={fm.f.contactDetails} name="contactDetails" type="email" required testid="field-contactDetails" {...shared} />
                 </div>
                 <div className="md:col-span-2">
                   <TextAreaField label={fm.f.message} name="message" testid="field-message" {...shared} />
@@ -58,6 +59,7 @@ export default function Partner() {
           )}
         </div>
       </section>
+      <GlobalCTABand />
     </main>
   );
 }

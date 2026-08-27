@@ -30,7 +30,12 @@ export default function TrustSection() {
           {tr.items.map((it, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <div className="group flex h-full flex-col gap-3 border border-rutuja-line bg-white p-6 transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-rutuja-pink hover:bg-rutuja-pink hover:shadow-[0_20px_55px_-20px_rgba(200,43,98,0.55)]">
-                <ShieldCheck size={22} className="text-rutuja-blue transition-colors duration-300 group-hover:text-white" aria-hidden="true" />
+                <ShieldCheck
+                  size={22}
+                  style={{ animationDelay: `${i * 0.18}s` }}
+                  className="animate-icon-glow-blue text-rutuja-blue transition-colors duration-300 group-hover:text-white"
+                  aria-hidden="true"
+                />
                 <h3 className="font-sans text-base font-semibold text-rutuja-ink transition-colors duration-300 group-hover:text-white">{it.t}</h3>
                 <p className="text-sm leading-relaxed text-rutuja-muted transition-colors duration-300 group-hover:text-white/85">{it.d}</p>
               </div>

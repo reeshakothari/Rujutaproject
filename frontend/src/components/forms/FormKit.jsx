@@ -1,19 +1,20 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Loader2, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { Loader2, CheckCircle2, ArrowUpRight, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
+import { supabase } from "@/lib/supabaseClient";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+()\-\s0-9]{7,}$/;
 
-export function useSimpleForm(fields) {
+export function useSimpleForm(fields, formType) {
   // fields: [{ name, required, type }]
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const initial = Object.fromEntries(fields.map((f) => [f.name, ""]));
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | loading | success
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   const setField = useCallback((name, value) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -33,7 +34,7 @@ export function useSimpleForm(fields) {
   }, [fields, values, t]);
 
   const submit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
       if (!validate()) {
         const first = document.querySelector('[aria-invalid="true"]');
@@ -41,10 +42,17 @@ export function useSimpleForm(fields) {
         return;
       }
       setStatus("loading");
-      // Frontend-only: simulate submission. Not connected to a backend.
-      setTimeout(() => setStatus("success"), 900);
+      const { error } = await supabase.from("rutuja_form_submissions").insert({
+        form_type: formType,
+        name: values.name || null,
+        email: values.email || values.contactDetails || null,
+        phone: values.phone || values.whatsapp || null,
+        language: lang,
+        data: values,
+      });
+      setStatus(error ? "error" : "success");
     },
-    [validate]
+    [validate, formType, values, lang]
   );
 
   const reset = useCallback(() => {
@@ -156,22 +164,29 @@ function ErrorText({ id, children }) {
 export function SubmitButton({ status, testid }) {
   const { t } = useLang();
   return (
-    <button
-      type="submit"
-      data-testid={testid}
-      disabled={status === "loading"}
-      className={`btn-primary rounded-sm px-8 py-4 text-base disabled:opacity-70 ${status === "loading" ? "" : "animate-glow-pulse-sm"}`}
-    >
-      {status === "loading" ? (
-        <>
-          <Loader2 size={18} className="animate-spin" /> {t.forms.sending}
-        </>
-      ) : (
-        <>
-          {t.forms.submit} <ArrowUpRight size={18} />
-        </>
+    <div>
+      <button
+        type="submit"
+        data-testid={testid}
+        disabled={status === "loading"}
+        className={`btn-primary rounded-sm px-8 py-4 text-base disabled:opacity-70 ${status === "loading" ? "" : "animate-glow-pulse-sm"}`}
+      >
+        {status === "loading" ? (
+          <>
+            <Loader2 size={18} className="animate-spin" /> {t.forms.sending}
+          </>
+        ) : (
+          <>
+            {t.forms.submit} <ArrowUpRight size={18} />
+          </>
+        )}
+      </button>
+      {status === "error" && (
+        <p role="alert" className="mt-3 flex items-center gap-2 text-sm text-rutuja-pink" data-testid={`${testid}-error`}>
+          <AlertCircle size={16} className="shrink-0" aria-hidden="true" /> {t.forms.submitError}
+        </p>
       )}
-    </button>
+    </div>
   );
 }
 
@@ -190,11 +205,27 @@ export function SuccessState({ onReset, testid }) {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <CheckCircle2 size={40} className="text-rutuja-pink drop-shadow-[0_0_16px_rgba(200,43,98,0.6)]" />
+        <CheckCircle2 size={40} className="animate-icon-glow text-rutuja-pink" />
       </motion.span>
       <div>
         <h3 className="font-serif text-2xl text-rutuja-ink md:text-3xl">{t.forms.successTitle}</h3>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-rutuja-slate">{t.forms.successBody}</p>
+      </div>
+      <div className="w-full border-t border-rutuja-pink/15 pt-6" data-testid={`${testid}-what-happens-next`}>
+        <h4 className="font-serif text-lg text-rutuja-ink">{t.forms.whatHappensNext.title}</h4>
+        <ol className="mt-4 space-y-3">
+          {t.forms.whatHappensNext.steps.map((step, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-rutuja-slate">
+              <span
+                style={{ animationDelay: `${i * 0.2}s` }}
+                className="mt-0.5 grid h-6 w-6 shrink-0 animate-glow-pulse-sm place-items-center rounded-full bg-rutuja-pink/10 font-serif text-xs font-semibold text-rutuja-pinkdark"
+              >
+                {i + 1}
+              </span>
+              {step}
+            </li>
+          ))}
+        </ol>
       </div>
       <div className="flex flex-wrap gap-3">
         <button onClick={onReset} data-testid="form-reset" className="btn-outline rounded-sm">

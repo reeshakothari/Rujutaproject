@@ -32,7 +32,8 @@ export default function ImpactMetrics() {
               <div className="group transition-transform duration-300 hover:-translate-y-1.5 md:px-6 md:first:pl-0">
                 <p
                   data-testid={`pilot-stat-value-${i}`}
-                  className={`font-serif font-medium leading-none text-rutuja-blue transition-[color,text-shadow] duration-300 group-hover:text-rutuja-pinkdark group-hover:[text-shadow:0_0_24px_rgba(200,43,98,0.5)] ${
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                  className={`animate-text-glow-blue font-serif font-medium leading-none text-rutuja-blue transition-[color,text-shadow] duration-300 group-hover:text-rutuja-pinkdark group-hover:[text-shadow:0_0_24px_rgba(200,43,98,0.5)] ${
                     m.isText ? "text-lg md:text-xl" : "text-4xl md:text-5xl"
                   }`}
                 >

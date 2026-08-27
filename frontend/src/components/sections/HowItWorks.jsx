@@ -23,11 +23,11 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps — editorial timeline */}
-        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2">
           {h.steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.06}>
               <div className="group relative border border-rutuja-line bg-white p-6 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-rutuja-pink hover:shadow-[0_20px_50px_-18px_rgba(200,43,98,0.55)]">
-                <span className="font-serif text-4xl text-rutuja-blue/30 transition-colors duration-300 group-hover:text-white/60">{s.n}</span>
+                <span className="animate-text-glow-blue font-serif text-4xl text-rutuja-blue/30 transition-colors duration-300 group-hover:text-white/60">{s.n}</span>
                 <h3 className="mt-3 font-sans text-lg font-semibold text-rutuja-ink transition-colors duration-300 group-hover:text-white">{s.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/85">{s.d}</p>
               </div>

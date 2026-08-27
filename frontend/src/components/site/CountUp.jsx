@@ -5,7 +5,7 @@ import { useInView, useReducedMotion, animate } from "framer-motion";
 export default function CountUp({ value, className }) {
   const reduce = useReducedMotion();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const inView = useInView(ref, { once: true, amount: 0.5 });
   const match = String(value).match(/^(\D*)(\d[\d,]*)(.*)$/);
 
   const [display, setDisplay] = useState(() => {
@@ -17,8 +17,8 @@ export default function CountUp({ value, className }) {
     if (!match || reduce || !inView) return;
     const target = parseInt(match[2].replace(/,/g, ""), 10);
     const controls = animate(0, target, {
-      duration: 1.6,
-      ease: [0.22, 1, 0.36, 1],
+      duration: 0.9,
+      ease: "easeOut",
       onUpdate: (v) => setDisplay(`${match[1] || ""}${Math.round(v).toLocaleString()}${match[3] || ""}`),
     });
     return () => controls.stop();

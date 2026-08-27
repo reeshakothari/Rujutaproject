@@ -135,10 +135,10 @@ export default function ImpactMap() {
                   const isActive = tab === "amb" && ambIdx === i;
                   return (
                     <g key={p.id} transform={`translate(${p.x} ${p.y})`}>
-                      {!reduce && (
+                      {isActive && !reduce && (
                         <motion.circle r={10} fill="#295EAA" style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                          initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.4, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.25 }} />
+                          initial={{ scale: 1, opacity: 0.5 }} animate={{ scale: 1.9, opacity: 0 }}
+                          transition={{ duration: 0.8, ease: "easeOut" }} />
                       )}
                       <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...BLUE_GLOW }}
                         initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
@@ -164,11 +164,11 @@ export default function ImpactMap() {
                         </g>
                       )}
                       <g transform={`translate(${r.x} ${r.y})`}>
-                        {!reduce && (
+                        {isActive && !reduce && (
                           <motion.circle r={10} fill="#C82B62"
                             style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                            initial={{ opacity: 0 }} animate={{ scale: [1, 1.9], opacity: [0.5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: i * 0.3 }} />
+                            initial={{ scale: 1, opacity: 0.5 }} animate={{ scale: 1.9, opacity: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }} />
                         )}
                         <motion.g style={{ transformBox: "fill-box", transformOrigin: "center", cursor: "pointer", ...PINK_GLOW }}
                           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}

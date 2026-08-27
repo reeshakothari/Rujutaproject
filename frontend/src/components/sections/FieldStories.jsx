@@ -7,7 +7,7 @@ import { Quote } from "lucide-react";
 export default function FieldStories() {
   const { t } = useLang();
   const s = t.stories;
-  const imgs = [IMAGES.villageGroup, IMAGES.fieldNight, IMAGES.classroom];
+  const imgs = [IMAGES.fieldExtra, IMAGES.fieldNight, IMAGES.classroom];
 
   return (
     <section id="stories" data-testid="stories-section" className="scroll-mt-20 overflow-x-hidden bg-rutuja-ink py-24 text-white md:py-32">
@@ -63,7 +63,7 @@ function Story({ quote, context, location, audience, img, index, layout }) {
             <img
               src={img}
               alt="A Dignity Doll session in the community"
-              className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+              className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
               loading="lazy"
             />
           </div>
@@ -71,8 +71,8 @@ function Story({ quote, context, location, audience, img, index, layout }) {
       </div>
       <div className={`lg:col-span-6 ${imageFirst ? "" : "lg:order-1"}`}>
         <Reveal delay={0.1}>
-          <span className="font-serif text-5xl text-white/15">{index}</span>
-          <Quote className="mt-3 text-rutuja-pink drop-shadow-[0_0_10px_rgba(200,43,98,0.65)]" size={30} aria-hidden="true" />
+          <span className="animate-text-glow font-serif text-5xl text-white/15">{index}</span>
+          <Quote className="mt-3 animate-icon-glow text-rutuja-pink" size={30} aria-hidden="true" />
           <blockquote className="mt-4 font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">{context}</p>
           <Meta location={location} audience={audience} />
@@ -90,16 +90,17 @@ function StoryWide({ quote, context, location, audience, img, index }) {
           <img
             src={img}
             alt="Participants at a Dignity Doll session"
-            className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-rutuja-ink/70 to-transparent" aria-hidden="true" />
-          <span className="absolute left-6 top-6 font-serif text-5xl text-white/40">{index}</span>
+          <span className="absolute left-6 top-6 animate-text-glow font-serif text-5xl text-white/40">{index}</span>
         </div>
       </FlyIn>
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <Reveal delay={0.05}>
+            <Quote size={30} className="mb-3 animate-icon-glow text-rutuja-pink" aria-hidden="true" />
             {quote ? (
               <blockquote className="font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
             ) : (

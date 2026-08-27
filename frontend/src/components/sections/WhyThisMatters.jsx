@@ -43,7 +43,7 @@ export default function WhyThisMatters() {
                 <img
                   src={IMAGES.girlPortrait}
                   alt="A girl holding the Dignity Doll after a session"
-                  className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
                   loading="lazy"
                 />
               </div>
@@ -76,15 +76,13 @@ function PullSequence({ text }) {
   }
 
   const phrases = text.split(/\s*→\s*/).filter(Boolean);
-  const ease = [0.22, 1, 0.36, 1];
-  const lineDur = 0.6;
-  const start = lineDur + 0.1; // words begin just after the rule finishes drawing
-  const stagger = 0.2; // ~200ms between elements
+  const ease = "easeOut";
+  const lineDur = 0.4;
+  const start = lineDur + 0.05; // phrases begin just after the rule finishes drawing
+  const stagger = 0.12; // ~120ms between phrases, per the brief's global stagger
   const vp = { once: true, margin: "-15% 0px" };
   // gentle emphasis gradient toward the final phrase
   const restOpacity = (i) => 0.72 + (i / (phrases.length - 1)) * 0.28;
-
-  let step = 0;
 
   return (
     <p
@@ -105,39 +103,24 @@ function PullSequence({ text }) {
         transition={{ duration: lineDur, ease }}
       />
 
-      <span aria-hidden="true">
+      {/* Mobile: vertical stack, one phrase per line. Desktop: horizontal sequence with arrows. */}
+      <span aria-hidden="true" className="flex flex-col gap-2 md:block md:gap-0">
         {phrases.map((phrase, i) => {
           const isLast = i === phrases.length - 1;
-          const wordDelay = start + step * stagger;
-          step += 1;
-          const arrowDelay = start + step * stagger;
-          if (!isLast) step += 1;
+          const wordDelay = start + i * stagger;
 
           return (
-            <span key={i}>
+            <span key={i} className="block md:inline">
               <motion.span
                 className={`inline-block ${isLast ? "text-rutuja-pink [text-shadow:0_0_22px_rgba(200,43,98,0.5)]" : ""}`}
                 initial={isLast ? { opacity: 0, y: 14, scale: 0.97 } : { opacity: 0, y: 14 }}
                 whileInView={isLast ? { opacity: 1, y: 0, scale: 1 } : { opacity: restOpacity(i), y: 0 }}
                 viewport={vp}
-                transition={{ duration: isLast ? 0.8 : 0.6, ease, delay: wordDelay }}
+                transition={{ duration: isLast ? 0.4 : 0.35, ease, delay: wordDelay }}
               >
                 {phrase}
               </motion.span>
-              {!isLast && (
-                <>
-                  {" "}
-                  <motion.span
-                    className="inline-block"
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 0.5, y: 0 }}
-                    viewport={vp}
-                    transition={{ duration: 0.6, ease, delay: arrowDelay }}
-                  >
-                    →
-                  </motion.span>{" "}
-                </>
-              )}
+              {!isLast && <span className="mx-2 hidden text-rutuja-ink/40 md:inline">→</span>}
             </span>
           );
         })}

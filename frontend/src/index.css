@@ -74,6 +74,13 @@
     .btn-outline {
         @apply relative inline-flex items-center justify-center gap-2 border border-rutuja-blue px-7 py-3.5 text-sm font-semibold text-rutuja-blue transition-[background-color,color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-rutuja-blue hover:text-white hover:shadow-[0_14px_36px_-14px_rgba(41,94,170,0.55)] active:translate-y-0;
     }
+    /* Idle ambient pulse on every global button — pauses in favour of the bigger static
+       hover glow above so hover still reads as a distinct, stronger state. */
+    .btn-primary:not(:hover),
+    .btn-secondary:not(:hover),
+    .btn-outline:not(:hover) {
+        animation: glow-pulse-sm 2.4s ease-in-out infinite;
+    }
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -96,6 +103,19 @@
     }
     .group:hover .group-hover-glow-pink {
         box-shadow: 0 24px 60px -18px rgba(200, 43, 98, 0.55), 0 0 48px -12px rgba(200, 43, 98, 0.5);
+    }
+    /* Blue glow system — mirrors the pink one above for accents on the site's other brand colour */
+    .glow-blue {
+        box-shadow: 0 0 0 1px rgba(41, 94, 170, 0.12), 0 24px 60px -20px rgba(41, 94, 170, 0.5), 0 0 40px -12px rgba(41, 94, 170, 0.4);
+    }
+    .glow-blue-sm {
+        box-shadow: 0 10px 30px -12px rgba(41, 94, 170, 0.45);
+    }
+    .hover-glow-blue {
+        transition: box-shadow 0.45s ease, transform 0.45s ease, border-color 0.45s ease;
+    }
+    .hover-glow-blue:hover {
+        box-shadow: 0 24px 60px -18px rgba(41, 94, 170, 0.55), 0 0 48px -12px rgba(41, 94, 170, 0.5);
     }
 }
 

@@ -25,7 +25,7 @@ export default function AudienceSection() {
           <Cell g={a.groups[1]} className="md:col-span-2" />
           <Cell g={a.groups[2]} className="md:col-span-2" />
           <Cell g={a.groups[3]} className="md:col-span-2" />
-          <Cell g={a.groups[4]} className="md:col-span-2" img={IMAGES.fieldComics} />
+          <Cell g={a.groups[4]} className="md:col-span-2" img={IMAGES.dollHands} />
         </div>
       </div>
     </section>
@@ -34,17 +34,17 @@ export default function AudienceSection() {
 
 function Cell({ g, className = "", img }) {
   return (
-    <Reveal className={`group relative bg-white transition-[background-color,box-shadow] duration-300 hover:z-10 hover:bg-rutuja-pink hover:shadow-[0_25px_60px_-20px_rgba(200,43,98,0.6)] ${className}`}>
-      <div className="flex h-full min-h-[220px] flex-col justify-between p-7 md:p-8">
+    <Reveal className={`group relative flex flex-col bg-white transition-[background-color,box-shadow] duration-300 hover:z-10 hover:bg-rutuja-pink hover:shadow-[0_25px_60px_-20px_rgba(200,43,98,0.6)] ${className}`}>
+      <div className={`flex min-h-[180px] flex-col justify-between p-7 md:p-8 ${img ? "" : "h-full"}`}>
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue transition-colors duration-300 group-hover:text-white">{g.label}</span>
+          <span className="animate-text-glow-blue text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue transition-colors duration-300 group-hover:text-white">{g.label}</span>
           <h3 className="mt-4 font-serif text-2xl leading-tight text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-[1.7rem]">{g.t}</h3>
         </div>
         <p className="mt-6 max-w-sm text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{g.d}</p>
       </div>
       {img && (
-        <FlyIn direction="up" distance={80} className="h-40 overflow-hidden md:h-48">
-          <img src={img} alt="" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" loading="lazy" />
+        <FlyIn direction="up" className="min-h-[160px] flex-1 overflow-hidden md:min-h-[192px]">
+          <img src={img} alt="" className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
         </FlyIn>
       )}
     </Reveal>

@@ -38,7 +38,7 @@ export default function ExperienceVideo() {
                   <img
                     src={poster}
                     alt=""
-                    className="h-full w-full object-cover opacity-90 transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                    className="h-full w-full object-cover opacity-90 transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]"
                     loading="lazy"
                   />
                 )}

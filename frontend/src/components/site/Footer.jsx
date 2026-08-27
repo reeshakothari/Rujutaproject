@@ -26,18 +26,24 @@ export default function Footer() {
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/#dignity-doll" data-testid="footer-doll">{t.nav.doll}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/#how-it-works" data-testid="footer-how">{t.nav.how}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/#stories" data-testid="footer-stories">{t.nav.stories}</Link></li>
-              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/#impact" data-testid="footer-impact">{t.nav.impact}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/impact" data-testid="footer-impact">{t.nav.impact}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/gallery" data-testid="footer-gallery">{t.nav.gallery}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/videos" data-testid="footer-videos">{t.nav.videos}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/activities" data-testid="footer-playLearn">{t.nav.playLearn}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/about" data-testid="footer-about">{t.nav.about}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/impact#theory-of-change" data-testid="footer-theory-of-change">{t.nav.theoryOfChange}</Link></li>
             </ul>
           </Reveal>
 
           <Reveal trigger="mount" delay={0.1} className="md:col-span-2">
             <h4 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{f.support}</h4>
             <ul className="mt-5 space-y-3 text-sm text-white/80">
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/get-involved" data-testid="footer-get-involved">{t.nav.involved}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/request-workshop" data-testid="footer-workshop">{t.nav.requestWorkshop}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/donate" data-testid="footer-donate">{t.nav.donate}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/partner" data-testid="footer-partner">{t.nav.partner}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/apply-ambassador" data-testid="footer-ambassador-apply">{t.nav.ambassadorApply}</Link></li>
+              <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/volunteer" data-testid="footer-volunteer">{t.nav.volunteer}</Link></li>
               <li><Link className="-mx-1 inline-flex min-h-11 min-w-11 items-center px-1 transition-[color,text-shadow] duration-300 hover:text-white hover:[text-shadow:0_0_12px_rgba(200,43,98,0.7)]" to="/contact" data-testid="footer-contact">{t.nav.contact}</Link></li>
             </ul>
           </Reveal>
