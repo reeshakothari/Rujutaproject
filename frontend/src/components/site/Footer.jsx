@@ -50,7 +50,11 @@ export default function Footer() {
 
           <Reveal trigger="mount" delay={0.14} className="md:col-span-3">
             <h4 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{f.contactTitle}</h4>
-            <p className="mt-5 text-sm leading-relaxed text-white/60">{f.contactPlaceholder}</p>
+            {f.contactPlaceholder.startsWith("🟨") ? (
+              <div className="mt-5 rounded border border-amber-300 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900">{f.contactPlaceholder}</div>
+            ) : (
+              <p className="mt-5 text-sm leading-relaxed text-white/60">{f.contactPlaceholder}</p>
+            )}
           </Reveal>
         </div>
 

@@ -44,16 +44,23 @@ export default function FieldStories() {
   );
 }
 
-function Meta({ location, audience }) {
+function Meta({ location, audience, type }) {
   return (
-    <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs uppercase tracking-[0.18em] text-white/50">
-      <span>{location}</span>
-      <span>{audience}</span>
+    <div className="mt-6 space-y-2">
+      {type && (
+        <span className="inline-block rounded-sm bg-white/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60">
+          {type}
+        </span>
+      )}
+      <div className="flex flex-wrap gap-x-8 gap-y-1 text-xs uppercase tracking-[0.18em] text-white/50">
+        <span>{location}</span>
+        <span>{audience}</span>
+      </div>
     </div>
   );
 }
 
-function Story({ quote, context, location, audience, img, index, layout }) {
+function Story({ quote, context, location, audience, type, img, index, layout }) {
   const imageFirst = layout === "left";
   return (
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -75,14 +82,14 @@ function Story({ quote, context, location, audience, img, index, layout }) {
           <Quote className="mt-3 animate-icon-glow text-rutuja-pink" size={30} aria-hidden="true" />
           <blockquote className="mt-4 font-serif text-2xl leading-snug md:text-3xl">{quote}</blockquote>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/70">{context}</p>
-          <Meta location={location} audience={audience} />
+          <Meta location={location} audience={audience} type={type} />
         </Reveal>
       </div>
     </div>
   );
 }
 
-function StoryWide({ quote, context, location, audience, img, index }) {
+function StoryWide({ quote, context, location, audience, type, img, index }) {
   return (
     <div>
       <FlyIn direction="up">
@@ -111,7 +118,7 @@ function StoryWide({ quote, context, location, audience, img, index }) {
         <div className="lg:col-span-4">
           <Reveal delay={0.1}>
             {quote && <p className="text-sm leading-relaxed text-white/70">{context}</p>}
-            <Meta location={location} audience={audience} />
+            <Meta location={location} audience={audience} type={type} />
           </Reveal>
         </div>
       </div>

@@ -54,7 +54,7 @@ export default function FinalCTA() {
               <Link to="/donate" data-testid="final-donate-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
                 {g.donate}
               </Link>
-              <Link to="/contact" data-testid="final-inquiry-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,color,box-shadow] duration-300 hover:bg-white hover:text-rutuja-ink hover:shadow-[0_0_30px_-4px_rgba(255,255,255,0.5)] sm:w-auto">
+              <Link to="/partner" data-testid="final-inquiry-btn" className="inline-flex w-full items-center justify-center gap-2 border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-[background-color,color,box-shadow] duration-300 hover:bg-white hover:text-rutuja-ink hover:shadow-[0_0_30px_-4px_rgba(255,255,255,0.5)] sm:w-auto">
                 {g.inquiry}
               </Link>
             </div>

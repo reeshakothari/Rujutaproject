@@ -35,8 +35,12 @@ export default function FAQ() {
                     >
                       {item.q}
                     </AccordionTrigger>
-                    <AccordionContent className="pb-6 text-base leading-relaxed text-rutuja-slate">
-                      {item.a}
+                    <AccordionContent className="pb-6">
+                      {item.a.startsWith("🟨") ? (
+                        <div className="rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-900">{item.a}</div>
+                      ) : (
+                        <p className="text-base leading-relaxed text-rutuja-slate">{item.a}</p>
+                      )}
                     </AccordionContent>
                   </AccordionItem>
                 ))}

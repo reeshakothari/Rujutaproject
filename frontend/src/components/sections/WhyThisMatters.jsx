@@ -19,8 +19,11 @@ export default function WhyThisMatters() {
           <div className="lg:col-span-7">
             <Reveal>
               <h2 className="font-serif text-4xl font-medium leading-[1.08] tracking-tight text-rutuja-ink md:text-5xl lg:text-[3.4rem]">
-                The problem is not menstruation. The problem is{" "}
-                <span className="italic text-rutuja-pink animate-text-glow">{silence(w.title)}</span>.
+                <span className="block">{w.titleLine1}</span>
+                <span className="block">
+                  {w.titleLine2}{" "}
+                  <span className="italic text-rutuja-pink animate-text-glow">{w.titleWord}</span>.
+                </span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -129,8 +132,3 @@ function PullSequence({ text }) {
   );
 }
 
-// The title string already contains the translated sentence; for HI we render title directly.
-function silence(title) {
-  // For EN we highlight the word "silence"; for HI show the whole translated title's key word.
-  return title.includes("silence") ? "silence" : "";
-}

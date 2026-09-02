@@ -20,6 +20,14 @@ export default function ProgrammeTimeline() {
           <Reveal delay={0.05}>
             <h2 className="mt-6 font-serif text-3xl font-medium leading-tight tracking-tight text-rutuja-ink md:text-5xl">{p.title}</h2>
           </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-rutuja-slate md:text-xl">{p.bridge}</p>
+          </Reveal>
+          {p.placeholder && (
+            <div className="mt-6 rounded border border-amber-300 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900">
+              {p.placeholder}
+            </div>
+          )}
         </div>
 
         {/* Desktop: horizontal, line drawn once as the row enters view */}

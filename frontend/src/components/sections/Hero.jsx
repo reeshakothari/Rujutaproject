@@ -58,7 +58,7 @@ export default function Hero() {
             <Link to="/request-workshop" data-testid="hero-workshop-btn" className="btn-primary w-full justify-center rounded-sm sm:w-auto">
               {h.primary} <ArrowUpRight size={18} />
             </Link>
-            <Link to="/partner" data-testid="hero-partner-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
+            <Link to="/get-involved" data-testid="hero-getinvolved-btn" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">
               {h.secondary}
             </Link>
             <a href="#how-it-works" data-testid="hero-learn-btn" className="group inline-flex min-h-11 items-center justify-center gap-2 px-2 py-3.5 text-sm font-semibold text-rutuja-ink sm:justify-start">

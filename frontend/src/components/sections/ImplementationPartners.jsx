@@ -38,7 +38,11 @@ export default function ImplementationPartners({ linkToImpact = false }) {
         </div>
 
         <Reveal delay={0.2} className="mt-6">
-          <p className="text-sm leading-relaxed text-rutuja-muted">{p.note}</p>
+          {p.note.startsWith("🟨") ? (
+            <div className="rounded border border-amber-300 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900">{p.note}</div>
+          ) : (
+            <p className="text-sm leading-relaxed text-rutuja-muted">{p.note}</p>
+          )}
         </Reveal>
 
         {linkToImpact && (

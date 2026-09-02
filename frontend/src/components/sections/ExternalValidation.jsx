@@ -2,6 +2,8 @@ import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { Quote } from "lucide-react";
 
+const isPlaceholder = (s) => typeof s === "string" && s.startsWith("🟨");
+
 export default function ExternalValidation() {
   const { t } = useLang();
   const e = t.externalValidation;
@@ -17,21 +19,37 @@ export default function ExternalValidation() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1} className="group mt-12 border-l-2 border-rutuja-pink bg-rutuja-soft/50 p-8 transition-[background-color,box-shadow] duration-300 hover:bg-rutuja-pink hover:shadow-[0_25px_60px_-24px_rgba(200,43,98,0.55)] md:p-12">
-          <Quote className="animate-icon-glow text-rutuja-pink transition-colors duration-300 group-hover:text-white" size={30} aria-hidden="true" />
-          <blockquote data-testid="external-validation-featured-quote" className="mt-4 font-serif text-xl leading-snug text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-2xl">
-            {e.featured.quote}
-          </blockquote>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-rutuja-muted transition-colors duration-300 group-hover:text-white/80">{e.featured.attribution}</p>
-        </Reveal>
+        {isPlaceholder(e.featured.quote) ? (
+          <Reveal delay={0.1}>
+            <div className="mt-12 rounded border border-amber-300 bg-amber-50 px-6 py-5 text-sm leading-relaxed text-amber-900">
+              {e.featured.quote}
+            </div>
+          </Reveal>
+        ) : (
+          <Reveal delay={0.1} className="group mt-12 border-l-2 border-rutuja-pink bg-rutuja-soft/50 p-8 transition-[background-color,box-shadow] duration-300 hover:bg-rutuja-pink hover:shadow-[0_25px_60px_-24px_rgba(200,43,98,0.55)] md:p-12">
+            <Quote className="animate-icon-glow text-rutuja-pink transition-colors duration-300 group-hover:text-white" size={30} aria-hidden="true" />
+            <blockquote data-testid="external-validation-featured-quote" className="mt-4 font-serif text-xl leading-snug text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-2xl">
+              {e.featured.quote}
+            </blockquote>
+            {e.featured.attribution && (
+              <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-rutuja-muted transition-colors duration-300 group-hover:text-white/80">{e.featured.attribution}</p>
+            )}
+          </Reveal>
+        )}
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {e.supporting.map((s, i) => (
             <Reveal key={i} delay={0.06 + i * 0.05}>
-              <div className="group h-full border border-rutuja-line p-6 transition-[background-color,box-shadow] duration-300 hover:bg-rutuja-pink hover:shadow-[0_20px_50px_-20px_rgba(200,43,98,0.55)]">
-                <p className="text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{s.quote}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-rutuja-muted transition-colors duration-300 group-hover:text-white/80">{s.attribution}</p>
-              </div>
+              {isPlaceholder(s.quote) ? (
+                <div className="h-full rounded border border-amber-300 bg-amber-50 p-5 text-xs leading-relaxed text-amber-900">
+                  {s.quote}
+                </div>
+              ) : (
+                <div className="group h-full border border-rutuja-line p-6 transition-[background-color,box-shadow] duration-300 hover:bg-rutuja-pink hover:shadow-[0_20px_50px_-20px_rgba(200,43,98,0.55)]">
+                  <p className="text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{s.quote}</p>
+                  {s.attribution && <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-rutuja-muted transition-colors duration-300 group-hover:text-white/80">{s.attribution}</p>}
+                </div>
+              )}
             </Reveal>
           ))}
         </div>

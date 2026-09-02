@@ -40,6 +40,14 @@ export default function WorkshopExperience() {
               ))}
             </ul>
 
+            {w.costPlaceholder && (
+              <Reveal delay={0.26}>
+                <div className="mt-8 rounded border border-amber-300 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900">
+                  {w.costPlaceholder}
+                </div>
+              </Reveal>
+            )}
+
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
                 <Link to="/request-workshop" data-testid="workshop-section-cta" className="btn-secondary w-full justify-center rounded-sm sm:w-auto">

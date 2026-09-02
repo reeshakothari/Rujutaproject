@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { Reveal, FlyIn } from "@/components/site/Reveal";
 import { useLang } from "@/context/LanguageContext";
 import { IMAGES } from "@/data/images";
+import { ArrowUpRight } from "lucide-react";
 
 export default function AudienceSection() {
   const { t } = useLang();
@@ -40,7 +42,17 @@ function Cell({ g, className = "", img }) {
           <span className="animate-text-glow-blue text-xs font-semibold uppercase tracking-[0.2em] text-rutuja-blue transition-colors duration-300 group-hover:text-white">{g.label}</span>
           <h3 className="mt-4 font-serif text-2xl leading-tight text-rutuja-ink transition-colors duration-300 group-hover:text-white md:text-[1.7rem]">{g.t}</h3>
         </div>
-        <p className="mt-6 max-w-sm text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{g.d}</p>
+        <div className="mt-6 space-y-4">
+          <p className="max-w-sm text-sm leading-relaxed text-rutuja-slate transition-colors duration-300 group-hover:text-white/90">{g.d}</p>
+          {g.cta && (
+            <Link
+              to={g.to}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-rutuja-pink transition-colors duration-300 group-hover:text-white"
+            >
+              {g.cta} <ArrowUpRight size={13} />
+            </Link>
+          )}
+        </div>
       </div>
       {img && (
         <FlyIn direction="up" className="min-h-[160px] flex-1 overflow-hidden md:min-h-[192px]">

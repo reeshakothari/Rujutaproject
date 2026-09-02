@@ -19,6 +19,7 @@ import ImpactMap from "@/components/sections/ImpactMap";
 import AudienceSection from "@/components/sections/AudienceSection";
 import WorkshopExperience from "@/components/sections/WorkshopExperience";
 import SupportSection from "@/components/sections/SupportSection";
+import SupportBreakdown from "@/components/sections/SupportBreakdown";
 import TrustSection from "@/components/sections/TrustSection";
 import QualityAssurance from "@/components/sections/QualityAssurance";
 import ExternalValidation from "@/components/sections/ExternalValidation";
@@ -78,6 +79,7 @@ export default function Home() {
       <AudienceSection />
       <WorkshopExperience />
       <SupportSection />
+      <SupportBreakdown />
       <TrustSection />
       <QualityAssurance />
       <ExternalValidation />
