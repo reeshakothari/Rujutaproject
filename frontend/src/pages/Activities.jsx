@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
 import { Reveal, FlyIn } from "@/components/site/Reveal";
 import GlobalCTABand from "@/components/sections/GlobalCTABand";
+import SnakesAndLadders from "@/components/games/SnakesAndLadders";
 import { IMAGES } from "@/data/images";
 import {
   ChevronLeft,
@@ -312,86 +313,94 @@ export default function Activities() {
               </button>
             </div>
 
-            <div className="h-2 overflow-hidden rounded-full bg-rutuja-soft" role="progressbar" aria-valuenow={Math.round(progressPct)} aria-valuemin={0} aria-valuemax={100}>
-              <div className="h-full rounded-full bg-rutuja-pink transition-[width] duration-500 ease-out" style={{ width: `${progressPct}%` }} />
-            </div>
+            {activeGame === "snakes" ? (
+              <div className="mt-8">
+                <SnakesAndLadders questions={game.questions} text={a.snakesGame} why={a.why} badgeIcons={BADGE_ICONS.snakes} />
+              </div>
+            ) : (
+              <>
+                <div className="h-2 overflow-hidden rounded-full bg-rutuja-soft" role="progressbar" aria-valuenow={Math.round(progressPct)} aria-valuemin={0} aria-valuemax={100}>
+                  <div className="h-full rounded-full bg-rutuja-pink transition-[width] duration-500 ease-out" style={{ width: `${progressPct}%` }} />
+                </div>
 
-            <div className="mt-5 flex flex-wrap gap-2" data-testid="badge-tracker">
-              {BADGE_ICONS[activeGame].map((Icon, i) => {
-                const isEarned = earned.includes(i);
-                return (
-                  <span
-                    key={i}
-                    className={`grid h-9 w-9 place-items-center rounded-full border transition-[background-color,border-color,color,box-shadow] duration-300 ${
-                      isEarned ? "animate-glow-pulse-sm border-rutuja-pink bg-rutuja-pink text-white" : "border-dashed border-rutuja-line bg-rutuja-soft/60 text-rutuja-muted"
-                    }`}
-                  >
-                    <Icon size={16} className={isEarned ? "animate-icon-glow" : ""} aria-hidden="true" />
-                  </span>
-                );
-              })}
-            </div>
-
-            {!complete ? (
-              <div className="mx-auto mt-10 max-w-xl border border-rutuja-line bg-rutuja-soft/40 p-7 md:p-10" data-testid="question-card">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-rutuja-pink">{counter}</p>
-                <h3 className="mt-3 font-serif text-xl leading-snug text-rutuja-ink md:text-2xl">{question.q}</h3>
-
-                <div className="mt-6 grid gap-3">
-                  {question.options.map((opt, i) => {
-                    const isChosen = selected === i;
-                    const isCorrectOpt = i === question.correct;
-                    let stateClass = "border-rutuja-line bg-white hover:border-rutuja-blue";
-                    if (selected !== null) {
-                      if (isCorrectOpt) stateClass = "border-green-600 bg-green-50";
-                      else if (isChosen) stateClass = "border-rutuja-pink bg-rutuja-soft";
-                    }
+                <div className="mt-5 flex flex-wrap gap-2" data-testid="badge-tracker">
+                  {BADGE_ICONS[activeGame].map((Icon, i) => {
+                    const isEarned = earned.includes(i);
                     return (
-                      <button
+                      <span
                         key={i}
-                        type="button"
-                        data-testid={`option-${i}`}
-                        onClick={() => selectOption(i)}
-                        disabled={selected !== null}
-                        className={`flex items-center justify-between gap-3 rounded-lg border-2 px-5 py-3.5 text-left text-sm font-medium text-rutuja-ink transition-colors duration-200 disabled:cursor-default ${stateClass}`}
+                        className={`grid h-9 w-9 place-items-center rounded-full border transition-[background-color,border-color,color,box-shadow] duration-300 ${
+                          isEarned ? "animate-glow-pulse-sm border-rutuja-pink bg-rutuja-pink text-white" : "border-dashed border-rutuja-line bg-rutuja-soft/60 text-rutuja-muted"
+                        }`}
                       >
-                        {opt}
-                        {selected !== null && isCorrectOpt && <Check size={18} className="shrink-0 text-green-600" aria-hidden="true" />}
-                        {selected !== null && isChosen && !isCorrectOpt && <X size={18} className="shrink-0 text-rutuja-pink" aria-hidden="true" />}
-                      </button>
+                        <Icon size={16} className={isEarned ? "animate-icon-glow" : ""} aria-hidden="true" />
+                      </span>
                     );
                   })}
                 </div>
 
-                {selected !== null && (
-                  <div data-testid="answer-panel" className="mt-5 border-l-2 border-rutuja-pink bg-white p-4 text-sm leading-relaxed text-rutuja-slate">
-                    <span className="font-semibold text-rutuja-pinkdark">{a.why}</span> {question.explanation}
+                {!complete ? (
+                  <div className="mx-auto mt-10 max-w-xl border border-rutuja-line bg-rutuja-soft/40 p-7 md:p-10" data-testid="question-card">
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-rutuja-pink">{counter}</p>
+                    <h3 className="mt-3 font-serif text-xl leading-snug text-rutuja-ink md:text-2xl">{question.q}</h3>
+
+                    <div className="mt-6 grid gap-3">
+                      {question.options.map((opt, i) => {
+                        const isChosen = selected === i;
+                        const isCorrectOpt = i === question.correct;
+                        let stateClass = "border-rutuja-line bg-white hover:border-rutuja-blue";
+                        if (selected !== null) {
+                          if (isCorrectOpt) stateClass = "border-green-600 bg-green-50";
+                          else if (isChosen) stateClass = "border-rutuja-pink bg-rutuja-soft";
+                        }
+                        return (
+                          <button
+                            key={i}
+                            type="button"
+                            data-testid={`option-${i}`}
+                            onClick={() => selectOption(i)}
+                            disabled={selected !== null}
+                            className={`flex items-center justify-between gap-3 rounded-lg border-2 px-5 py-3.5 text-left text-sm font-medium text-rutuja-ink transition-colors duration-200 disabled:cursor-default ${stateClass}`}
+                          >
+                            {opt}
+                            {selected !== null && isCorrectOpt && <Check size={18} className="shrink-0 text-green-600" aria-hidden="true" />}
+                            {selected !== null && isChosen && !isCorrectOpt && <X size={18} className="shrink-0 text-rutuja-pink" aria-hidden="true" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {selected !== null && (
+                      <div data-testid="answer-panel" className="mt-5 border-l-2 border-rutuja-pink bg-white p-4 text-sm leading-relaxed text-rutuja-slate">
+                        <span className="font-semibold text-rutuja-pinkdark">{a.why}</span> {question.explanation}
+                      </div>
+                    )}
+
+                    <div className="mt-7 flex justify-end">
+                      <button
+                        type="button"
+                        data-testid="next-question"
+                        onClick={goNext}
+                        disabled={selected === null}
+                        className="btn-primary rounded-sm disabled:pointer-events-none disabled:opacity-40"
+                      >
+                        {isLast ? a.finish : a.next} <ArrowUpRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div data-testid="completion-screen" className="mx-auto mt-10 max-w-xl border border-rutuja-line bg-rutuja-soft/40 p-10 text-center">
+                    <p className="text-5xl" aria-hidden="true">
+                      {a.completion.emoji}
+                    </p>
+                    <h3 className="mt-4 font-serif text-2xl text-rutuja-ink md:text-3xl">{a.completion.title}</h3>
+                    <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-rutuja-slate">{a.completion.body}</p>
+                    <button type="button" onClick={exitGame} className="btn-secondary mx-auto mt-7 rounded-full px-7 py-3.5 text-sm">
+                      <RotateCcw size={16} /> {a.completion.cta}
+                    </button>
                   </div>
                 )}
-
-                <div className="mt-7 flex justify-end">
-                  <button
-                    type="button"
-                    data-testid="next-question"
-                    onClick={goNext}
-                    disabled={selected === null}
-                    className="btn-primary rounded-sm disabled:pointer-events-none disabled:opacity-40"
-                  >
-                    {isLast ? a.finish : a.next} <ArrowUpRight size={16} />
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div data-testid="completion-screen" className="mx-auto mt-10 max-w-xl border border-rutuja-line bg-rutuja-soft/40 p-10 text-center">
-                <p className="text-5xl" aria-hidden="true">
-                  {a.completion.emoji}
-                </p>
-                <h3 className="mt-4 font-serif text-2xl text-rutuja-ink md:text-3xl">{a.completion.title}</h3>
-                <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-rutuja-slate">{a.completion.body}</p>
-                <button type="button" onClick={exitGame} className="btn-secondary mx-auto mt-7 rounded-full px-7 py-3.5 text-sm">
-                  <RotateCcw size={16} /> {a.completion.cta}
-                </button>
-              </div>
+              </>
             )}
           </div>
         </section>

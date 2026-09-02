@@ -57,4 +57,22 @@ export const GALLERY = [
   { src: IMAGES.sessionKids, alt: "Children with Dignity Doll awareness sheets" },
   { src: IMAGES.fieldComics, alt: "Young participants with menstrual-education comics and the Dignity Doll" },
   { src: IMAGES.fieldExtra, alt: "Participants at a Dignity Doll session" },
+  // Added from the 31-August-2026 photo batch — appended (never reordered) so the
+  // positional pairing with pages.gallery.items in content.js stays intact.
+  { src: "/media/gallery/village-family-doll-2.jpg", alt: "A village family with the Dignity Doll" },
+  { src: "/media/gallery/facilitator-schoolgirls-doll.jpg", alt: "A facilitator with school students holding the Dignity Doll" },
+  { src: "/media/gallery/outdoor-village-session.jpg", alt: "An outdoor community session with the Dignity Doll" },
+  { src: "/media/gallery/mission-laal-rang-stage.jpg", alt: "Participants on stage at a Mission Laal Rang event" },
+  { src: "/media/gallery/college-classroom-session.jpg", alt: "A Dignity Doll session in a college classroom" },
+  { src: "/media/gallery/programme-materials-certificate.jpg", alt: "Dignity Doll programme materials and a certificate of recognition" },
+  { src: "/media/gallery/mission-laal-rang-organisers.jpg", alt: "Programme organisers at a Mission Laal Rang event" },
+  { src: "/media/gallery/group-education-comics.jpg", alt: "A group holding menstrual-education comic books and the Dignity Doll" },
+  { src: "/media/gallery/facilitator-rural-fence.jpg", alt: "A facilitator holding the Dignity Doll in a rural community" },
+  { src: "/media/gallery/elder-with-doll.jpg", alt: "A community elder holding the Dignity Doll" },
+  { src: "/media/gallery/rupbas-rajasthan-school.jpg", alt: "A school session with the Dignity Doll in Rupbas, Rajasthan" },
+  { src: "/media/gallery/matri-sudha-summer-camp.jpg", alt: "A Menstrual Hygiene Day summer camp session with partner organisation Matri Sudha Sanstha" },
+  { src: "/media/gallery/student-classroom-doll-1.jpg", alt: "A student holding the Dignity Doll in a classroom" },
+  { src: "/media/gallery/student-classroom-doll-2.jpg", alt: "A student holding the Dignity Doll in a classroom" },
+  { src: "/media/gallery/schoolgirls-classroom-uniforms.jpg", alt: "A classroom of school students with menstrual-education comics" },
+  { src: "/media/gallery/community-gathering-session.jpg", alt: "Community members gathered for a Dignity Doll session" },
 ];

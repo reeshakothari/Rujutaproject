@@ -19,6 +19,9 @@ import AmbassadorApply from "@/pages/AmbassadorApply";
 import Volunteer from "@/pages/Volunteer";
 import GetInvolved from "@/pages/GetInvolved";
 import Activities from "@/pages/Activities";
+import Terms from "@/pages/Terms";
+import Privacy from "@/pages/Privacy";
+import AdminSubmissions from "@/pages/AdminSubmissions";
 
 function App() {
   return (
@@ -41,6 +44,9 @@ function App() {
               <Route path="/volunteer" element={<Volunteer />} />
               <Route path="/get-involved" element={<GetInvolved />} />
               <Route path="/activities" element={<Activities />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/admin/submissions" element={<AdminSubmissions />} />
             </Routes>
             <Footer />
             <div className="h-16 lg:hidden" aria-hidden="true" />

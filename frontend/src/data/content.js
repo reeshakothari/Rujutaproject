@@ -26,6 +26,8 @@ export const CONTENT = {
       langLabel: "Language",
       menu: "Menu",
       close: "Close",
+      terms: "Terms & Conditions",
+      privacy: "Privacy Policy",
     },
     globalCta: {
       donate: "Make a Pledge",
@@ -586,6 +588,22 @@ export const CONTENT = {
           { city: "[LOCATION PENDING]", state: "", audience: "Children", activity: "Awareness activity", description: "Children with Dignity Doll awareness sheets.", date: "", language: "[LANGUAGE PENDING]" },
           { city: "[LOCATION PENDING]", state: "", audience: "Young participants", activity: "Educational activity", description: "Participants with menstrual-education comics and the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
           { city: "[LOCATION PENDING]", state: "", audience: "Mixed", activity: "Session", description: "Participants at a Dignity Doll session.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Community members", activity: "Community session", description: "A village family with the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Students", activity: "School session", description: "A facilitator and school students holding the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Mixed community", activity: "Outdoor session", description: "An outdoor community session with the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Mixed", activity: "Mission Laal Rang event", description: "Participants on stage at a Mission Laal Rang menstrual health event.", date: "24 May 2026", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "College students", activity: "Classroom session", description: "A Dignity Doll session in a college classroom.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Close-up", activity: "Programme materials", description: "Dignity Doll programme materials and a 5th MHM India Summit certificate of recognition.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Mixed", activity: "Mission Laal Rang event", description: "Programme organisers at a Mission Laal Rang menstrual health event.", date: "24 May 2026", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Community members", activity: "Educational outreach", description: "A group holding menstrual-education comic books and the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Facilitator", activity: "Field visit", description: "A facilitator holding the Dignity Doll in a rural community.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Community elder", activity: "Field visit", description: "A community elder holding the Dignity Doll.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "Rupbas", state: "Rajasthan", audience: "Students", activity: "School session", description: "A school session with the Dignity Doll in Rupbas, Rajasthan.", date: "6 June 2026", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Mixed community", activity: "Menstrual Hygiene Day summer camp", description: "A summer camp session with partner organisation Matri Sudha Sanstha.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Student", activity: "Classroom session", description: "A student holding the Dignity Doll in a classroom.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Student", activity: "Classroom session", description: "A student holding the Dignity Doll in a classroom.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Students", activity: "Classroom session", description: "A classroom of school students with menstrual-education comic books.", date: "", language: "[LANGUAGE PENDING]" },
+          { city: "[LOCATION PENDING]", state: "", audience: "Community members", activity: "Community gathering", description: "Community members gathered for a Dignity Doll session.", date: "", language: "[LANGUAGE PENDING]" },
         ],
       },
       experience: {
@@ -671,6 +689,307 @@ export const CONTENT = {
         eyebrow: "About Rutuja",
         title: "About Rutuja",
         sub: "Rutuja is a registered charitable trust dedicated to women's welfare, working to make conversations about menstruation easier to begin.",
+        founder: {
+          eyebrow: "Meet the founder",
+          name: "Dr. Nehal Shah",
+          role: "Founder, RUTUJA Charitable Trust",
+          photoAlt: "Dr. Nehal Shah, Founder of RUTUJA Charitable Trust",
+          photoPending: "Photo coming soon",
+          paragraphs: [
+            "Since 2020, RUTUJA Charitable Trust — founded by Dr. Nehal Shah in Surat, Gujarat — has worked to improve menstrual health and challenge the silence, stigma and discrimination around menstruation.",
+            "Along the way, a question kept surfacing: awareness campaigns can teach people about menstruation, but they don't always make it easier to actually talk about it. Dr. Shah wanted to build something that didn't just inform people — something that made them stop, look, feel, and start a conversation.",
+            "That question took her through a six-month Dignified Menstruation Fellowship with the Global South Coalition for Dignified Menstruation — a competitive global cohort of just 22 fellows (from 250+ applicants), with only three selected from India. The fellowship reframed the entire question for her: not \"how do we teach menstrual hygiene,\" but \"how do we create menstrual dignity.\"",
+            "That reframing — from hygiene to dignity — is the philosophy every part of the RUTUJA Dignity Doll initiative is built on today.",
+          ],
+          quotePending: "[Personal quote from Dr. Nehal Shah — pending]",
+          notePending: "[Personal note — where she's based, and her broader work at the Trust — pending]",
+        },
+        story: {
+          eyebrow: "Our story",
+          title: "The Story of the Dignity Doll",
+          kicker: "From Breaking the Silence to Giving Dignity a Face",
+          intro: "For years, RUTUJA Charitable Trust has worked to challenge the silence and stigma around menstruation. But somewhere along the way, one question kept coming up:",
+          introQuestion: "Can we create something that doesn't just teach people about menstruation — but makes them stop, look, feel, and start a conversation?",
+          introAnswer: "The answer became the RUTUJA Dignity Doll.",
+          sections: [
+            {
+              n: "01",
+              t: "Where the Idea Began",
+              body: [
+                "The turning point was a six-month Dignified Menstruation Fellowship run by the Global South Coalition for Dignified Menstruation — an intensive, virtual programme that brought together a global cohort of around 22 fellows, chosen from over 250 applicants. Only three were selected from India.",
+                "The fellowship went far beyond menstrual hygiene — into health, rights, gender, culture, stigma, policy, environment, economics, social norms and dignity. It changed the guiding question from \"How do we teach menstrual hygiene?\" to \"How do we create menstrual dignity?\"",
+              ],
+              stats: [
+                { value: "22", label: "Fellows worldwide" },
+                { value: "250+", label: "Applicants" },
+                { value: "3", label: "Selected from India" },
+              ],
+            },
+            {
+              n: "02",
+              t: "From Education to Visual Activism",
+              body: [
+                "As part of the fellowship's practical component, RUTUJA experimented with something unconventional: instead of another poster or presentation, they created wearable props — a jacket, a turban, a hat, a stole — each carrying a message about menstruation and dignity.",
+                "The idea was simple: let the visual create curiosity, let curiosity create a question, let the question create a conversation. It worked. People stopped, stared, and asked: \"Why are you dressed like this? What does this mean?\"",
+                "That success raised a new question: if a jacket can start a conversation about menstruation, can a doll do the same?",
+              ],
+            },
+            {
+              n: "03",
+              t: "The Inspiration: Trauma Teddy",
+              body: [
+                "The idea of a doll wasn't new — it came from encountering the Trauma Teddy, developed by the Australian Red Cross, during a visit to Australia. A simple soft toy that could offer comfort and help people talk through difficult experiences.",
+                "That sparked a new possibility: a doll that could become a gentle, emotional, identifiable face for dignified menstruation. Not a textbook. Not a lecture. A companion. A conversation starter. Something people could actually connect with.",
+              ],
+            },
+            {
+              n: "04",
+              t: "Finding Someone Who Understood",
+              body: [
+                "The concept was hard to explain — it had to represent menstruation without making it frightening, challenge the idea of impurity without being confrontational, and feel culturally relatable.",
+                "After a search, a doll maker in Gurugram was found, and through sketches, iterations and long-distance collaboration, two to three early versions took shape. Some prototypes travelled to Nepal for an international dignified-menstruation gathering — the idea's first physical form.",
+              ],
+            },
+            {
+              n: "05",
+              t: "Bringing the Doll Home to India",
+              body: [
+                "After that, the search began again — this time for something that felt distinctly Indian: Indian materials, Indian craftsmanship, Indian clothing. That search led to a tribal artisan community working under Pragna Bhatt, who runs a small handicraft venture with a team of tribal women and men.",
+                "The brief was specific: traditional Indian block-printing, handmade craftsmanship, an Indian girl-like appearance — and, most importantly, the red scarf. Through several rounds of experimentation, the RUTUJA Dignity Doll emerged.",
+              ],
+            },
+            {
+              n: "06",
+              t: "Why Red?",
+              body: [
+                "The red scarf isn't just a design choice. Red represents menstrual blood — and the scarf carries the words \"Sacred\" and \"Sanmanit\" (meaning respected, honoured, dignified). The message is deliberate: menstrual blood is not impure, menstruation is not shameful, and the menstrual cycle deserves respect.",
+                "Her traditional block-print clothing connects her to Indian cultural heritage, and her hair and ribbons give her the familiar, approachable look of an Indian girl. She isn't meant to look like a medical model. She's meant to look like someone you know.",
+              ],
+              pull: "She doesn't hide menstruation — she wears it, visibly.",
+            },
+            {
+              n: "07",
+              t: "When the Doll Met the Community",
+              body: [
+                "As Rutuja travelled into more conservative communities, some people were uncomfortable with her appearance — a few even associated her with superstition. Rather than dismiss this, RUTUJA listened: the doll had to be accepted by communities, not just designed for them.",
+                "Her face was reworked, with fringed hair added to make her feel more familiar and less likely to trigger fear. Today, two facial versions exist, both under design patent protection.",
+              ],
+            },
+            {
+              n: "08",
+              t: "Protecting the Idea",
+              body: [
+                "Before the national pilot, a friend in academia suggested protecting the design before launch. A professional supporter waived his fees for the design registration process — another reminder that the doll was never the work of one person alone, but a collective effort.",
+              ],
+            },
+            {
+              n: "09",
+              t: "And Then She Began to Travel",
+              body: [
+                "Rutuja started travelling into schools, communities and institutions across India. People didn't see her as just an educational prop — some saw her as a daughter, some as a friend, some simply loved her as a doll. She had become more than a teaching aid. She had become a conversation starter.",
+              ],
+            },
+            {
+              n: "10",
+              t: "Why Does She Work?",
+              body: [
+                "Menstruation is often a hesitant conversation — for the educator as much as the audience. Rutuja shifts the starting point. Instead of \"who is talking to me about menstruation?\", people start by asking \"who is this doll?\" That small shift makes a big difference: attention moves to the doll, she absorbs some of the hesitation, and the educator can enter the conversation gradually.",
+                "This has been especially powerful for male menstrual educators — the doll lets the conversation be about \"what she's trying to tell us,\" not about a man raising a sensitive topic directly.",
+              ],
+            },
+            {
+              n: "11",
+              t: "From a Doll to a Methodology",
+              body: ["RUTUJA has since developed three structured modules built around the doll:"],
+              modules: [
+                { t: "Community Module", d: "Using the doll to open conversations on stigma, discrimination and dignity within communities." },
+                { t: "Adolescent Module", d: "Storytelling and activities to help adolescents understand menstruation and challenge stereotypes." },
+                { t: "Menstrual Healing Module", d: "Using the doll as a reflective tool for personal experiences, shame, restrictions and the emotional impact of stigma." },
+              ],
+            },
+          ],
+          today: {
+            t: "Rutuja Today",
+            body: [
+              "A handmade doll. Created by tribal artisans. Inspired by global learning. Rooted in Indian culture. Protected through design registration. Tested with real communities. Loved across ages and backgrounds.",
+              "She doesn't lecture. She doesn't argue. She simply sits there, in her red scarf, carrying her message — waiting for someone to ask: \"Who is she?\"",
+            ],
+            closingLine: "That's where the conversation begins.",
+          },
+          tagline: "Giving Dignity a Face. Giving Silence a Voice. Giving Menstruation a Place in the Conversation.",
+        },
+        madeBy: {
+          eyebrow: "Made by hand",
+          title: "Handcrafted by tribal artisans",
+          body: "The RUTUJA Dignity Doll is handmade by a tribal artisan community working under Pragna Bhatt, who runs a small handicraft venture with a team of tribal women and men — using traditional Indian block-printing and handmade craftsmanship for every doll.",
+        },
+      },
+      terms: {
+        eyebrow: "Legal",
+        title: "Terms & Conditions",
+        sub: "The terms that govern your use of this website.",
+        updated: "Last updated: 31 August 2026",
+        sections: [
+          {
+            h: "1. Introduction",
+            body: [
+              "These Terms & Conditions govern your use of this website, operated by Rutuja Charitable Trust (\"Rutuja\", \"we\", \"us\"). By using this site, you agree to these terms. If you do not agree, please do not use the site.",
+            ],
+          },
+          {
+            h: "2. About this website",
+            body: [
+              "This is a Phase 1 campaign microsite for the Rutuja Dignity Doll Programme. It shares information about our work, our programme, our impact, and ways to get involved — through workshops, donations, partnerships, volunteering and our Ambassador programme.",
+              "Some figures and details on this site are still being verified with our team and are marked as pending. See the note in our footer.",
+            ],
+          },
+          {
+            h: "3. Eligibility & appropriate use",
+            body: [
+              "This site discusses menstrual health and related topics in an educational context, for a general audience that includes parents, educators, students, and organisations. The Play & Learn games are designed for ages 10 and up.",
+              "You agree to use this site only for lawful purposes, and not to submit false information through any form, misuse the site, or attempt to disrupt its operation.",
+            ],
+          },
+          {
+            h: "4. The Dignity Doll & our programme",
+            body: [
+              "The Dignity Doll is a facilitation tool used within guided, in-person sessions led by trained facilitators. It is not sold as a consumer product through this website, and nothing on this site is an offer to sell the Doll directly to individuals.",
+              "Submitting a \"Request a Workshop\" form registers your interest only — it does not guarantee a session. Our team will follow up to confirm details, availability and, where applicable, cost.",
+            ],
+          },
+          {
+            h: "5. Donations & pledges",
+            body: [
+              "Rutuja does not currently process payments directly through this website. Submitting a pledge or donation enquiry registers your interest in supporting our work; our team will contact you personally to complete your contribution through an appropriate channel and to provide a receipt where applicable.",
+              "We do not collect card or bank details through any form on this site.",
+            ],
+          },
+          {
+            h: "6. Educational content, not medical advice",
+            body: [
+              "Content on this site — including the FAQ, the Dignity Doll programme materials, and the Play & Learn games — is provided for general education and awareness about menstrual health. It is not medical advice and should not replace guidance from a qualified healthcare professional.",
+            ],
+          },
+          {
+            h: "7. Information you submit",
+            body: [
+              "When you submit a form — to request a workshop, donate, partner, volunteer, apply as an Ambassador, or contact us — you confirm that the information you provide is accurate and that you have the right to share it. See our Privacy Policy for how we handle this information.",
+            ],
+          },
+          {
+            h: "8. Intellectual property",
+            body: [
+              "The Rutuja Dignity Doll's design is patent pending. The Rutuja name, logo, doll design, and original photography, video and written content on this site belong to Rutuja Charitable Trust, or are used with permission, unless otherwise credited. You may not reproduce, redistribute or commercially use this content without our written permission.",
+            ],
+          },
+          {
+            h: "9. Stories, photographs & testimonials",
+            body: [
+              "Field stories, photographs and quotes shared on this site are drawn from real programme sessions. Where a participant's name is withheld, this is to protect their privacy. Where photographs or names are shown, this is done with the knowledge and, where practicable, the consent of those involved or their guardians.",
+            ],
+          },
+          {
+            h: "10. Third-party links",
+            body: [
+              "This site may link to third-party organisations, partners, or press coverage. We are not responsible for the content or practices of external websites.",
+            ],
+          },
+          {
+            h: "11. Limitation of liability",
+            body: [
+              "This site and its content are provided \"as is\". While we take care to keep information accurate, Rutuja does not guarantee that all content is complete, current or error-free, and is not liable for any loss arising from reliance on this site's content, to the fullest extent permitted by law.",
+            ],
+          },
+          {
+            h: "12. Changes to these terms",
+            body: ["We may update these Terms & Conditions from time to time. Continued use of the site after an update means you accept the revised terms."],
+          },
+          {
+            h: "13. Governing law",
+            body: ["[GOVERNING LAW / JURISDICTION TO BE CONFIRMED]"],
+          },
+          {
+            h: "14. Contact",
+            body: ["Questions about these terms can be sent to us via our Contact page."],
+          },
+        ],
+      },
+      privacy: {
+        eyebrow: "Legal",
+        title: "Privacy Policy",
+        sub: "What information we collect, how we use it, and the choices you have.",
+        updated: "Last updated: 31 August 2026",
+        sections: [
+          {
+            h: "1. Overview",
+            body: [
+              "This Privacy Policy explains what information Rutuja Charitable Trust (\"Rutuja\", \"we\", \"us\") collects through this website, how we use it, and the choices you have. We collect only what we need to respond to your enquiry or request, and we do not sell your personal information.",
+            ],
+          },
+          {
+            h: "2. Information we collect",
+            body: ["We collect information you choose to give us when you use a form on this site, such as when you:"],
+            list: [
+              "Request a workshop",
+              "Submit a donation pledge or enquiry",
+              "Start a partnership conversation",
+              "Apply to volunteer or intern",
+              "Apply to become an Ambassador",
+              "Contact us with a question",
+            ],
+            after: [
+              "Depending on the form, this may include your name, organisation, email, phone/WhatsApp number, city, audience details, message, and similar information you choose to share. We do not collect payment card or bank details through this website.",
+            ],
+          },
+          {
+            h: "3. How we use your information",
+            list: [
+              "To respond to your request and follow up — for example, to plan a workshop or confirm a pledge",
+              "To understand and report on our programme's reach, in aggregate and without identifying individuals unless they have agreed to be featured",
+              "To improve this website and our communications",
+            ],
+            after: ["We do not sell or rent your personal information to third parties, and we only share it with facilitators, partners or service providers where necessary to fulfil your request."],
+          },
+          {
+            h: "4. Website analytics",
+            body: [
+              "We use PostHog, a product analytics tool, to understand in general terms how visitors use this site — for example, which pages are viewed — so we can improve it. This data is used in aggregate, is not used to serve you advertising, and is not sold to third parties.",
+            ],
+          },
+          {
+            h: "5. Children & programme participants",
+            body: [
+              "Our workshops are often delivered to school and community groups that include children, through the adults, teachers and organisations who request or host a session — this website does not knowingly collect personal information directly from children.",
+              "Where a session or story involves a minor, any photograph, quote or name shared on this site is used with the consent of the participant, their guardian, or the hosting institution. Names are withheld by default to protect participant privacy.",
+            ],
+          },
+          {
+            h: "6. Cookies & local storage",
+            body: [
+              "This site may use your browser's local storage to remember simple preferences, such as your chosen language (English/Hindi). This is not used to track you across other websites.",
+            ],
+          },
+          {
+            h: "7. Data retention",
+            body: ["We retain the information you submit for as long as needed to respond to your request and maintain reasonable programme and donor records, after which it is deleted or anonymised."],
+          },
+          {
+            h: "8. Your rights",
+            body: ["You may ask us to access, correct, or delete the personal information we hold about you by contacting us through our Contact page. We will respond to reasonable requests within a reasonable time."],
+          },
+          {
+            h: "9. Security",
+            body: ["We take reasonable technical and organisational measures to protect the information you share with us. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security."],
+          },
+          {
+            h: "10. Changes to this policy",
+            body: ["We may update this Privacy Policy from time to time; the \"last updated\" date at the top of this page reflects the most recent version."],
+          },
+          {
+            h: "11. Contact",
+            body: ["For any privacy-related question or request, please reach us via our Contact page. [GRIEVANCE OFFICER / DATA PROTECTION CONTACT TO BE CONFIRMED]"],
+          },
+        ],
       },
       getInvolved: {
         eyebrow: "Get involved",
@@ -755,6 +1074,30 @@ export const CONTENT = {
           body: "You answered every question with honesty and care. That's exactly how these conversations should go — no shame, just understanding.",
           cta: "Play the other game",
         },
+        snakesGame: {
+          intro: "Answer a question correctly to earn each roll, then race up to square 100. Land on a ladder to climb up, land on a snake to slide down.",
+          setupTitle: "How many are playing?",
+          playerCountCta: "{n} Players",
+          playerLabel: "Player {n}",
+          turnLabel: "Player {n}'s turn",
+          rollCta: "Roll the dice",
+          lockedLabel: "Answer to unlock your roll",
+          rolling: "Rolling…",
+          extraTurn: "Rolled a 6 — go again!",
+          squareLabel: "Square {n} of 100",
+          squareShort: "Square {p}",
+          startMessage: "Answer correctly to begin your climb.",
+          correctUnlock: "Correct! Go ahead and roll.",
+          incorrectSkip: "Not quite — turn passes to Player {n}.",
+          moveMessage: "You rolled a {n} — landed on square {p}.",
+          ladderMessage: "A ladder! Climbing up to square {p}.",
+          snakeMessage: "A snake! Sliding down to square {p}.",
+          continueCta: "Continue",
+          winEmoji: "🏁",
+          winTitle: "Player {n} wins!",
+          winBody: "Together you climbed ladders and busted myths along the way. That's exactly how these conversations should go — no shame, just understanding.",
+          winCta: "Play again",
+        },
         games: {
           dignity: {
             title: "Find My Missing Dignity",
@@ -775,15 +1118,25 @@ export const CONTENT = {
             title: "Periods & Power: Snakes & Ladders",
             questions: [
               { q: "When do periods usually start?", options: ["Between ages 9–16, naturally", "Only after age 20"], correct: 0, explanation: "Usually between ages 9–16. It's a natural part of growing up." },
-              { q: "Is it true you can't study or exercise during periods?", options: ["False — you can do regular activities", "True — rest completely for the week"], correct: 0, explanation: "No. You can study, exercise, and do all regular activities if you feel comfortable." },
               { q: "Is it necessary to use only sanitary pads?", options: ["No — pads, cups, tampons are all fine", "Yes, nothing else is allowed"], correct: 0, explanation: "No. Pads, tampons, menstrual cups or period panties are all fine — choose what's safe and comfortable." },
-              { q: "Is period blood a sign that something is wrong?", options: ["No, it's a natural body process", "Yes, it always means illness"], correct: 0, explanation: "No. It's not dirty or a sign of illness — it's the body's natural process." },
               { q: "Is it normal for every period cycle to be the same length?", options: ["No — 21–35 days is a normal range", "Yes, everyone must be exactly 28 days"], correct: 0, explanation: "No. Every body is different — 21 to 35 days is considered normal." },
               { q: "Do mood swings during periods mean you're 'overreacting'?", options: ["No — hormones cause real mood changes", "Yes, it's always an overreaction"], correct: 0, explanation: "No. Hormonal changes cause real mood swings — your feelings are valid." },
-              { q: "Do you need a special diet during periods?", options: ["No — just eat balanced, iron-rich food", "Yes, a completely different diet"], correct: 0, explanation: "No special diet needed — a balanced diet with enough water and iron is enough." },
-              { q: "Is it okay to talk about periods openly?", options: ["Yes — it breaks myths and builds support", "No, it should stay private forever"], correct: 0, explanation: "Yes! Open conversation breaks myths, builds comfort and support." },
               { q: "Can stress or lifestyle affect your period?", options: ["Yes — stress, sleep, diet all matter", "No, periods are never affected"], correct: 0, explanation: "Yes. Stress, poor sleep, diet, or excessive exercise can all affect the cycle." },
-              { q: "Can periods stop you from achieving your dreams?", options: ["No — with knowledge and confidence, anything's possible", "Yes, dreams must wait"], correct: 0, explanation: "No! With the right knowledge, confidence, and care, you can achieve anything." },
+              { q: "Can girls swim during their periods?", options: ["Yes, swimming is safe with the right product", "No, water makes bleeding worse"], correct: 0, explanation: "Yes. Swimming is safe — a tampon, cup, or period-proof swimwear works well; water doesn't increase bleeding." },
+              { q: "Should you avoid washing your hair during periods?", options: ["No, hygiene habits don't need to change", "Yes, washing hair is harmful during periods"], correct: 0, explanation: "No. There's no medical reason to avoid washing your hair, bathing, or normal hygiene during your period." },
+              { q: "Do periods 'sync up' between people who live together?", options: ["Not proven — it's mostly coincidence", "Yes, it always happens scientifically"], correct: 0, explanation: "Research hasn't found strong evidence for period syncing — overlapping cycles are usually just coincidence." },
+              { q: "Is it true you shouldn't touch pickles or cook during your period?", options: ["False — this is a cultural myth, not a health fact", "True — touching food will spoil it"], correct: 0, explanation: "False. This is a long-standing cultural superstition, not a health or food-safety fact. Periods don't affect food." },
+              { q: "Is irregular bleeding something you should just ignore?", options: ["No — it's worth mentioning to a trusted adult or doctor", "Yes, periods are never worth discussing with a doctor"], correct: 0, explanation: "No. While cycles vary, ongoing irregular bleeding or pain is worth mentioning to a doctor or trusted adult." },
+              { q: "Should someone be excluded from family or religious spaces while on their period?", options: ["No — exclusion is a social custom, not a health need", "Yes, it's necessary for hygiene reasons"], correct: 0, explanation: "No. There is no health reason for exclusion — this comes from social custom and stigma, not hygiene." },
+              { q: "Does losing period blood make you automatically weak or anemic?", options: ["No — average blood loss is small; iron-rich food helps", "Yes, any period blood loss makes you weak"], correct: 0, explanation: "No. The average period loses only a small amount of blood — iron-rich food helps keep energy up, but periods alone don't make you weak." },
+              { q: "Is there any point in tracking your period dates?", options: ["Yes — it helps you understand your body and spot changes", "No, tracking your cycle is pointless"], correct: 0, explanation: "Yes. Tracking your cycle helps you know what to expect and notice if something changes — useful information, not a chore." },
+              { q: "Do period products need to be hidden or wrapped in secret?", options: ["No — carrying or discussing them needs no secrecy", "Yes, they must always be hidden from view"], correct: 0, explanation: "No. There's nothing to hide — pads, cups or tampons are just everyday hygiene items, not something shameful to conceal." },
+              { q: "If a period leaks through in public, is that something to feel deeply ashamed of?", options: ["No — leaks can happen to anyone; it's not a big deal", "Yes, it's embarrassing and shameful"], correct: 0, explanation: "No. Leaks happen to almost everyone at some point — it's a normal accident, not a reason for shame." },
+              { q: "Is menstrual stigma the same everywhere and impossible to change?", options: ["No — attitudes vary and are changing with awareness", "Yes, stigma is universal and permanent"], correct: 0, explanation: "No. Attitudes toward periods differ across communities and are actively changing as more open conversations happen." },
+              { q: "Do boys and men go through zero physical or emotional changes while growing up?", options: ["No — puberty brings changes for everyone, not just menstruators", "Yes, only girls experience awkward changes"], correct: 0, explanation: "No. Everyone goes through changes during puberty — understanding this builds empathy between everyone." },
+              { q: "Should a girl feel scared or alone when she gets her first period?", options: ["No — it's a shared experience, and support is always available", "Yes, it's something to face in fear and silence"], correct: 0, explanation: "No. Every menstruator has a first period — it's a shared human experience, and asking for support is always okay." },
+              { q: "Does getting your first period instantly make you a 'full adult'?", options: ["No — it's one part of growing up, not an overnight change", "Yes, you become a complete adult immediately"], correct: 0, explanation: "No. Your period is one part of growing up — it doesn't change who you are or your responsibilities overnight." },
+              { q: "Is it fair to dismiss someone's opinions or mood as 'she's probably just on her period'?", options: ["No — that dismisses someone unfairly and isn't respectful", "Yes, it's a reasonable explanation for anything"], correct: 0, explanation: "No. Dismissing someone's feelings or opinions this way is unfair and disrespectful — take people seriously regardless of their cycle." },
             ],
           },
         },
@@ -815,6 +1168,8 @@ export const CONTENT = {
       langLabel: "भाषा",
       menu: "मेन्यू",
       close: "बंद करें",
+      terms: "नियम व शर्तें",
+      privacy: "गोपनीयता नीति",
     },
     globalCta: {
       donate: "प्रतिज्ञा करें",
@@ -1336,6 +1691,22 @@ export const CONTENT = {
           { city: "[स्थान बाकी]", state: "", audience: "बच्चे", activity: "जागरूकता गतिविधि", description: "डिग्निटी डॉल जागरूकता शीट्स के साथ बच्चे।", date: "", language: "[भाषा बाकी]" },
           { city: "[स्थान बाकी]", state: "", audience: "युवा प्रतिभागी", activity: "शैक्षिक गतिविधि", description: "मासिक-शिक्षा कॉमिक्स और डिग्निटी डॉल के साथ प्रतिभागी।", date: "", language: "[भाषा बाकी]" },
           { city: "[स्थान बाकी]", state: "", audience: "मिश्रित", activity: "सत्र", description: "एक डिग्निटी डॉल सत्र में प्रतिभागी।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "समुदाय के सदस्य", activity: "सामुदायिक सत्र", description: "डिग्निटी डॉल के साथ एक ग्रामीण परिवार।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "छात्र", activity: "स्कूल सत्र", description: "एक सुविधाकर्ता और स्कूली छात्र डिग्निटी डॉल थामे हुए।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "मिश्रित समुदाय", activity: "बाहरी सत्र", description: "डिग्निटी डॉल के साथ एक बाहरी सामुदायिक सत्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "मिश्रित", activity: "मिशन लाल रंग कार्यक्रम", description: "मिशन लाल रंग मासिक धर्म स्वास्थ्य कार्यक्रम में मंच पर प्रतिभागी।", date: "24 मई 2026", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "कॉलेज छात्र", activity: "कक्षा सत्र", description: "एक कॉलेज कक्षा में डिग्निटी डॉल सत्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "क्लोज़-अप", activity: "कार्यक्रम सामग्री", description: "डिग्निटी डॉल कार्यक्रम सामग्री और 5वें MHM इंडिया समिट का प्रशस्ति प्रमाण पत्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "मिश्रित", activity: "मिशन लाल रंग कार्यक्रम", description: "मिशन लाल रंग मासिक धर्म स्वास्थ्य कार्यक्रम के आयोजक।", date: "24 मई 2026", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "समुदाय के सदस्य", activity: "शैक्षिक आउटरीच", description: "मासिक-शिक्षा कॉमिक्स और डिग्निटी डॉल थामे एक समूह।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "सुविधाकर्ता", activity: "फील्ड विज़िट", description: "एक ग्रामीण समुदाय में डिग्निटी डॉल थामे एक सुविधाकर्ता।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "समुदाय के बुज़ुर्ग", activity: "फील्ड विज़िट", description: "डिग्निटी डॉल थामे समुदाय के एक बुज़ुर्ग सदस्य।", date: "", language: "[भाषा बाकी]" },
+          { city: "रूपबास", state: "राजस्थान", audience: "छात्र", activity: "स्कूल सत्र", description: "रूपबास, राजस्थान में डिग्निटी डॉल के साथ एक स्कूल सत्र।", date: "6 जून 2026", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "मिश्रित समुदाय", activity: "मासिक धर्म स्वच्छता दिवस समर कैंप", description: "साझेदार संस्था मातृ सुधा संस्था के साथ एक समर कैंप सत्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "छात्र", activity: "कक्षा सत्र", description: "एक कक्षा में डिग्निटी डॉल थामे एक छात्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "छात्र", activity: "कक्षा सत्र", description: "एक कक्षा में डिग्निटी डॉल थामे एक छात्र।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "छात्र", activity: "कक्षा सत्र", description: "मासिक-शिक्षा कॉमिक्स के साथ स्कूली छात्रों की एक कक्षा।", date: "", language: "[भाषा बाकी]" },
+          { city: "[स्थान बाकी]", state: "", audience: "समुदाय के सदस्य", activity: "सामुदायिक सभा", description: "एक डिग्निटी डॉल सत्र के लिए एकत्रित समुदाय के सदस्य।", date: "", language: "[भाषा बाकी]" },
         ],
       },
       experience: {
@@ -1421,6 +1792,305 @@ export const CONTENT = {
         eyebrow: "रुतुजा के बारे में",
         title: "रुतुजा के बारे में",
         sub: "रुतुजा एक पंजीकृत चैरिटेबल ट्रस्ट है जो महिला कल्याण को समर्पित है और मासिक धर्म पर बातचीत शुरू करना आसान बनाने के लिए काम कर रहा है।",
+        founder: {
+          eyebrow: "संस्थापक से मिलें",
+          name: "डॉ. नेहल शाह",
+          role: "संस्थापक, RUTUJA चैरिटेबल ट्रस्ट",
+          photoAlt: "डॉ. नेहल शाह, RUTUJA चैरिटेबल ट्रस्ट की संस्थापक",
+          photoPending: "फ़ोटो जल्द आ रही है",
+          paragraphs: [
+            "2020 से, RUTUJA चैरिटेबल ट्रस्ट — जिसे डॉ. नेहल शाह ने सूरत, गुजरात में स्थापित किया — मासिक धर्म स्वास्थ्य को बेहतर बनाने और मासिक धर्म के इर्द-गिर्द चुप्पी, कलंक और भेदभाव को चुनौती देने के लिए काम कर रहा है।",
+            "इस दौरान, एक सवाल बार-बार सामने आता रहा: जागरूकता अभियान लोगों को मासिक धर्म के बारे में सिखा सकते हैं, लेकिन वे हमेशा इसके बारे में बात करना आसान नहीं बनाते। डॉ. शाह कुछ ऐसा बनाना चाहती थीं जो सिर्फ जानकारी न दे — बल्कि लोगों को रुकने, देखने, महसूस करने और बातचीत शुरू करने पर मजबूर करे।",
+            "यही सवाल उन्हें ग्लोबल साउथ कोएलिशन फॉर डिग्निफाइड मेंस्ट्रुएशन के साथ छह महीने की डिग्निफाइड मेंस्ट्रुएशन फेलोशिप तक ले गया — 250+ आवेदकों में से चुने गए सिर्फ 22 फेलो का एक प्रतिस्पर्धी वैश्विक समूह, जिसमें से भारत से केवल तीन चुने गए। इस फेलोशिप ने उनके लिए पूरा सवाल ही फिर से गढ़ दिया: \"हम मासिक धर्म स्वच्छता कैसे सिखाएं\" नहीं, बल्कि \"हम मासिक धर्म गरिमा कैसे बनाएं।\"",
+            "यही पुनर्परिभाषा — स्वच्छता से गरिमा तक — वह दर्शन है जिस पर आज RUTUJA डिग्निटी डॉल पहल का हर हिस्सा बना है।",
+          ],
+          quotePending: "[डॉ. नेहल शाह का व्यक्तिगत उद्धरण — लंबित]",
+          notePending: "[व्यक्तिगत नोट — वे कहाँ रहती हैं, और ट्रस्ट में उनका व्यापक काम — लंबित]",
+        },
+        story: {
+          eyebrow: "हमारी कहानी",
+          title: "डिग्निटी डॉल की कहानी",
+          kicker: "चुप्पी तोड़ने से लेकर गरिमा को एक चेहरा देने तक",
+          intro: "वर्षों से, RUTUJA चैरिटेबल ट्रस्ट मासिक धर्म के इर्द-गिर्द चुप्पी और कलंक को चुनौती देने का काम कर रहा है। लेकिन इस दौरान, एक सवाल बार-बार उठता रहा:",
+          introQuestion: "क्या हम कुछ ऐसा बना सकते हैं जो लोगों को सिर्फ मासिक धर्म के बारे में सिखाए ही नहीं — बल्कि उन्हें रुकने, देखने, महसूस करने और बातचीत शुरू करने पर मजबूर करे?",
+          introAnswer: "इसका जवाब बना RUTUJA डिग्निटी डॉल।",
+          sections: [
+            {
+              n: "01",
+              t: "जहाँ से विचार शुरू हुआ",
+              body: [
+                "यह मोड़ आया ग्लोबल साउथ कोएलिशन फॉर डिग्निफाइड मेंस्ट्रुएशन द्वारा संचालित छह महीने की डिग्निफाइड मेंस्ट्रुएशन फेलोशिप से — एक गहन, वर्चुअल कार्यक्रम जिसने 250 से अधिक आवेदकों में से चुने गए लगभग 22 फेलो के एक वैश्विक समूह को एक साथ लाया। भारत से केवल तीन चुने गए।",
+                "यह फेलोशिप मासिक धर्म स्वच्छता से कहीं आगे गई — स्वास्थ्य, अधिकार, लिंग, संस्कृति, कलंक, नीति, पर्यावरण, अर्थशास्त्र, सामाजिक मानदंड और गरिमा तक। इसने मार्गदर्शक सवाल को \"हम मासिक धर्म स्वच्छता कैसे सिखाएं?\" से बदलकर \"हम मासिक धर्म गरिमा कैसे बनाएं?\" कर दिया।",
+              ],
+              stats: [
+                { value: "22", label: "वैश्विक फेलो" },
+                { value: "250+", label: "आवेदक" },
+                { value: "3", label: "भारत से चयनित" },
+              ],
+            },
+            {
+              n: "02",
+              t: "शिक्षा से दृश्य-सक्रियता तक",
+              body: [
+                "फेलोशिप के व्यावहारिक हिस्से के तौर पर, RUTUJA ने कुछ अपरंपरागत करके देखा: एक और पोस्टर या प्रेजेंटेशन के बजाय, उन्होंने पहनने योग्य प्रॉप्स बनाए — एक जैकेट, एक पगड़ी, एक टोपी, एक स्टोल — हर एक पर मासिक धर्म और गरिमा से जुड़ा संदेश।",
+                "विचार सरल था: दृश्य से जिज्ञासा बने, जिज्ञासा से सवाल बने, सवाल से बातचीत बने। यह काम कर गया। लोग रुके, देखते रह गए, और पूछा: \"आपने ऐसे कपड़े क्यों पहने हैं? इसका क्या मतलब है?\"",
+                "इस सफलता ने एक नया सवाल खड़ा किया: अगर एक जैकेट मासिक धर्म पर बातचीत शुरू कर सकती है, तो क्या एक गुड़िया भी वही कर सकती है?",
+              ],
+            },
+            {
+              n: "03",
+              t: "प्रेरणा: ट्रॉमा टेडी",
+              body: [
+                "गुड़िया का विचार नया नहीं था — यह ऑस्ट्रेलिया की यात्रा के दौरान ऑस्ट्रेलियन रेड क्रॉस द्वारा विकसित ट्रॉमा टेडी से सामने आया। एक सरल सॉफ्ट टॉय जो सांत्वना दे सके और लोगों को कठिन अनुभवों के बारे में बात करने में मदद कर सके।",
+                "इसने एक नई संभावना जगाई: एक गुड़िया जो गरिमामय मासिक धर्म के लिए एक कोमल, भावनात्मक, पहचान योग्य चेहरा बन सके। कोई पाठ्यपुस्तक नहीं। कोई व्याख्यान नहीं। एक साथी। एक बातचीत की शुरुआत। कुछ ऐसा जिससे लोग वाकई जुड़ सकें।",
+              ],
+            },
+            {
+              n: "04",
+              t: "किसी ऐसे व्यक्ति को खोजना जो समझे",
+              body: [
+                "इस अवधारणा को समझाना मुश्किल था — इसे मासिक धर्म को डरावना बनाए बिना दर्शाना था, अशुद्धता के विचार को टकराव के बिना चुनौती देना था, और सांस्कृतिक रूप से जुड़ा हुआ महसूस कराना था।",
+                "खोज के बाद, गुरुग्राम में एक गुड़िया निर्माता मिला, और स्केच, दोहराव और लंबी-दूरी के सहयोग से, दो-तीन शुरुआती संस्करण आकार लेने लगे। कुछ प्रोटोटाइप एक अंतरराष्ट्रीय गरिमामय-मासिक धर्म सम्मेलन के लिए नेपाल गए — विचार का पहला भौतिक रूप।",
+              ],
+            },
+            {
+              n: "05",
+              t: "गुड़िया को भारत लाना",
+              body: [
+                "उसके बाद, खोज फिर शुरू हुई — इस बार कुछ ऐसा जो स्पष्ट रूप से भारतीय लगे: भारतीय सामग्री, भारतीय शिल्पकारी, भारतीय कपड़े। इस खोज ने प्रज्ञा भट्ट के नेतृत्व में काम करने वाले एक आदिवासी कारीगर समुदाय तक पहुँचाया, जो आदिवासी महिलाओं और पुरुषों की एक टीम के साथ एक छोटा हस्तशिल्प उद्यम चलाती हैं।",
+                "ब्रीफ स्पष्ट था: पारंपरिक भारतीय ब्लॉक-प्रिंटिंग, हस्तनिर्मित शिल्पकारी, एक भारतीय लड़की जैसा रूप — और, सबसे महत्वपूर्ण, लाल दुपट्टा। कई दौर के प्रयोग के बाद, RUTUJA डिग्निटी डॉल सामने आई।",
+              ],
+            },
+            {
+              n: "06",
+              t: "लाल रंग क्यों?",
+              body: [
+                "लाल दुपट्टा सिर्फ एक डिज़ाइन विकल्प नहीं है। लाल रंग मासिक धर्म के रक्त का प्रतिनिधित्व करता है — और दुपट्टे पर \"Sacred\" और \"सम्मानित\" शब्द लिखे हैं। संदेश जानबूझकर है: मासिक धर्म का रक्त अशुद्ध नहीं है, मासिक धर्म शर्मनाक नहीं है, और मासिक चक्र सम्मान का हकदार है।",
+                "उनके पारंपरिक ब्लॉक-प्रिंट कपड़े उन्हें भारतीय सांस्कृतिक विरासत से जोड़ते हैं, और उनके बाल व रिबन उन्हें एक भारतीय लड़की जैसा परिचित, सहज रूप देते हैं। उन्हें किसी मेडिकल मॉडल जैसा दिखने के लिए नहीं बनाया गया। उन्हें किसी जान-पहचान वाले जैसा दिखने के लिए बनाया गया है।",
+              ],
+              pull: "वह मासिक धर्म को छुपाती नहीं — वह उसे खुलकर पहनती है।",
+            },
+            {
+              n: "07",
+              t: "जब गुड़िया समुदाय से मिली",
+              body: [
+                "जैसे-जैसे रुतुजा अधिक रूढ़िवादी समुदायों में गई, कुछ लोग उसके रूप से असहज हुए — कुछ ने तो उसे अंधविश्वास से भी जोड़ा। इसे नज़रअंदाज़ करने के बजाय, RUTUJA ने सुना: गुड़िया को समुदायों द्वारा स्वीकार किया जाना ज़रूरी था, सिर्फ उनके लिए डिज़ाइन किया जाना काफी नहीं था।",
+                "उसके चेहरे को फिर से बनाया गया, फ्रिंज वाले बालों के साथ ताकि वह अधिक परिचित लगे और डर पैदा करने की संभावना कम हो। आज, दो चेहरे के संस्करण मौजूद हैं, दोनों डिज़ाइन पेटेंट सुरक्षा के तहत।",
+              ],
+            },
+            {
+              n: "08",
+              t: "विचार की सुरक्षा",
+              body: [
+                "राष्ट्रीय पायलट से पहले, अकादमिक क्षेत्र के एक मित्र ने लॉन्च से पहले डिज़ाइन को सुरक्षित करने का सुझाव दिया। एक पेशेवर सहयोगी ने डिज़ाइन पंजीकरण प्रक्रिया के लिए अपनी फीस माफ कर दी — एक और याद दिलाता है कि यह गुड़िया कभी किसी एक व्यक्ति का काम नहीं थी, बल्कि एक सामूहिक प्रयास थी।",
+              ],
+            },
+            {
+              n: "09",
+              t: "और फिर वह यात्रा करने लगी",
+              body: [
+                "रुतुजा ने पूरे भारत में स्कूलों, समुदायों और संस्थानों की यात्रा शुरू की। लोगों ने उसे सिर्फ एक शैक्षिक प्रॉप के रूप में नहीं देखा — किसी ने उसे बेटी के रूप में देखा, किसी ने दोस्त के रूप में, किसी ने बस एक गुड़िया के रूप में उससे प्यार किया। वह एक शिक्षण सहायता से कहीं अधिक बन गई थी। वह एक बातचीत की शुरुआत बन गई थी।",
+              ],
+            },
+            {
+              n: "10",
+              t: "वह काम क्यों करती है?",
+              body: [
+                "मासिक धर्म अक्सर एक हिचकिचाहट भरी बातचीत होती है — शिक्षक के लिए उतनी ही जितनी दर्शकों के लिए। रुतुजा शुरुआती बिंदु को बदल देती है। \"मुझसे मासिक धर्म के बारे में कौन बात कर रहा है?\" के बजाय, लोग पूछना शुरू करते हैं \"यह गुड़िया कौन है?\" यह छोटा सा बदलाव बड़ा फर्क डालता है: ध्यान गुड़िया की ओर जाता है, वह कुछ हिचकिचाहट सोख लेती है, और शिक्षक धीरे-धीरे बातचीत में प्रवेश कर सकता है।",
+                "यह पुरुष मासिक धर्म शिक्षकों के लिए विशेष रूप से प्रभावी रहा है — गुड़िया बातचीत को \"वह हमें क्या बताने की कोशिश कर रही है\" के बारे में बनाती है, न कि एक पुरुष द्वारा सीधे एक संवेदनशील विषय उठाने के बारे में।",
+              ],
+            },
+            {
+              n: "11",
+              t: "गुड़िया से एक कार्यप्रणाली तक",
+              body: ["RUTUJA ने तब से गुड़िया के इर्द-गिर्द तीन संरचित मॉड्यूल विकसित किए हैं:"],
+              modules: [
+                { t: "सामुदायिक मॉड्यूल", d: "समुदायों के भीतर कलंक, भेदभाव और गरिमा पर बातचीत शुरू करने के लिए गुड़िया का उपयोग।" },
+                { t: "किशोर मॉड्यूल", d: "किशोरों को मासिक धर्म समझने और रूढ़ियों को चुनौती देने में मदद करने के लिए कहानी कहना और गतिविधियाँ।" },
+                { t: "मासिक धर्म उपचार मॉड्यूल", d: "व्यक्तिगत अनुभवों, शर्म, प्रतिबंधों और कलंक के भावनात्मक प्रभाव के लिए एक चिंतनशील उपकरण के रूप में गुड़िया का उपयोग।" },
+              ],
+            },
+          ],
+          today: {
+            t: "रुतुजा आज",
+            body: [
+              "एक हस्तनिर्मित गुड़िया। आदिवासी कारीगरों द्वारा बनाई गई। वैश्विक शिक्षा से प्रेरित। भारतीय संस्कृति में रचि-बसी। डिज़ाइन पंजीकरण के माध्यम से सुरक्षित। वास्तविक समुदायों के साथ परखी गई। हर उम्र और पृष्ठभूमि में पसंद की गई।",
+              "वह व्याख्यान नहीं देती। वह बहस नहीं करती। वह बस अपने लाल दुपट्टे में बैठी रहती है, अपना संदेश लिए — किसी के पूछने का इंतज़ार करते हुए: \"वह कौन है?\"",
+            ],
+            closingLine: "यहीं से बातचीत शुरू होती है।",
+          },
+          tagline: "गरिमा को एक चेहरा देना। चुप्पी को एक आवाज़ देना। मासिक धर्म को बातचीत में एक जगह देना।",
+        },
+        madeBy: {
+          eyebrow: "हाथों से बनाई गई",
+          title: "आदिवासी कारीगरों द्वारा हस्तनिर्मित",
+          body: "RUTUJA डिग्निटी डॉल प्रज्ञा भट्ट के नेतृत्व में काम करने वाले एक आदिवासी कारीगर समुदाय द्वारा हस्तनिर्मित है, जो आदिवासी महिलाओं और पुरुषों की एक टीम के साथ एक छोटा हस्तशिल्प उद्यम चलाती हैं — हर गुड़िया के लिए पारंपरिक भारतीय ब्लॉक-प्रिंटिंग और हस्तनिर्मित शिल्पकारी का उपयोग करते हुए।",
+        },
+      },
+      terms: {
+        eyebrow: "कानूनी जानकारी",
+        title: "नियम व शर्तें",
+        sub: "वे शर्तें जो इस वेबसाइट के आपके उपयोग को नियंत्रित करती हैं।",
+        updated: "अंतिम अपडेट: 31 अगस्त 2026",
+        sections: [
+          {
+            h: "1. परिचय",
+            body: [
+              "ये नियम व शर्तें रुतुजा चैरिटेबल ट्रस्ट (\"रुतुजा\", \"हम\") द्वारा संचालित इस वेबसाइट के आपके उपयोग को नियंत्रित करती हैं। इस साइट का उपयोग करके, आप इन शर्तों से सहमत होते हैं। यदि आप सहमत नहीं हैं, तो कृपया इस साइट का उपयोग न करें।",
+            ],
+          },
+          {
+            h: "2. इस वेबसाइट के बारे में",
+            body: [
+              "यह रुतुजा डिग्निटी डॉल कार्यक्रम के लिए एक फेज़ 1 अभियान माइक्रोसाइट है। यह हमारे काम, कार्यक्रम, प्रभाव, और वर्कशॉप, दान, साझेदारी, स्वयंसेवा और हमारे एम्बेसडर कार्यक्रम के ज़रिए जुड़ने के तरीकों के बारे में जानकारी साझा करती है।",
+              "इस साइट पर कुछ आंकड़े और विवरण अभी भी हमारी टीम द्वारा सत्यापित किए जा रहे हैं और उन्हें लंबित के रूप में चिह्नित किया गया है। हमारे फ़ुटर में दिया गया नोट देखें।",
+            ],
+          },
+          {
+            h: "3. पात्रता और उचित उपयोग",
+            body: [
+              "यह साइट मासिक धर्म स्वास्थ्य और संबंधित विषयों पर एक शैक्षिक संदर्भ में चर्चा करती है, जो माता-पिता, शिक्षकों, छात्रों और संगठनों सहित एक सामान्य दर्शक वर्ग के लिए है। खेलें और सीखें के खेल 10 वर्ष और उससे अधिक आयु के लिए डिज़ाइन किए गए हैं।",
+              "आप सहमत होते हैं कि आप इस साइट का उपयोग केवल कानूनी उद्देश्यों के लिए करेंगे, और किसी भी फॉर्म के माध्यम से गलत जानकारी नहीं देंगे, साइट का दुरुपयोग नहीं करेंगे, या इसके संचालन को बाधित करने का प्रयास नहीं करेंगे।",
+            ],
+          },
+          {
+            h: "4. डिग्निटी डॉल और हमारा कार्यक्रम",
+            body: [
+              "डिग्निटी डॉल एक सुविधा-उपकरण है जिसका उपयोग प्रशिक्षित सुविधाकर्ताओं द्वारा संचालित, व्यक्तिगत रूप से आयोजित सत्रों में किया जाता है। इसे इस वेबसाइट के माध्यम से उपभोक्ता उत्पाद के रूप में नहीं बेचा जाता, और इस साइट पर कुछ भी व्यक्तियों को सीधे डॉल बेचने का प्रस्ताव नहीं है।",
+              "\"वर्कशॉप का अनुरोध करें\" फॉर्म भरने से केवल आपकी रुचि दर्ज होती है — यह किसी सत्र की गारंटी नहीं देता। हमारी टीम विवरण, उपलब्धता और, जहाँ लागू हो, लागत की पुष्टि करने के लिए आपसे संपर्क करेगी।",
+            ],
+          },
+          {
+            h: "5. दान और प्रतिज्ञाएं",
+            body: [
+              "रुतुजा वर्तमान में इस वेबसाइट के माध्यम से सीधे भुगतान संसाधित नहीं करता। प्रतिज्ञा या दान संबंधी पूछताछ भरने से हमारे काम को समर्थन देने में आपकी रुचि दर्ज होती है; हमारी टीम आपसे व्यक्तिगत रूप से संपर्क करेगी ताकि उचित माध्यम से आपका योगदान पूरा किया जा सके और जहाँ लागू हो, रसीद प्रदान की जा सके।",
+              "हम इस साइट के किसी भी फॉर्म के माध्यम से कार्ड या बैंक विवरण एकत्र नहीं करते।",
+            ],
+          },
+          {
+            h: "6. शैक्षिक सामग्री, चिकित्सा सलाह नहीं",
+            body: [
+              "इस साइट की सामग्री — जिसमें FAQ, डिग्निटी डॉल कार्यक्रम सामग्री, और खेलें और सीखें के खेल शामिल हैं — मासिक धर्म स्वास्थ्य के बारे में सामान्य शिक्षा और जागरूकता के लिए प्रदान की गई है। यह चिकित्सा सलाह नहीं है और इसे किसी योग्य स्वास्थ्य पेशेवर के मार्गदर्शन का विकल्प नहीं मानना चाहिए।",
+            ],
+          },
+          {
+            h: "7. आपके द्वारा दी गई जानकारी",
+            body: [
+              "जब आप कोई फॉर्म भरते हैं — वर्कशॉप का अनुरोध करने, दान करने, साझेदारी करने, स्वयंसेवा करने, एम्बेसडर बनने के लिए आवेदन करने, या हमसे संपर्क करने के लिए — तो आप पुष्टि करते हैं कि आपके द्वारा दी गई जानकारी सटीक है और आपके पास इसे साझा करने का अधिकार है। हम इस जानकारी को कैसे संभालते हैं, यह जानने के लिए हमारी गोपनीयता नीति देखें।",
+            ],
+          },
+          {
+            h: "8. बौद्धिक संपदा",
+            body: [
+              "रुतुजा डिग्निटी डॉल का डिज़ाइन पेटेंट लंबित है। रुतुजा नाम, लोगो, डॉल डिज़ाइन, और इस साइट की मूल फ़ोटोग्राफ़ी, वीडियो और लिखित सामग्री रुतुजा चैरिटेबल ट्रस्ट की है, या अनुमति के साथ उपयोग की गई है, जब तक अन्यथा श्रेय न दिया गया हो। आप हमारी लिखित अनुमति के बिना इस सामग्री को पुन: प्रस्तुत, पुनर्वितरित या व्यावसायिक रूप से उपयोग नहीं कर सकते।",
+            ],
+          },
+          {
+            h: "9. कहानियाँ, तस्वीरें और प्रशंसापत्र",
+            body: [
+              "इस साइट पर साझा की गई फील्ड कहानियाँ, तस्वीरें और उद्धरण वास्तविक कार्यक्रम सत्रों से लिए गए हैं। जहाँ किसी प्रतिभागी का नाम नहीं दिया गया है, यह उनकी गोपनीयता की सुरक्षा के लिए है। जहाँ तस्वीरें या नाम दिखाए गए हैं, यह संबंधित व्यक्तियों या उनके अभिभावकों की जानकारी और, जहाँ व्यावहारिक हो, सहमति के साथ किया गया है।",
+            ],
+          },
+          {
+            h: "10. तृतीय-पक्ष लिंक",
+            body: ["यह साइट तृतीय-पक्ष संगठनों, साझेदारों, या प्रेस कवरेज से लिंक कर सकती है। हम बाहरी वेबसाइटों की सामग्री या प्रथाओं के लिए ज़िम्मेदार नहीं हैं।"],
+          },
+          {
+            h: "11. दायित्व की सीमा",
+            body: [
+              "यह साइट और इसकी सामग्री \"जैसी है\" के आधार पर प्रदान की गई है। हम जानकारी को सटीक रखने का ध्यान रखते हैं, फिर भी रुतुजा यह गारंटी नहीं देता कि सभी सामग्री पूर्ण, वर्तमान या त्रुटि-रहित है, और कानून द्वारा अनुमत सीमा तक, इस साइट की सामग्री पर निर्भरता से होने वाली किसी भी हानि के लिए उत्तरदायी नहीं है।",
+            ],
+          },
+          {
+            h: "12. इन शर्तों में बदलाव",
+            body: ["हम समय-समय पर इन नियम व शर्तों को अपडेट कर सकते हैं। अपडेट के बाद साइट का उपयोग जारी रखने का मतलब है कि आप संशोधित शर्तों को स्वीकार करते हैं।"],
+          },
+          {
+            h: "13. शासी कानून",
+            body: ["[शासी कानून / क्षेत्राधिकार की पुष्टि होनी बाकी]"],
+          },
+          {
+            h: "14. संपर्क",
+            body: ["इन शर्तों के बारे में प्रश्न हमारे संपर्क पृष्ठ के माध्यम से हमें भेजे जा सकते हैं।"],
+          },
+        ],
+      },
+      privacy: {
+        eyebrow: "कानूनी जानकारी",
+        title: "गोपनीयता नीति",
+        sub: "हम कौन सी जानकारी एकत्र करते हैं, इसका उपयोग कैसे करते हैं, और आपके पास क्या विकल्प हैं।",
+        updated: "अंतिम अपडेट: 31 अगस्त 2026",
+        sections: [
+          {
+            h: "1. अवलोकन",
+            body: [
+              "यह गोपनीयता नीति बताती है कि रुतुजा चैरिटेबल ट्रस्ट (\"रुतुजा\", \"हम\") इस वेबसाइट के माध्यम से क्या जानकारी एकत्र करता है, इसका उपयोग कैसे करता है, और आपके पास क्या विकल्प हैं। हम केवल वही एकत्र करते हैं जिसकी हमें आपकी पूछताछ या अनुरोध का जवाब देने के लिए आवश्यकता है, और हम आपकी व्यक्तिगत जानकारी नहीं बेचते।",
+            ],
+          },
+          {
+            h: "2. हम कौन सी जानकारी एकत्र करते हैं",
+            body: ["जब आप इस साइट पर कोई फॉर्म उपयोग करते हैं, तब आप हमें जो जानकारी देना चुनते हैं, हम वह एकत्र करते हैं, जैसे जब आप:"],
+            list: [
+              "वर्कशॉप का अनुरोध करते हैं",
+              "दान प्रतिज्ञा या पूछताछ भेजते हैं",
+              "साझेदारी की बातचीत शुरू करते हैं",
+              "स्वयंसेवा या इंटर्नशिप के लिए आवेदन करते हैं",
+              "एम्बेसडर बनने के लिए आवेदन करते हैं",
+              "किसी प्रश्न के साथ हमसे संपर्क करते हैं",
+            ],
+            after: [
+              "फॉर्म के आधार पर, इसमें आपका नाम, संगठन, ईमेल, फोन/व्हाट्सएप नंबर, शहर, दर्शक विवरण, संदेश, और आपके द्वारा साझा की गई इसी तरह की जानकारी शामिल हो सकती है। हम इस वेबसाइट के माध्यम से भुगतान कार्ड या बैंक विवरण एकत्र नहीं करते।",
+            ],
+          },
+          {
+            h: "3. हम आपकी जानकारी का उपयोग कैसे करते हैं",
+            list: [
+              "आपके अनुरोध का जवाब देने और फॉलो-अप करने के लिए — उदाहरण के लिए, वर्कशॉप की योजना बनाने या प्रतिज्ञा की पुष्टि करने के लिए",
+              "हमारे कार्यक्रम की पहुँच को समझने और उस पर रिपोर्ट करने के लिए, समग्र रूप से और व्यक्तियों की पहचान किए बिना, जब तक कि वे शामिल होने के लिए सहमत न हों",
+              "इस वेबसाइट और हमारे संचार को बेहतर बनाने के लिए",
+            ],
+            after: ["हम आपकी व्यक्तिगत जानकारी तीसरे पक्षों को न तो बेचते हैं न किराए पर देते हैं, और इसे केवल सुविधाकर्ताओं, साझेदारों या सेवा प्रदाताओं के साथ साझा करते हैं जहाँ आपके अनुरोध को पूरा करने के लिए आवश्यक हो।"],
+          },
+          {
+            h: "4. वेबसाइट एनालिटिक्स",
+            body: [
+              "हम PostHog का उपयोग करते हैं, जो एक प्रोडक्ट एनालिटिक्स टूल है, ताकि यह सामान्य रूप से समझ सकें कि आगंतुक इस साइट का उपयोग कैसे करते हैं — उदाहरण के लिए, कौन से पृष्ठ देखे जाते हैं — ताकि हम इसे बेहतर बना सकें। यह डेटा समग्र रूप में उपयोग किया जाता है, इसका उपयोग आपको विज्ञापन दिखाने के लिए नहीं किया जाता, और इसे तीसरे पक्षों को नहीं बेचा जाता।",
+            ],
+          },
+          {
+            h: "5. बच्चे और कार्यक्रम प्रतिभागी",
+            body: [
+              "हमारी वर्कशॉप अक्सर स्कूल और सामुदायिक समूहों को दी जाती हैं जिनमें बच्चे शामिल होते हैं, उन वयस्कों, शिक्षकों और संगठनों के माध्यम से जो सत्र का अनुरोध या आयोजन करते हैं — यह वेबसाइट जानबूझकर बच्चों से सीधे व्यक्तिगत जानकारी एकत्र नहीं करती।",
+              "जहाँ किसी सत्र या कहानी में कोई नाबालिग शामिल है, इस साइट पर साझा की गई कोई भी तस्वीर, उद्धरण या नाम प्रतिभागी, उनके अभिभावक, या मेज़बान संस्था की सहमति से उपयोग किया जाता है। प्रतिभागी की गोपनीयता की सुरक्षा के लिए डिफ़ॉल्ट रूप से नाम नहीं दिए जाते।",
+            ],
+          },
+          {
+            h: "6. कुकीज़ और लोकल स्टोरेज",
+            body: [
+              "यह साइट आपकी पसंदीदा भाषा (अंग्रेज़ी/हिंदी) जैसी सरल प्राथमिकताओं को याद रखने के लिए आपके ब्राउज़र के लोकल स्टोरेज का उपयोग कर सकती है। इसका उपयोग आपको अन्य वेबसाइटों पर ट्रैक करने के लिए नहीं किया जाता।",
+            ],
+          },
+          {
+            h: "7. डेटा प्रतिधारण",
+            body: ["हम आपके द्वारा भेजी गई जानकारी को तब तक बनाए रखते हैं जब तक आपके अनुरोध का जवाब देने और उचित कार्यक्रम व दानदाता रिकॉर्ड बनाए रखने के लिए आवश्यक हो, जिसके बाद इसे हटा दिया जाता है या अनाम बना दिया जाता है।"],
+          },
+          {
+            h: "8. आपके अधिकार",
+            body: ["आप हमारे संपर्क पृष्ठ के माध्यम से हमसे संपर्क करके, हमारे पास मौजूद अपनी व्यक्तिगत जानकारी तक पहुँच, उसे सही करने, या हटाने के लिए कह सकते हैं। हम उचित समय के भीतर उचित अनुरोधों का जवाब देंगे।"],
+          },
+          {
+            h: "9. सुरक्षा",
+            body: ["हम आपके द्वारा साझा की गई जानकारी की सुरक्षा के लिए उचित तकनीकी और संगठनात्मक उपाय अपनाते हैं। हालाँकि, इंटरनेट पर प्रसारण की कोई भी विधि पूरी तरह सुरक्षित नहीं है, और हम पूर्ण सुरक्षा की गारंटी नहीं दे सकते।"],
+          },
+          {
+            h: "10. इस नीति में बदलाव",
+            body: ["हम समय-समय पर इस गोपनीयता नीति को अपडेट कर सकते हैं; इस पृष्ठ के शीर्ष पर दी गई \"अंतिम अपडेट\" तारीख सबसे हाल के संस्करण को दर्शाती है।"],
+          },
+          {
+            h: "11. संपर्क",
+            body: ["किसी भी गोपनीयता-संबंधी प्रश्न या अनुरोध के लिए, कृपया हमारे संपर्क पृष्ठ के माध्यम से हमसे संपर्क करें। [शिकायत अधिकारी / डेटा सुरक्षा संपर्क की पुष्टि होनी बाकी]"],
+          },
+        ],
       },
       getInvolved: {
         eyebrow: "जुड़ें",
@@ -1505,6 +2175,30 @@ export const CONTENT = {
           body: "आपने हर सवाल का जवाब ईमानदारी और देखभाल से दिया। यही तरीका है इन बातचीत का — कोई शर्म नहीं, बस समझ।",
           cta: "दूसरा खेल खेलें",
         },
+        snakesGame: {
+          intro: "हर पासा फेंकने से पहले सवाल का सही जवाब दें, फिर वर्ग 100 तक पहुँचने की दौड़ लगाएं। सीढ़ी पर पहुँचें तो ऊपर चढ़ें, साँप पर पहुँचें तो नीचे फिसलें।",
+          setupTitle: "कितने लोग खेल रहे हैं?",
+          playerCountCta: "{n} खिलाड़ी",
+          playerLabel: "खिलाड़ी {n}",
+          turnLabel: "खिलाड़ी {n} की बारी",
+          rollCta: "पासा फेंकें",
+          lockedLabel: "पासा खोलने के लिए जवाब दें",
+          rolling: "फेंका जा रहा है…",
+          extraTurn: "6 आया — फिर से फेंकें!",
+          squareLabel: "वर्ग {n} / 100",
+          squareShort: "वर्ग {p}",
+          startMessage: "अपनी चढ़ाई शुरू करने के लिए सही जवाब दें।",
+          correctUnlock: "सही जवाब! अब पासा फेंकें।",
+          incorrectSkip: "यह सही नहीं था — बारी खिलाड़ी {n} की हुई।",
+          moveMessage: "आपने {n} फेंका — वर्ग {p} पर पहुँचे।",
+          ladderMessage: "एक सीढ़ी! वर्ग {p} तक ऊपर चढ़ रहे हैं।",
+          snakeMessage: "एक साँप! वर्ग {p} तक नीचे फिसल रहे हैं।",
+          continueCta: "आगे बढ़ें",
+          winEmoji: "🏁",
+          winTitle: "खिलाड़ी {n} जीत गए!",
+          winBody: "साथ मिलकर आपने सीढ़ियाँ चढ़ीं और मिथक तोड़े। यही तरीका है इन बातचीत का — कोई शर्म नहीं, बस समझ।",
+          winCta: "फिर से खेलें",
+        },
         games: {
           dignity: {
             title: "मेरी खोई हुई गरिमा खोजो",
@@ -1525,15 +2219,25 @@ export const CONTENT = {
             title: "पीरियड्स और शक्ति: साँप और सीढ़ी",
             questions: [
               { q: "पीरियड्स आमतौर पर कब शुरू होते हैं?", options: ["आमतौर पर 9–16 वर्ष की उम्र में", "केवल 20 वर्ष की उम्र के बाद"], correct: 0, explanation: "आमतौर पर 9 से 16 वर्ष की आयु के बीच। यह बड़े होने की एक स्वाभाविक प्रक्रिया है।" },
-              { q: "क्या यह सच है कि पीरियड्स के दौरान पढ़ाई या व्यायाम नहीं कर सकते?", options: ["गलत — आप सामान्य गतिविधियाँ कर सकती हैं", "सही — पूरे हफ्ते पूरी तरह आराम करें"], correct: 0, explanation: "नहीं। यदि आपको आराम महसूस हो तो आप पढ़ाई, व्यायाम और सभी सामान्य गतिविधियाँ कर सकती हैं।" },
               { q: "क्या केवल सैनिटरी पैड का उपयोग करना ज़रूरी है?", options: ["नहीं — पैड, कप, टैम्पॉन सभी ठीक हैं", "हाँ, कुछ और अनुमति नहीं है"], correct: 0, explanation: "नहीं। पैड, टैम्पॉन, मेंस्ट्रूअल कप या पीरियड पैंटी — जो सुरक्षित और आरामदायक लगे, वही चुनें।" },
-              { q: "क्या पीरियड्स का खून किसी समस्या का संकेत है?", options: ["नहीं, यह एक प्राकृतिक शारीरिक प्रक्रिया है", "हाँ, इसका मतलब हमेशा बीमारी होता है"], correct: 0, explanation: "नहीं। यह गंदा या बीमारी का संकेत नहीं — यह शरीर की स्वाभाविक प्रक्रिया है।" },
               { q: "क्या हर किसी का पीरियड चक्र एक जैसा होना सामान्य है?", options: ["नहीं — 21–35 दिन सामान्य सीमा है", "हाँ, सभी का ठीक 28 दिन होना चाहिए"], correct: 0, explanation: "नहीं। हर शरीर अलग है — 21 से 35 दिन सामान्य माना जाता है।" },
               { q: "क्या पीरियड्स के दौरान मूड स्विंग का मतलब 'ज़्यादा प्रतिक्रिया' है?", options: ["नहीं — हार्मोन असली मूड बदलाव लाते हैं", "हाँ, यह हमेशा ज़्यादा प्रतिक्रिया है"], correct: 0, explanation: "नहीं। हार्मोन बदलाव असली मूड स्विंग लाते हैं — आपकी भावनाएं सही हैं।" },
-              { q: "क्या पीरियड्स के दौरान विशेष आहार की ज़रूरत है?", options: ["नहीं — बस संतुलित, आयरन युक्त भोजन लें", "हाँ, बिल्कुल अलग आहार"], correct: 0, explanation: "किसी विशेष आहार की ज़रूरत नहीं — संतुलित आहार और पर्याप्त पानी काफी है।" },
-              { q: "क्या पीरियड्स के बारे में खुलकर बात करना ठीक है?", options: ["हाँ — यह मिथक तोड़ता है और सहयोग बनाता है", "नहीं, इसे हमेशा निजी रखना चाहिए"], correct: 0, explanation: "हाँ! खुलकर बात करने से मिथक टूटते हैं और सहयोग मिलता है।" },
               { q: "क्या तनाव या जीवनशैली आपके पीरियड्स को प्रभावित कर सकती है?", options: ["हाँ — तनाव, नींद, आहार सब मायने रखते हैं", "नहीं, पीरियड्स कभी प्रभावित नहीं होते"], correct: 0, explanation: "हाँ। तनाव, कम नींद, आहार या अत्यधिक व्यायाम चक्र को प्रभावित कर सकते हैं।" },
-              { q: "क्या पीरियड्स आपके सपनों को पाने से रोक सकते हैं?", options: ["नहीं — सही जानकारी और आत्मविश्वास से सब संभव है", "हाँ, सपनों को इंतज़ार करना होगा"], correct: 0, explanation: "नहीं! सही जानकारी, आत्मविश्वास और देखभाल से आप कुछ भी हासिल कर सकती हैं।" },
+              { q: "क्या लड़कियाँ पीरियड्स के दौरान तैराकी कर सकती हैं?", options: ["हाँ, सही उत्पाद के साथ तैराकी सुरक्षित है", "नहीं, पानी से रक्तस्राव बढ़ जाता है"], correct: 0, explanation: "हाँ। टैम्पॉन, मेंस्ट्रूअल कप या पीरियड-प्रूफ स्विमवियर के साथ तैराकी सुरक्षित है — पानी से रक्तस्राव नहीं बढ़ता।" },
+              { q: "क्या पीरियड्स के दौरान बाल धोने से बचना चाहिए?", options: ["नहीं, स्वच्छता की आदतें बदलने की ज़रूरत नहीं", "हाँ, पीरियड्स के दौरान बाल धोना हानिकारक है"], correct: 0, explanation: "नहीं। पीरियड्स के दौरान बाल धोने, नहाने या सामान्य स्वच्छता से बचने का कोई चिकित्सीय कारण नहीं है।" },
+              { q: "क्या साथ रहने वालों के पीरियड्स एक साथ 'सिंक' हो जाते हैं?", options: ["साबित नहीं — यह ज़्यादातर संयोग है", "हाँ, यह वैज्ञानिक रूप से हमेशा होता है"], correct: 0, explanation: "शोध में पीरियड सिंकिंग के मज़बूत सबूत नहीं मिले हैं — चक्रों का मेल आमतौर पर सिर्फ संयोग है।" },
+              { q: "क्या पीरियड्स के दौरान अचार छूने या खाना बनाने से बचना चाहिए?", options: ["गलत — यह एक सांस्कृतिक मिथक है, स्वास्थ्य तथ्य नहीं", "सही — छूने से खाना खराब हो जाएगा"], correct: 0, explanation: "गलत। यह एक पुरानी सांस्कृतिक मान्यता है, कोई स्वास्थ्य या खाद्य-सुरक्षा तथ्य नहीं। पीरियड्स से खाना प्रभावित नहीं होता।" },
+              { q: "क्या अनियमित रक्तस्राव को नज़रअंदाज़ कर देना चाहिए?", options: ["नहीं — किसी भरोसेमंद बड़े या डॉक्टर को बताना उचित है", "हाँ, पीरियड्स के बारे में डॉक्टर से बात करने की ज़रूरत कभी नहीं"], correct: 0, explanation: "नहीं। चक्र अलग-अलग हो सकते हैं, लेकिन लगातार अनियमित रक्तस्राव या दर्द के बारे में डॉक्टर या भरोसेमंद बड़े को बताना उचित है।" },
+              { q: "क्या पीरियड्स के दौरान किसी को परिवार या धार्मिक स्थानों से दूर रखा जाना चाहिए?", options: ["नहीं — यह बहिष्कार एक सामाजिक रिवाज़ है, स्वास्थ्य ज़रूरत नहीं", "हाँ, यह स्वच्छता कारणों से ज़रूरी है"], correct: 0, explanation: "नहीं। बहिष्कार का कोई स्वास्थ्य कारण नहीं है — यह सामाजिक रिवाज़ और कलंक से आता है, स्वच्छता से नहीं।" },
+              { q: "क्या पीरियड्स का खून बहना अपने आप आपको कमज़ोर या एनीमिक बना देता है?", options: ["नहीं — औसत रक्त हानि बहुत कम होती है; आयरन युक्त भोजन मदद करता है", "हाँ, कोई भी पीरियड रक्त हानि आपको कमज़ोर बना देती है"], correct: 0, explanation: "नहीं। पीरियड्स में औसतन बहुत कम खून बहता है — आयरन युक्त भोजन ऊर्जा बनाए रखने में मदद करता है, लेकिन सिर्फ पीरियड्स से कमज़ोरी नहीं आती।" },
+              { q: "क्या अपने पीरियड की तारीखें ट्रैक करने का कोई फायदा है?", options: ["हाँ — इससे आप अपने शरीर को समझते हैं और बदलाव पहचान पाते हैं", "नहीं, अपने चक्र को ट्रैक करना बेकार है"], correct: 0, explanation: "हाँ। अपने चक्र को ट्रैक करने से आपको पता चलता है कि क्या उम्मीद करनी है और अगर कुछ बदले तो पहचान पाते हैं — यह उपयोगी जानकारी है, कोई बोझ नहीं।" },
+              { q: "क्या पीरियड उत्पादों को छुपाना या गुप्त रूप से लपेटना ज़रूरी है?", options: ["नहीं — इन्हें साथ रखने या इनके बारे में बात करने में कोई गोपनीयता ज़रूरी नहीं", "हाँ, इन्हें हमेशा नज़रों से छुपाना चाहिए"], correct: 0, explanation: "नहीं। छुपाने की कोई ज़रूरत नहीं — पैड, कप या टैम्पॉन बस रोज़मर्रा की स्वच्छता वस्तुएं हैं, छुपाने वाली शर्म की बात नहीं।" },
+              { q: "अगर पीरियड सार्वजनिक रूप से लीक हो जाए, तो क्या यह गहरी शर्म की बात है?", options: ["नहीं — लीक किसी को भी हो सकता है; यह कोई बड़ी बात नहीं", "हाँ, यह शर्मनाक और लज्जाजनक है"], correct: 0, explanation: "नहीं। लीक लगभग सभी के साथ कभी न कभी होता है — यह एक सामान्य दुर्घटना है, शर्म की बात नहीं।" },
+              { q: "क्या मासिक धर्म से जुड़ा कलंक हर जगह एक जैसा और कभी न बदलने वाला है?", options: ["नहीं — नज़रिया अलग-अलग होता है और जागरूकता से बदल रहा है", "हाँ, कलंक हर जगह एक जैसा और स्थायी है"], correct: 0, explanation: "नहीं। पीरियड्स को लेकर नज़रिया अलग-अलग समुदायों में अलग होता है और जैसे-जैसे खुली बातचीत होती है, यह बदल रहा है।" },
+              { q: "क्या बड़े होने के दौरान लड़कों और पुरुषों में कोई शारीरिक या भावनात्मक बदलाव नहीं आता?", options: ["नहीं — यौवन सभी में बदलाव लाता है, सिर्फ मासिक धर्म वालों में नहीं", "हाँ, केवल लड़कियां ही अजीब बदलावों से गुज़रती हैं"], correct: 0, explanation: "नहीं। यौवन के दौरान सभी में बदलाव आते हैं — यह समझना सबके बीच सहानुभूति बनाता है।" },
+              { q: "क्या पहला पीरियड आने पर एक लड़की को डरना या अकेला महसूस करना चाहिए?", options: ["नहीं — यह एक साझा अनुभव है, और सहयोग हमेशा उपलब्ध है", "हाँ, इसे डर और चुप्पी में झेलना चाहिए"], correct: 0, explanation: "नहीं। हर किसी को पहला पीरियड आता है — यह एक साझा मानवीय अनुभव है, और सहयोग माँगना हमेशा ठीक है।" },
+              { q: "क्या पहला पीरियड आते ही कोई तुरंत 'पूरी तरह वयस्क' बन जाता है?", options: ["नहीं — यह बड़े होने का एक हिस्सा है, रातोंरात बदलाव नहीं", "हाँ, आप तुरंत पूरी तरह वयस्क बन जाते हैं"], correct: 0, explanation: "नहीं। पीरियड्स बड़े होने का एक हिस्सा हैं — यह रातोंरात आपकी पहचान या ज़िम्मेदारियां नहीं बदल देता।" },
+              { q: "क्या किसी की राय या मूड को यह कहकर खारिज करना ठीक है कि 'वह शायद पीरियड्स में है'?", options: ["नहीं — यह किसी को अनुचित तरीके से खारिज करना है, सम्मानजनक नहीं", "हाँ, यह किसी भी बात के लिए एक वाजिब वजह है"], correct: 0, explanation: "नहीं। किसी की भावनाओं या राय को इस तरह खारिज करना अनुचित और असम्मानजनक है — चक्र चाहे जो हो, लोगों को गंभीरता से लें।" },
             ],
           },
         },

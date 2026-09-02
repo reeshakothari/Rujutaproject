@@ -55,7 +55,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>© {year} {f.rights}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p>© {year} {f.rights}</p>
+            <Link className="inline-flex min-h-11 items-center underline-offset-2 hover:text-white hover:underline" to="/terms" data-testid="footer-terms">{t.nav.terms}</Link>
+            <Link className="inline-flex min-h-11 items-center underline-offset-2 hover:text-white hover:underline" to="/privacy" data-testid="footer-privacy">{t.nav.privacy}</Link>
+          </div>
           <p className="max-w-lg md:text-right">{f.disclaimer}</p>
         </div>
       </div>
