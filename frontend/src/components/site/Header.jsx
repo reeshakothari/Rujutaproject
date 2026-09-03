@@ -59,7 +59,6 @@ export default function Header() {
     { to: "/partner", label: t.nav.partner, testid: "nav-involved-partner" },
     { to: "/volunteer", label: t.nav.volunteer, testid: "nav-involved-volunteer" },
     { to: "/apply-ambassador", label: t.nav.ambassadorApply, testid: "nav-involved-ambassador" },
-    { to: "/about", label: t.nav.about, testid: "nav-involved-about" },
     { to: "/contact", label: t.nav.contact, testid: "nav-involved-contact" },
   ];
 
@@ -149,6 +148,10 @@ export default function Header() {
             {t.nav.playLearn}
             <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
           </Link>
+          <Link to="/about" data-testid="nav-about" className="group relative text-sm font-medium text-rutuja-ink/80 transition-colors hover:text-rutuja-blue">
+            {t.nav.about}
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-rutuja-blue transition-transform duration-300 ease-out group-hover:scale-x-100" aria-hidden="true" />
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -223,11 +226,11 @@ export default function Header() {
               <MobileLink to="/gallery" label={t.nav.gallery} testid="mobile-nav-gallery" onClick={() => setOpen(false)} delay={links.length * 0.05} />
               <MobileLink to="/videos" label={t.nav.videos} testid="mobile-nav-videos" onClick={() => setOpen(false)} delay={(links.length + 1) * 0.05} />
               <MobileLink to="/activities" label={t.nav.playLearn} testid="mobile-nav-playLearn" onClick={() => setOpen(false)} delay={(links.length + 2) * 0.05} />
-              <MobileLink to="/get-involved" label={t.nav.involved} testid="mobile-nav-involved" onClick={() => setOpen(false)} delay={(links.length + 3) * 0.05} />
-              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} delay={(links.length + 4) * 0.05} />
-              <MobileLink to="/volunteer" label={t.nav.volunteer} testid="mobile-nav-volunteer" onClick={() => setOpen(false)} delay={(links.length + 5) * 0.05} />
-              <MobileLink to="/apply-ambassador" label={t.nav.ambassadorApply} testid="mobile-nav-ambassador" onClick={() => setOpen(false)} delay={(links.length + 6) * 0.05} />
-              <MobileLink to="/about" label={t.nav.about} testid="mobile-nav-about" onClick={() => setOpen(false)} delay={(links.length + 7) * 0.05} />
+              <MobileLink to="/about" label={t.nav.about} testid="mobile-nav-about" onClick={() => setOpen(false)} delay={(links.length + 3) * 0.05} />
+              <MobileLink to="/get-involved" label={t.nav.involved} testid="mobile-nav-involved" onClick={() => setOpen(false)} delay={(links.length + 4) * 0.05} />
+              <MobileLink to="/partner" label={t.nav.partner} testid="mobile-nav-partner" onClick={() => setOpen(false)} delay={(links.length + 5) * 0.05} />
+              <MobileLink to="/volunteer" label={t.nav.volunteer} testid="mobile-nav-volunteer" onClick={() => setOpen(false)} delay={(links.length + 6) * 0.05} />
+              <MobileLink to="/apply-ambassador" label={t.nav.ambassadorApply} testid="mobile-nav-ambassador" onClick={() => setOpen(false)} delay={(links.length + 7) * 0.05} />
               <MobileLink to="/contact" label={t.nav.contact} testid="mobile-nav-contact" onClick={() => setOpen(false)} delay={(links.length + 8) * 0.05} />
               <MobileLink to="/donate" label={t.nav.donate} testid="mobile-nav-donate" onClick={() => setOpen(false)} delay={(links.length + 9) * 0.05} />
               <motion.div

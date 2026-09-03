@@ -4,7 +4,8 @@ import { Reveal, FlyIn } from "@/components/site/Reveal";
 import TrustSection from "@/components/sections/TrustSection";
 import GlobalCTABand from "@/components/sections/GlobalCTABand";
 import { useLang } from "@/context/LanguageContext";
-import { Quote, Droplet, Users, GraduationCap, Heart, Palette, Camera } from "lucide-react";
+import { IMAGES } from "@/data/images";
+import { Quote, Droplet, Users, GraduationCap, Heart, Palette } from "lucide-react";
 
 const MODULE_ICONS = [Users, GraduationCap, Heart];
 
@@ -34,12 +35,12 @@ export default function About() {
                 <div tabIndex={0} className="group relative mx-auto max-w-xs lg:max-w-none">
                   <div className="absolute -left-4 -top-4 h-24 w-24 border-l-2 border-t-2 border-rutuja-pink shadow-[-6px_-6px_24px_-10px_rgba(200,43,98,0.6)] transition-shadow duration-500 group-hover:shadow-[-6px_-6px_32px_-6px_rgba(200,43,98,0.85)]" aria-hidden="true" />
                   <div className="relative aspect-[4/5] animate-glow-pulse overflow-hidden bg-gradient-to-br from-rutuja-blue/15 to-rutuja-pink/15 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.4)]">
-                    <div className="grid h-full w-full place-items-center">
-                      <span className="font-serif text-6xl text-rutuja-ink/25 md:text-7xl">NS</span>
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 bg-rutuja-ink/80 py-3 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
-                      <Camera size={14} aria-hidden="true" /> {f.photoPending}
-                    </div>
+                    <img
+                      src={IMAGES.founderPortrait}
+                      alt={f.photoAlt}
+                      className="h-full w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="absolute -right-4 -bottom-4 h-24 w-24 border-b-2 border-r-2 border-rutuja-blue" aria-hidden="true" />
                 </div>
@@ -56,6 +57,13 @@ export default function About() {
               <Reveal delay={0.08}>
                 <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-rutuja-blue">{f.role}</p>
               </Reveal>
+              <Reveal delay={0.11} className="mt-4 flex flex-wrap gap-2">
+                {f.credentials.map((c, i) => (
+                  <span key={i} className="rounded-full border border-rutuja-line bg-rutuja-soft/60 px-3 py-1 text-xs font-medium text-rutuja-ink">
+                    {c}
+                  </span>
+                ))}
+              </Reveal>
               <div className="mt-6 space-y-4">
                 {f.paragraphs.map((para, i) => (
                   <Reveal key={i} delay={0.1 + i * 0.05}>
@@ -68,7 +76,7 @@ export default function About() {
                 <p className="mt-2 font-serif text-base italic leading-relaxed text-rutuja-ink md:text-lg">{f.quotePending}</p>
               </Reveal>
               <Reveal delay={0.35}>
-                <p className="mt-4 text-xs italic text-rutuja-muted">{f.notePending}</p>
+                <p className="mt-4 text-sm leading-relaxed text-rutuja-muted">{f.note}</p>
               </Reveal>
             </div>
           </div>
