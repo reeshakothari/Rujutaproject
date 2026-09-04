@@ -84,7 +84,7 @@ export default function Header() {
       <div className="container-edge relative flex h-[72px] items-center justify-between gap-4">
         <Logo />
 
-        <nav className="hidden items-center gap-5 whitespace-nowrap xl:gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 whitespace-nowrap xl:flex xl:gap-7" aria-label="Primary">
           {links.map((l) =>
             l.to ? (
               <Link
@@ -154,7 +154,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <LangSwitch lang={lang} setLang={setLang} label={t.nav.langLabel} />
           <span className="h-5 w-px bg-rutuja-line" aria-hidden="true" />
           <Link to="/donate" data-testid="nav-support-cta" className="text-sm font-semibold text-rutuja-pink transition-[color,text-shadow] duration-300 hover:text-rutuja-pinkdark hover:[text-shadow:0_0_16px_rgba(200,43,98,0.6)]">
@@ -165,7 +165,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <LangSwitch lang={lang} setLang={setLang} label={t.nav.langLabel} compact />
           <button
             data-testid="mobile-menu-toggle"
@@ -187,7 +187,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden fixed inset-x-0 top-[72px] bottom-0 overflow-y-auto bg-white"
+            className="xl:hidden fixed inset-x-0 top-[72px] bottom-0 overflow-y-auto bg-white"
           >
             <div className="container-edge flex flex-col gap-1 py-6">
               {links.map((l, i) =>
