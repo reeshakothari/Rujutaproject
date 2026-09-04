@@ -22,6 +22,8 @@ import Activities from "@/pages/Activities";
 import Terms from "@/pages/Terms";
 import Privacy from "@/pages/Privacy";
 import AdminSubmissions from "@/pages/AdminSubmissions";
+import AdminLogin from "@/pages/AdminLogin";
+import RequireAdminAuth from "@/components/admin/RequireAdminAuth";
 
 function App() {
   return (
@@ -46,7 +48,15 @@ function App() {
               <Route path="/activities" element={<Activities />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
-              <Route path="/admin/submissions" element={<AdminSubmissions />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route
+                path="/admin/submissions"
+                element={
+                  <RequireAdminAuth>
+                    <AdminSubmissions />
+                  </RequireAdminAuth>
+                }
+              />
             </Routes>
             <Footer />
             <div className="h-16 lg:hidden" aria-hidden="true" />

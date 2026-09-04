@@ -13,6 +13,7 @@ const FIELDS = [
   { name: "groupSize", required: false },
   { name: "timing", required: false },
   { name: "phone", type: "tel", required: true },
+  { name: "email", type: "email", required: false },
   { name: "notes", required: false },
 ];
 
@@ -46,6 +47,7 @@ export default function RequestWorkshop() {
                 <Field label={fm.f.groupSize} name="groupSize" testid="field-groupSize" {...shared} />
                 <Field label={fm.f.timing} name="timing" testid="field-timing" {...shared} />
                 <Field label={fm.f.whatsapp} name="phone" type="tel" required testid="field-phone" {...shared} />
+                <Field label={fm.f.email} name="email" type="email" testid="field-email" {...shared} />
                 <div className="md:col-span-2">
                   <TextAreaField label={fm.f.notes} name="notes" testid="field-notes" {...shared} />
                 </div>

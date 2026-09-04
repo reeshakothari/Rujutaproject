@@ -12,6 +12,7 @@ const FIELDS = [
   { name: "geography", required: true },
   { name: "partnerType", required: true },
   { name: "scale", required: false },
+  { name: "phone", type: "tel", required: false },
   { name: "contactDetails", type: "email", required: true },
   { name: "message", required: false },
 ];
@@ -45,6 +46,7 @@ export default function Partner() {
                 <Field label={fm.f.geography} name="geography" required testid="field-geography" {...shared} />
                 <SelectField label={fm.f.partnerType} name="partnerType" required options={fm.partnerTypes} testid="field-partnerType" {...shared} />
                 <Field label={fm.f.scale} name="scale" testid="field-scale" {...shared} />
+                <Field label={fm.f.phone} name="phone" type="tel" testid="field-phone" {...shared} />
                 <div className="md:col-span-2">
                   <Field label={fm.f.contactDetails} name="contactDetails" type="email" required testid="field-contactDetails" {...shared} />
                 </div>

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabaseClient";
 import {
   Search,
@@ -12,6 +13,7 @@ import {
   Loader2,
   ShieldAlert,
   Inbox,
+  LogOut,
 } from "lucide-react";
 
 const FORM_TYPES = ["all", "workshop", "donate", "partner", "contact", "volunteer", "ambassador_apply"];
@@ -38,6 +40,7 @@ function formatDate(iso) {
 }
 
 export default function AdminSubmissions() {
+  const navigate = useNavigate();
   const [rows, setRows] = useState([]);
   const [loadingRows, setLoadingRows] = useState(false);
   const [loadError, setLoadError] = useState("");
@@ -95,6 +98,11 @@ export default function AdminSubmissions() {
     URL.revokeObjectURL(url);
   };
 
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate("/admin/login", { replace: true });
+  };
+
   return (
     <main className="min-h-screen bg-rutuja-soft pt-[72px]" data-testid="admin-submissions-page">
       <div className="container-edge py-10">
@@ -109,6 +117,9 @@ export default function AdminSubmissions() {
             </button>
             <button type="button" onClick={exportCsv} className="btn-outline rounded-sm px-4 py-2 text-xs">
               <Download size={14} aria-hidden="true" /> Export CSV
+            </button>
+            <button type="button" onClick={handleSignOut} data-testid="admin-sign-out" className="btn-outline rounded-sm px-4 py-2 text-xs">
+              <LogOut size={14} aria-hidden="true" /> Sign out
             </button>
           </div>
         </div>
